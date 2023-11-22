@@ -31,10 +31,18 @@
     return (
       <div className='w-full h-52 bg-[#73E338] flex items-center justify-center relative'>
       
-        <div className='bg-gray-500  bg-opacity-50 top-[53px] w-9/12 h-[520px] absolute flex items-end'>
+        <div className='top-[53px] w-9/12 h-[520px] absolute flex items-end backdrop-blur-[10px]' >
+        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-[296px] h-[133px] border-t-2 border-l-2 border-white  absolute -left-1 -top-1"></div>
+        <div className="w-[296px] h-[133px] border-t-2 border-r-2 border-white  absolute -right-1 -top-1"></div>
+        <div className="w-[296px] h-[133px] border-b-2 border-l-2 border-white  absolute -left-1 -bottom-1"></div>
+        <div className="w-[296px] h-[133px] border-b-2 border-r-2 border-white  absolute -right-1 -bottom-1"></div>
+      </div>
         <p className=' whitespace-nowrap z-10 absolute top-8 right-9 font-VcrMono text-6xl text-[#0C0C0C]'>OUR TEAM</p>
           <p className='absolute right-7 bottom-7 font-VcrMono text-2xl text-[#FFFFFF]'>TWENTY YEARS <br /> OF CRAFTING <br/> VISUAL EPICS</p>
-          <p className='inset-x-1/2 absolute bottom-[-7px]'>3...2...1...0...1...2...3</p>
+          <div className="absolute bottom-[-7px] left-1/2 transform -translate-x-1/2">
+          3...2...1...0...1...2...3
+        </div>
           {/* Folder 1 */}
           <div className='absolute left-10 top-52 '>
             <div className='relative'>
