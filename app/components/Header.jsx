@@ -32,10 +32,15 @@
 
     useEffect(() => {
       const video = document.getElementById("backgroundVideo");
-      hovered ? video.play() : video.pause();
+      if (hovered) {
+        video.play();
+        video.classList.remove("blur"); // Remove the blur class
+      } else {
+        video.pause();
+        video.classList.add("blur"); // Add the blur class
+      }
     }, [hovered]);
-
-    
+  
 
     return (
       <div className="w-full h-auto flex  justify-center relative">
@@ -158,22 +163,20 @@
           </div>
           <div className="absolute inset-2 z-0 flex items-end justify-end">
           <video
-              autoPlay
-              muted
-              loop
-              className={`object-cover w-8/12 max-h-[400px] transition-opacity duration-5000 ease-in ${
-                hovered
-                  ? "backdrop-blur-0 opacity-100 filter" 
-                  : "backdrop-blur-30 opacity-10 filter"
-              }`}
-              style={{
-                opacity: hovered ? 1 : 0.1,
-                transitionDelay: hovered ? "1.5s" : "0s",
-              }}
-              id="backgroundVideo"
-            >
-              <source src="/video/test.mp4" type="video/mp4" />
-            </video>
+            autoPlay
+            muted
+            loop
+            className={`animated fadeIn delay object-cover w-8/12 max-h-[400px] ${
+              hovered ? "" : "blur"
+            } transition-opacity duration-5000 ease-in`}
+            style={{
+              opacity: hovered ? 1 : 0.3, // Adjust the initial opacity
+              transitionDelay: hovered ? "1s" : "0s",
+            }}
+            id="backgroundVideo"
+          >
+            <source src="/video/test.mp4" type="video/mp4" />
+          </video>
           </div>
           {/* Backdrop layer */}
         
