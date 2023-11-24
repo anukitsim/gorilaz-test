@@ -38,6 +38,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    
 }
 
 
@@ -65,24 +66,23 @@ footer:after {
   bottom: 0;
 }
 
-.blur {
-  -webkit-filter: blur(5px);
-     -moz-filter: blur(5px);
-      -ms-filter: blur(5px);
-       -o-filter: blur(5px);
-          filter: blur(5px);
-
-  -webkit-transition: all 1s linear;
-     -moz-transition: all 1s linear;
-      -ms-transition: all 1s linear;
-       -o-transition: all 1s linear;
-          transition: all 1s linear;
-
-  -webkit-transition-delay: 2s;
-          transition-delay: 2s;
+.videoContainer {
+  position: relative;
 }
-.delay {
-  -webkit-animation-delay: 2s;
-     -moz-animation-delay: 2s;
-          animation-delay: 2s;
+
+.videoBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(20px); 
 }
+
+.video {
+  filter: blur(20px); 
+  transition: filter 2s ease; 
+}
+
+.video:hover {
+  filter: blur(0); 
+}
+
