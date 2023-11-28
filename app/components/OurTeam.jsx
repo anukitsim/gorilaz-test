@@ -110,7 +110,7 @@ const OurTeam = () => {
 
   const calculatePadding = (index) => {
     // Adjust the padding values based on your requirements
-    return index === 0 ? "pt-16" : "pt-6";
+    return index === 0 ? "pt-6" : "pt-16";
   };
 
   return (
