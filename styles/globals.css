@@ -119,3 +119,11 @@ section {
   filter: blur(0);
 }
 
+/* Add these styles to your CSS */
+.arrow {
+  transition: transform 0.1s ease-in-out;
+}
+
+.folder {
+  transition: transform 0.1s ease-in-out;
+}

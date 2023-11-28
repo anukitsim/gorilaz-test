@@ -117,7 +117,7 @@ const OurTeam = () => {
     <section className="w-9/12 mx-auto mb-10 relative flex flex-col gap-16 justify-center items-center">
       <div className="border-layer left" />
 
-      <div className="w-1/2 h-auto grid grid-cols-8 grid-rows-3">
+      <div className="w-7/12 h-auto grid grid-cols-8 grid-rows-3">
         {[0, 1, 2, 3, 4, 5].map((index) => (
           <div
             key={index}
