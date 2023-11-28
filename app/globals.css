@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,7 +16,7 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -24,22 +24,20 @@
   padding: 0;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
 
+
+
+body {
+  background: url('/images/background.svg');
+  background-color: black;
   font-family: "VCR OSD Mono", sans-serif;
+  
+ 
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ 
     
-}
+    
+
 
 
 /* Footer.css */
@@ -70,19 +68,53 @@ footer:after {
   position: relative;
 }
 
-.videoBackdrop {
+section {
+  position: relative;
+}
+
+.border-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px; /* Adjust the width as needed */
+  background-repeat: repeat-y;
+}
+
+.left {
+  left: 0;
+  background-image: url('/images/sideLayer.svg');
+}
+
+.right {
+  right: 0;
+  background-image: url('/images/sideLayer.svg');
+}
+/* .videoBackdrop {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5); 
   backdrop-filter: blur(20px); 
-}
+} */
 
-.video {
+/* .video {
   filter: blur(20px); 
   transition: filter 2s ease; 
 }
 
 .video:hover {
   filter: blur(0); 
+} */
+
+.videoContainer:hover .video {
+  filter: blur(0);
+}
+
+.videoContainer .video {
+  filter: blur(20px);
+  transition: filter 2s ease;
+}
+
+.videoContainer .video.unblur {
+  filter: blur(0);
 }
 
