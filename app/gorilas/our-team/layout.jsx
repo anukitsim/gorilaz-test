@@ -1,6 +1,8 @@
 
-import '../../styles/globals.css'
-
+import '../../../styles/globals.css'
+import Header from '@app/components/Header'
+import GetInTouch from '@app/components/GetInTouch'
+import Footer from '@app/components/Footer'
 
 
 
@@ -13,8 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-       
+        <Header />
         {children}
+        <GetInTouch />
+        <Footer />
+      
       
         </body>
     </html>

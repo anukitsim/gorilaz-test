@@ -1,6 +1,8 @@
 
 import '../../styles/globals.css'
-
+import Header from '@app/components/Header'
+import GetInTouch from '@app/components/GetInTouch'
+import Footer from '@app/components/Footer'
 
 
 
@@ -13,7 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-       
+        <Header />
+        <h1 className="text-white mt-[170px] flex justify-center">home page in progress..</h1>
+        <GetInTouch />
+        <Footer />
         {children}
       
         </body>
