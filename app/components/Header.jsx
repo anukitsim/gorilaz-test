@@ -3,10 +3,15 @@
   import React, { useEffect, useRef, useState } from "react";
   import Image from "next/image";
   import Link from "next/link";
+  import { useRouter } from 'next/navigation'
+  
+  
 
   const Header = () => {
+  
     const [isBlurActive, setIsBlurActive] = useState(true);
     const [hoveredFolder, setHoveredFolder] = useState(null);
+  
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -17,7 +22,7 @@
         folder.addEventListener("mouseenter", () => {
           setHoveredFolder(index);
           const links = folder.querySelectorAll("a");
-          const translateYValue = links.length * 20;
+          const translateYValue = links.length * 25;
 
           for (let i = 0; i < index; i++) {
             const sibling = folders[i];
@@ -49,6 +54,23 @@
       }
     };
 
+    const titles = {
+      '/': 'HOME',
+      '/blog': 'BLOG',
+      '/contact': 'CONTACT',
+      '/gorilas/our-team': 'OUR TEAM',
+      '/gorilas/behind-the-scene': 'BEHIND THE SCENE',
+      '/process': "PROCESS",
+      '/services': 'SERVICES',
+      '/portfolio/industries': 'PORTFOLIO',
+      // Add more entries for other pages as needed
+    };
+  
+    // Get the current pathname from the window location
+    const currentPathname = window.location.pathname;
+    const title = titles[currentPathname] || '';
+    
+
     return (
       <div className="w-full h-[790px] flex  justify-center ">
         <div className="top-28 w-9/12 h-[680px] relative overflow-hidden videoContainer">
@@ -65,12 +87,11 @@
             <div className="w-2/6 h-[133.391px] border-b-2 border-l-2 border-white  absolute left-1 bottom-3"></div>
             <div className="w-2/6 h-[133px] border-b-2 border-r-2 border-white  absolute right-1 bottom-3"></div>
           </div>
-          <p className=" whitespace-nowrap tracking-widest absolute top-8 right-[32px] z-50 font-VcrMono text-6xl text-[#73E338]">
-            OUR TEAM
-          </p>
-          <p className="absolute right-7 bottom-10 font-VcrMono text-sm z-50 text-[#FFFFFF]">
-            TWENTY YEARS <br /> OF CRAFTING <br /> VISUAL EPICS
-          </p>
+          <p className="whitespace-nowrap tracking-wide absolute top-8 right-[32px] z-50 font-VcrMono text-6xl text-[#73E338]">
+       {title}
+      </p>
+     
+
           <div className="absolute -bottom-2  left-1/2 transform text-white -translate-x-1/2 z-50 ">
             <Image
               src="/images/counter.svg"
@@ -123,7 +144,7 @@
               <p className="absolute left-5 top-4 text-[7px] text-white">06</p>
               <Link
                 href="#"
-                className="absolute left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
+                className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
               >
                 BLOG
               </Link>
@@ -143,7 +164,7 @@
               <p className="absolute left-5 top-4 text-[7px] text-white">05</p>
               <Link
                 href="#"
-                className="absolute left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
+                className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
               >
                 CONTACT
               </Link>
@@ -160,45 +181,45 @@
               </div>
               <p className="absolute left-5 top-4 text-[7px] text-white">04</p>
               <Link
-                href="#"
-                className="absolute left-9 top-2.5 text-[20px] flex flex-col  text-[#73E338] font-VcrMono"
+                href='#'                
+                className="absolute uppercase left-9 top-2.5 text-[20px] flex flex-col  text-[#73E338] font-VcrMono"
               >
                 WHAT WE DO
               </Link>
-              <div className="sublinks">
+              <div className="sublinks uppercase">
                 <Link
-                  href="#"
-                  className="absolute left-9 top-10 text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  href="/process"
+                  className="absolute left-9 top-[55px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                   process
                 </Link>
                 <Link
-                  href="#"
-                  className="absolute left-9 top-[60px] text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  href="/services"
+                  className="absolute left-9 top-[75px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 services
                 </Link>
                 <Link
                   href="#"
-                  className="absolute left-9 top-[80px] text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  className="absolute left-9 top-[95px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 photography
                 </Link>
                 <Link
                   href="#"
-                  className="absolute left-9 top-[100px] text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  className="absolute left-9 top-[115px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 videography
                 </Link>
                 <Link
                   href="#"
-                  className="absolute left-9 top-[120px] text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  className="absolute left-9 top-[135px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 location scouting
                 </Link>
                 <Link
                   href="#"
-                  className="absolute left-9 top-[140px] text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  className="absolute left-9 top-[155px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 social media service
                 </Link>
@@ -217,10 +238,18 @@
               <p className="absolute left-5 top-4 text-[7px] text-white">03</p>
               <Link
                 href="#"
-                className="absolute left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
+                className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
               >
                 PORTFOLIO
               </Link>
+              <div className="sublinks uppercase">
+              <Link
+                  href="/portfolio/industries"
+                  className="absolute text-[#D4D4D4] hover:text-white  left-9 top-[45px] text-[13px]  flex flex-col  font-VcrMono "
+                >
+                  gorillas’industries
+                </Link>
+              </div>
             </div>
             <div className="folder z-[5]  w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656]  flex-col rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[150px]">
               {/* Add content for the third folder here */}
@@ -233,22 +262,22 @@
                 />
               </div>
               <p className="absolute left-5 top-4 text-[7px] text-white">02</p>
-              <Link
-                href="#"
-                className="absolute left-9 top-2.5 text-[20px] text-[#73E338] flex flex-col  font-VcrMono "
+              <Link href='#'
+                
+                className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] flex flex-col  font-VcrMono "
               >
-                GORILAS'
+                GORILLAS'
               </Link>
-              <div className="sublinks">
+              <div className="sublinks uppercase ">
                 <Link
                   href="/gorilas/our-team"
-                  className="absolute left-9 top-10 text-[13px] text-[#fff] flex flex-col  font-VcrMono "
+                  className="absolute text-[#D4D4D4] hover:text-white  left-9 top-[45px] text-[13px]  flex flex-col  font-VcrMono "
                 >
                   our team
                 </Link>
                 <Link
-                  href="#"
-                  className="absolute left-9 top-[50px] text-[13px] pt-2.5 text-[#fff] flex flex-col  font-VcrMono "
+                  href="/gorilas/behind-the-scene"
+                  className="absolute left-9 top-[55px] text-[13px] pt-2.5 text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
                 >
                 behind the scene
                 </Link>
@@ -267,7 +296,7 @@
               <p className="absolute left-5 top-4 text-[7px] text-white">01</p>
               <Link
                 href="/"
-                className="absolute left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
+                className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
               >
                 HOME
               </Link>

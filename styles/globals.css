@@ -1,5 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/vcr-osd-mono");
-@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Saira&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,21 +25,12 @@
   padding: 0;
 }
 
-
-
-
 body {
-  background: url('/images/background.svg');
+  background: url("/images/background.svg");
   background-color: black;
+  background-size: contain;
   font-family: "VCR OSD Mono", sans-serif;
-  
- 
 }
- 
-    
-    
-
-
 
 /* Footer.css */
 
@@ -49,12 +40,12 @@ footer {
 
 footer:before,
 footer:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
-  height: 10px; 
-  background: url('/images/footerLayer.svg') repeat-x;
+  height: 10px;
+  background: url("/images/footerLayer.svg") repeat-x;
 }
 
 footer:before {
@@ -82,13 +73,13 @@ section {
 
 .left {
   left: 0;
-  background-image: url('../public/images/sideLayer.svg');
+  background-image: url("../public/images/sideLayer.svg");
   z-index: 50;
 }
 
 .right {
   right: 0;
-  background-image: url('../public/images/sideLayer.svg');
+  background-image: url("../public/images/sideLayer.svg");
   z-index: 50;
 }
 /* .videoBackdrop {
@@ -131,8 +122,6 @@ section {
 
 /* Add this CSS at the appropriate place in your stylesheets */
 
-
-
 /* OurTeam.module.css */
 
 .flip {
@@ -143,7 +132,7 @@ section {
   width: 324px;
   height: 350px;
   transform-style: preserve-3d;
-  transition: transform 2s;
+  transition: transform 1s;
 }
 
 .card:hover {
@@ -164,9 +153,17 @@ section {
 
 .back {
   transform: rotateY(180deg);
-  background-color: #1B1B1B;
+  background-color: #1b1b1b;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* styles.css or your preferred styling method */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 50;
 }

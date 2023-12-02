@@ -15,7 +15,7 @@ module.exports = {
       fontFamily: {
         VcrMono: ['VCR OSD Mono', 'sans-serif'],
         Saira: ['Saira', 'sans-serif'],
-        Assuan: ['ASSUAN', 'sans-serif'],
+        ASSUAN: ['a_Assuan'],
       },
       
     

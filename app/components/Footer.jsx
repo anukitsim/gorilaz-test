@@ -9,43 +9,45 @@ const Footer = () => {
           {/* <Image src="/images/footerFoto.svg" alt="(+-)-foto" width={4.01} height={59.2} className="right-0 z-50" /> */}
           <div className="w-[95%] h-[60%] border-t-2 border-l-2 border-white  absolute -left-1 -top-1"></div>
           <div className="w-[95%] h-[60%] border-b-2 border-r-2 border-white  absolute -right-1 -bottom-1"></div>
+          <Image src='/images/header-regulator.svg' alt="regulator" width={5} height={146} className='absolute -left-1.5 top-[136px]' />
+          <Image src='/images/header-regulator.svg' alt="regulator" width={5} height={146} className='absolute -right-1.5 bottom-[134px]' />
           {/* <div className="flex flex-row gap-20 "> */}
             <div className="flex flex-col h-[134px] gap-2.5  ">
               <h2 className="uppercase font-VcrMono text-sm tracking-[1.95px] text-[#73E338]">what we do</h2>
-              <Link className="font-VcrMono tracking-[1.5px] uppercase text-[10px] text-white" href="#">
+              <Link className="font-VcrMono tracking-[1.5px] uppercase text-[10px] text-white z-50" href="#">
                 process
               </Link>
-              <Link className=" tracking-[1.5px] uppercase font-VcrMono text-[10px] text-white" href="#">
+              <Link className=" tracking-[1.5px] uppercase font-VcrMono text-[10px] text-white z-50" href="#">
                 photography
               </Link>
-              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white" href="#">
+              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white z-50" href="#">
                 videography
               </Link>
-              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white" href="#">
+              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white z-50" href="#">
                 location scouting
               </Link>
-              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] z-10 text-white" href="#">
+              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white z-50" href="#">
                 social media{" "}
               </Link>
             </div>
             <ul className="flex flex-col h-[134px] gap-2 ">
               <h2 className="font-VcrMono tracking-[1.95px] uppercase text-sm text-[#73E338]">gorillas’</h2>
-              <Link className="font-VcrMono text-[#FFF] tracking-[1.5px] uppercase text-[10px]" href="#">
+              <Link className="font-VcrMono text-[#FFF] tracking-[1.5px] uppercase text-[10px] z-50" href="#">
               our team
               </Link>
-              <Link className="font-VcrMono ] tracking-[1.5px] uppercase text-[10px] text-white mb-8" href="#">
+              <Link className="font-VcrMono ] tracking-[1.5px] uppercase text-[10px] z-50 text-white mb-8" href="#">
               behind the scene
               </Link>
               
               <h2 className="font-VcrMono tracking-[1.95px] uppercase text-sm text-[#73E338]">portfolio</h2>
-              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px] text-white" href="#">
+              <Link className="font-VcrMono  tracking-[1.5px] z-50 uppercase text-[10px] text-white" href="#">
                 gorillas’insdustries
               </Link>
             </ul>
             <ul className="flex flex-col h-[134px] gap-2 ">
               <h2 className="font-VcrMono tracking-[1.95px]  uppercase text-sm text-[#73E338]">connect</h2>
               <div className="flex flex-row gap-2">
-                <Link href="#">
+                <Link href="#" className="z-50">
                   <Image
                     src="/images/facebook.svg"
                     alt="social-media-icon"
@@ -53,7 +55,7 @@ const Footer = () => {
                     height={20}
                   />
                 </Link>
-                <Link href="#">
+                <Link href="#" className="z-50">
                   <Image
                     src="/images/instagram.svg"
                     alt="social-media-icon"
@@ -61,7 +63,7 @@ const Footer = () => {
                     height={20}
                   />
                 </Link>
-                <Link href="#">
+                <Link href="#" className="z-50">
                   <Image
                     src="images/whatsup.svg"
                     alt="social-media-icon"
@@ -69,7 +71,7 @@ const Footer = () => {
                     height={19}
                   />
                 </Link>
-                <Link href="#">
+                <Link href="#" className="z-50">
                   <Image
                     src="images/google.svg"
                     alt="social-media-icon"
@@ -80,13 +82,13 @@ const Footer = () => {
               </div>
             
               <h2 className="font-VcrMono text-sm tracking-[1.95px] uppercase text-[#73E338] ">contact</h2>
-              <Link className="font-VcrMono  tracking-[1.5px] text-[10px] uppercase text-sx text-white" href="#">
+              <Link className="font-VcrMono z-50  tracking-[1.5px] text-[10px] uppercase text-sx text-white" href="#">
               +995 557 46 04 06
               </Link>
-              <Link className="font-VcrMono tracking-[1.5px] uppercase text-[10px]  text-white" href="#">
+              <Link className="font-VcrMono z-50 tracking-[1.5px] uppercase text-[10px]  text-white" href="#">
               +995 593 50 88 48
               </Link>
-              <Link className="font-VcrMono  tracking-[1.5px] uppercase text-[10px]  z-10 text-white" href="#">
+              <Link className="font-VcrMono z-50  tracking-[1.5px] uppercase text-[10px] text-white" href="#">
               info@gorillasproduction.ge
               </Link>
 
@@ -107,7 +109,7 @@ const Footer = () => {
             width={100}
             height={100}
             />
-              <h1 className="font-sm text-white uppercase mt-[24px] font-Assuan">Gorillas’ PRODUCTION</h1>
+              <h1 className="font-sm text-white uppercase mt-[24px] font-ASSUAN tracking-wide">Gorillas’ PRODUCTION</h1>
         </div>
       
         <p className="text-[10px] text-center text-[#FFF] font-VcrMono">WWW.GORILLASPRODACTION.GE <br /> 
