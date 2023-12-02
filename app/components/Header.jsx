@@ -3,12 +3,13 @@
   import React, { useEffect, useRef, useState } from "react";
   import Image from "next/image";
   import Link from "next/link";
-  import { useRouter } from 'next/navigation'
+  import { usePathname } from 'next/navigation'
   
   
 
   const Header = () => {
   
+    const pathname = usePathname();
     const [isBlurActive, setIsBlurActive] = useState(true);
     const [hoveredFolder, setHoveredFolder] = useState(null);
   
@@ -67,8 +68,8 @@
     };
   
     // Get the current pathname from the window location
-    const currentPathname = window.location.pathname;
-    const title = titles[currentPathname] || '';
+    
+    const title = titles[pathname] || '';
     
 
     return (

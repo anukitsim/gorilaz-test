@@ -65,7 +65,7 @@ const Footer = () => {
                 </Link>
                 <Link href="#" className="z-50">
                   <Image
-                    src="images/whatsup.svg"
+                    src="/images/whatsup.svg"
                     alt="social-media-icon"
                     width={19}
                     height={19}
@@ -73,7 +73,7 @@ const Footer = () => {
                 </Link>
                 <Link href="#" className="z-50">
                   <Image
-                    src="images/google.svg"
+                    src="/images/google.svg"
                     alt="social-media-icon"
                     width={20}
                     height={20}
