@@ -167,3 +167,30 @@ section {
   backdrop-filter: blur(10px);
   z-index: 50;
 }
+
+
+
+.animated-container {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+
+.logo-container {
+  display: flex;
+  gap: 1px;
+  animation: moveLeftToRight 25s linear infinite;
+  white-space: nowrap; /* Prevent logos from wrapping to the next line */
+}
+
+
+
+@keyframes moveLeftToRight {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: -100%; /* Use negative margin to move logos to the left */
+  }
+}
+

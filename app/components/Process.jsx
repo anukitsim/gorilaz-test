@@ -13,7 +13,7 @@ const Process = () => {
             <div className='flex flex-col w-[420px] h-[668.28px] justify-between pb-[65px] relative  mr-[46px]'> 
                 <div className='flex flex-row relative w-[505px]'>
                     <div className='flex flex-col'>
-                        <Image src="/images/processGap-1.svg" alt='process-gap-foto-1' width={418.5} height={22.32} className='absolute top-[135px] left-[55px]'/>    
+                        <Image src="/images/processGap-1.svg" alt='process-gap-foto-1' width={418.5} height={22.32} className='absolute top-[135px] left-[40px]'/>    
                         <Image src='/images/processFoto-1.svg' alt='behindthescene-foto-1' width={400} height={300} className='z-10'/>  
                         <div className='flex justify-center items-center w-[263.5px] h-[80px] bg-[#73E338]  absolute trackin-wide
                                          left-[36%] top-[-21px] uppercase font-VcrMono te3xt-xl z-20'>production</div> 

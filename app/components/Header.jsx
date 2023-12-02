@@ -163,7 +163,7 @@
               </div>
               <p className="absolute left-5 top-4 text-[7px] text-white">05</p>
               <Link
-                href="#"
+                href="/contact"
                 className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
               >
                 CONTACT

@@ -50,7 +50,7 @@ const OurTeam = () => {
     <section className="flex justify-center items-center relative mx-auto w-9/12 mt-[112px] h-[757px]">
       <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
       <div className="w-11/12 flex flex-col">
-        <div className="flex flex-row justify-start items-start flex-wrap">
+        <div className="flex flex-row justify-center items-center flex-wrap">
           {teamMembers.map((member, index) => (
             <TeamMember key={index} {...member} />
           ))}

@@ -4,7 +4,7 @@ const GetInTouch = () => {
   return (
     <>
        <div className="h-[80px] w-full bg-[#73E338] flex justify-center mt-[60px] items-center">
-          <p className="text-black text-xl">get in touch</p>
+          <p className="text-black text-xl font-bold uppercase">get in touch</p>
         </div>
       <section className="h-[574px] justify-center flex flex-col ">
        <h2 className="uppercase text-white  text-center text-[15px]">WE WILL GET YOU BACK</h2>
