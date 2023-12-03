@@ -164,8 +164,10 @@ section {
 .popup-overlay {
   position: fixed;
   top: 0;
+  left:12%;
   backdrop-filter: blur(10px);
   z-index: 50;
+  width: 80%;
 }
 
 

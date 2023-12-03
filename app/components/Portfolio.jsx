@@ -8,14 +8,14 @@ import RunningLine from "./RunningLine";
 const Portfolio = () => {
 
 
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isPopupOpen2, setPopupOpen2] = useState(false);
 
   const handleImageClick = () => {
-    setPopupOpen(true);
+    setPopupOpen2(true);
   };
 
   const closePopup = () => {
-    setPopupOpen(false);
+    setPopupOpen2(false);
   };
 
   return (
@@ -30,7 +30,7 @@ const Portfolio = () => {
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">tourism</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">We capture the essence of destinations, transforming landscapes into immersive tales that beckon travelers.</p>
             
@@ -43,7 +43,7 @@ const Portfolio = () => {
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">sports</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">From adrenaline-pumping action to the emotional highs of victory, we encap sulate the heart of sports through our lens.</p>
             
@@ -62,7 +62,7 @@ const Portfolio = () => {
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">fashion</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">Our artistic vision brings fashion to life, showcasing style and elegance with captivating visuals.</p>
             
@@ -75,7 +75,7 @@ const Portfolio = () => {
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">education</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">We craft engaging educational content, making learning an enriching and visually stimulating experience.</p>
             
@@ -94,7 +94,7 @@ const Portfolio = () => {
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Entertainment</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">Dive into the world of entertainment with us, where each frame we create is a gateway to captivating stories</p>
             
@@ -107,7 +107,7 @@ const Portfolio = () => {
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Telecommunications</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">Transforming complex telecommunications narratives into visually compelling and easily digestible stories.</p>
             
@@ -126,7 +126,7 @@ const Portfolio = () => {
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Agriculture</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">
 Agriculture: Showcasing the innovation and dedication of the agricultural world through impactful visual narratives.</p>
@@ -140,7 +140,7 @@ Agriculture: Showcasing the innovation and dedication of the agricultural world 
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Food and Beverages</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">From farm to table, we celebrate the artistry and stories behind culinary experiences.</p>
             
@@ -159,7 +159,7 @@ Agriculture: Showcasing the innovation and dedication of the agricultural world 
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Healthcare</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">
             We humanize healthcare stories, conveying compassion and resilience through powerful visual storytelling
@@ -174,7 +174,7 @@ Agriculture: Showcasing the innovation and dedication of the agricultural world 
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">HORECA Sectors</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">From hospitality to catering, we bring to life the essence and experiences within the HORECA industry.</p>
             
@@ -193,7 +193,7 @@ Agriculture: Showcasing the innovation and dedication of the agricultural world 
           </div>
           <div className="w-1/2 pt-[105px] pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] right-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup}/>}
+          {isPopupOpen2 && <Popup onClose={closePopup}/>}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Wine Industry</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">
             Telling the stories behind each bottle, capturing the heritage and craftsmanship of the wine industry through our lens.
@@ -209,7 +209,7 @@ Agriculture: Showcasing the innovation and dedication of the agricultural world 
           <div className='absolute right-0 top-0 bottom-0 w-2 h-full bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>
           <div className="w-1/2 border-r border-white pt-[105px] flex justify-center items-center pl-[85px]">
           <Image src="/images/services-+-foto.svg" alt='REC_FOTO' width={40} height={45} className='cursor-pointer absolute top-[32px] left-[34px]' onClick={handleImageClick}/>
-          {isPopupOpen && <Popup onClose={closePopup} />}
+          {isPopupOpen2 && <Popup onClose={closePopup} />}
             <h2 className="text-white text-[30px] tracking-wide uppercase">Automotive Industry</h2>
             <p className="text-white text-[15px] mt-[35px] w-9/12 tracking-[2.25px]">Capturing the innovation and thrill of the automotive world with dynamic visual narratives.
 </p>
