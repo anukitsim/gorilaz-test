@@ -1,12 +1,9 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 
 const TeamMember = ({ src, alt, description, name, span }) => {
-
-  
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -15,50 +12,147 @@ const TeamMember = ({ src, alt, description, name, span }) => {
 
   return (
     <div
-      className={`relative cursor-pointer ${isFlipped ? 'flip' : ""}`}
+      className={`relative  cursor-pointer ${isFlipped ? "flip" : ""}`}
       onClick={handleFlip}
     >
-      <div className={`${'card'} ${isFlipped ? 'flipped' : ""}`}>
-        <div className={'front'}>
-          <Image src={src} alt={alt} width={324} height={350}  className="object-cover w-full h-full" />
+      <div className={`${"card"} ${isFlipped ? "flipped" : ""}`}>
+        <div className={"front "}>
+          <Image
+            src={src}
+            alt={alt}
+            width={227}
+            height={227}
+            className="object-cover w-full h-full "
+          />
         </div>
-        <div className={'back relative'}>
-          <Image src='/images/cardCorner.svg' alt="card" width={65} height={50}  className='absolute top-[21px] right-[21px]'/>
+        <div className={"back"}>
+          <Image
+            src="/images/cardCorner.svg"
+            alt="card"
+            width={65}
+            height={50}
+            className="absolute top-[21px] right-[21px] "
+          />
           <div className="flex flex-col justify-center items-center pl-[12px] pr-[12px]">
-          <h2 className="text-[20px] text-[#45FC4C]">{name}</h2>
-          <span className="text-[10px] pt-[24px]">{span}</span>
-          <p className="text-[10px] pt-[14px]">{description}</p>
+            <h2 className="text-[20px] text-[#45FC4C]">{name}</h2>
+            <span className="text-[10px] pt-[24px]">{span}</span>
+            <p className="text-[10px] pt-[14px]">{description}</p>
           </div>
-       
         </div>
       </div>
     </div>
   );
 };
 
+// ... (other imports and components)
+
 const OurTeam = () => {
-  const teamMembers = [
-    { src: "/images/team1.svg", alt: "team member",name: 'NIKA LEBANIDZE', description: "Photo-videography, mountains and nature are an integral part of my personal and professional experience for more than 20 years. People and their portraits, adventure and travel photography and Videography, extreme and adrenaline obtained by capturing the desired shot, documentary, turning memories into visual-aesthetic works. In my archive, on an international scale, a number of important moments of the history of mountaineering (and not only) are kept.", span: 'I am Nika Lebanidze, a mountaineer, traveler, cameraman and filmmaker' },
-    { src: "/images/team1.svg", alt: "team member",name: 'Nick Laghiashvili', description: "", span: 'Photo-videography, mountains and nature are an integral part of my personal and professional experience for more than 20 years. People and their portraits, adventure and travel photography and Videography, extreme and adrenaline obtained by capturing the desired shot, documentary, turning memories into visual-aesthetic works. In my archive, on an international scale, a number of important moments of the history of mountaineering (and not only) are kept.' },
-    { src: "/images/team3.svg", alt: "team member",name: 'levan oniani', description: "", span: "I seek beauty in the ordinary, finding delight in showcasing familiar things from unconventional angles. Like my colleagues at Gorillas' Production, I relish being fully immersed in the mountainous lifestyle." },
-    { src: "/images/team4.svg", alt: "team member",name: 'Tamara Gokadze', description: "In addition to being a Photographer, I hold certification as a hiking guide. While my initial profession was in accounting, the monotony of office tasks led me to depart from that career path.", span: 'I have a deep passion for photography, cherishing those singular moments that unfold before my lens, exclusive to my perception and capture in that fleeting instance.' },
-    { src: "/images/team5.svg", alt: "team member",name: 'Giorgi Gomiashvili', description: "Through photo-videography, I seize the chance to portray the world as I perceive it, capturing its essence through my lens.", span: 'I have actively engaged in adventure tourism for around 10 years. I hold certifications as a mountain guide from GMGA and IFMGA."I have actively engaged in adventure tourism for around 10 years. I hold certifications as a mountain guide from GMGA and IFMGA.' },
-    { src: "/images/team5.svg", alt: "team member",name: 'Tinatin Gegenava', description: '"Ive adored mountains since my first hike at six—they bring me joy, freedom, and admiration. Theyve been incredible teachers, shaping my body, spirit, and values.', span: '' },
-  ];
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  const getImageUrl = async (imageId) => {
+    try {
+      const res = await fetch(
+        `http://gorillaz.local/wp-json/wp/v2/media/${imageId}`
+      );
+      if (!res.ok) {
+        throw new Error(`Failed to fetch image data: ${res.statusText}`);
+      }
+
+      const imageData = await res.json();
+      return imageData.source_url;
+    } catch (error) {
+      console.error("Error fetching image data:", error.message);
+      return ""; // Default to an empty string if there's an error
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "http://gorillaz.local/wp-json/wp/v2/team-member"
+        );
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.statusText}`);
+        }
+
+        const data = await res.json();
+        console.log("Fetched data:", data);
+
+        const formattedData = await Promise.all(
+          data.map(async (member) => {
+            const imageId = member.acf.image;
+            const imageUrl = await getImageUrl(imageId);
+
+            return {
+              id: member.id,
+              name: member.acf.name,
+              description: member.acf.description,
+              span: member.acf.span,
+              image: imageUrl,
+            };
+          })
+        );
+
+        setTeamMembers(formattedData);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <section className="flex justify-center items-center relative mx-auto w-9/12 mt-[112px] h-[757px]">
+    <section className="w-9/12 mt-[112px]  flex mx-auto relative">
       <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
-      <div className="w-11/12 flex flex-col">
-        <div className="flex flex-row justify-center items-center flex-wrap">
-          {teamMembers.map((member, index) => (
-            <TeamMember key={index} {...member} />
-          ))}
-        </div>
-      </div>
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
+      <div className="w-[890px] mx-auto grid grid-cols-3  self-start grid-rows-2">
+        {teamMembers.map((member) => (
+          <div key={member.id} className="relative">
+            <div className="border border-white p-2">
+              {/* Adjusted padding to create separation */}
+              <TeamMember
+                src={member.image}
+                alt={member.name}
+                name={member.name}
+                description={member.description}
+                span={member.span}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
 
 export default OurTeam;
+
+// <section className="flex justify-center items-center relative mx-auto w-9/12 mt-[112px] h-[757px]">
+
+//   <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
+//   <div className="w-10/12 flex  flex-col">
+//     <div className="flex flex-row justify-center items-center flex-wrap">
+//       {teamMembers.length > 0 ? (
+//         teamMembers.map((member) => (
+//           <div key={member.id} >
+//             {console.log('Image URL:', member.image)}
+//             {/* Correct placement of imageUrl and TeamMember component */}
+
+//             <TeamMember
+//               src={member.image}
+//               alt={member.name}
+//               name={member.name}
+//               description={member.description}
+//               span={member.span}
+//             />
+//           </div>
+//         ))
+//       ) : (
+//         <p>No team members found.</p>
+//       )}
+//     </div>
+//   </div>
+//   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
+// </section>
