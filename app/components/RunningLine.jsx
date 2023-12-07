@@ -65,7 +65,7 @@ const RunningLine = () => {
             ))}
             
           </div>
-          <div className="logo-container">
+          <div className="logo-container reverse">
             {/* Render logos in a continuous loop */}
             {duplicatedImages2.map((image, index) => (
               <Image

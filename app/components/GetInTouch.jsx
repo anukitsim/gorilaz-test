@@ -3,7 +3,7 @@ import React from "react";
 const GetInTouch = () => {
   return (
     <>
-       <div className="h-[80px] w-full bg-[#73E338] flex justify-center mt-[60px] items-center">
+       <div className="h-[80px] w-full bg-[#73E338] flex justify-center mt-[237px] items-center">
           <p className="text-black text-xl font-bold uppercase">get in touch</p>
         </div>
       <section className="h-[574px] justify-center flex flex-col ">

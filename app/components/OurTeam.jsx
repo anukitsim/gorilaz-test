@@ -22,7 +22,7 @@ const TeamMember = ({ src, alt, description, name, span }) => {
             alt={alt}
             width={227}
             height={227}
-            className="object-cover w-full h-full "
+            className="object-cover w-full h-full"
           />
         </div>
         <div className={"back"}>
@@ -104,13 +104,14 @@ const OurTeam = () => {
   }, []);
 
   return (
-    <section className="w-9/12 mt-[112px]  flex mx-auto relative">
+    <section className="w-9/12 mt-[112px]  flex mx-auto justify-center relative">
       <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
-      <div className="w-[890px] mx-auto grid grid-cols-3  self-start grid-rows-2">
+      <div>
+      <div className="w-[681px] mx-auto  grid grid-cols-3  items-center grid-rows-2">
         {teamMembers.map((member) => (
-          <div key={member.id} className="relative">
-            <div className="border border-white p-2">
+          <div key={member.id} className="">
+            <div className="bg-[url('/images/strokes.svg')] bg-contain bg-no-repeat">
               {/* Adjusted padding to create separation */}
               <TeamMember
                 src={member.image}
@@ -119,9 +120,13 @@ const OurTeam = () => {
                 description={member.description}
                 span={member.span}
               />
+           
             </div>
           </div>
         ))}
+      </div>
+      
+   
       </div>
     </section>
   );

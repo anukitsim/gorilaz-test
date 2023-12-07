@@ -129,8 +129,8 @@ section {
 }
 
 .card {
-  width: 277px;
-  height: 277px;
+  width: 227px;
+  height: 227px;
   transform-style: preserve-3d;
   transition: transform 1s;
 }
@@ -185,7 +185,19 @@ section {
   white-space: nowrap; /* Prevent logos from wrapping to the next line */
 }
 
+.logo-container.reverse {
+  animation: moveRightToLeft 15s linear infinite;
+}
 
+
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 
 @keyframes moveLeftToRight {
   0% {
@@ -196,3 +208,26 @@ section {
   }
 }
 
+
+.sticky-div {
+  position: fixed;
+  top: 44px;
+  left: 25px;
+  width: 126px;
+  height: 137px;
+  flex-shrink: 0;
+  background-color: #181818;
+  z-index: 1000;
+}
+
+
+.additional-folders {
+  position: fixed;
+  top: 44px;
+  left: 55px;
+  width: 100px;
+  height: 177px;
+  flex-shrink: 0;
+  background-color: #181818;
+  z-index: 1001;
+}
