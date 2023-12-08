@@ -186,7 +186,7 @@ section {
 }
 
 .logo-container.reverse {
-  animation: moveRightToLeft 15s linear infinite;
+  animation: moveRightToLeft 25s linear infinite;
 }
 
 
@@ -231,3 +231,39 @@ section {
   background-color: #181818;
   z-index: 1001;
 }
+
+.scroll-container {
+  display: flex;
+  overflow-x: scroll;
+  white-space: wrap;
+  width: 100%;
+  height: 420px;
+  position: relative;
+}
+
+
+
+.scroll-item:nth-child(1){
+  margin-left: 13px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 38px;
+  height: 38px;
+}
+ 
+.scroll-container::-webkit-scrollbar-track {
+ 
+  margin-left: 13px;
+ 
+  
+}
+ 
+.scroll-container::-webkit-scrollbar-thumb {
+  background-image: url('/images/scroll.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  
+}
+

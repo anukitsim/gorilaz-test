@@ -3,7 +3,8 @@ import '../../../styles/globals.css'
 import Header from '@app/components/Header'
 import GetInTouch from '@app/components/GetInTouch'
 import Footer from '@app/components/Footer'
-
+import StickyComponent from '@app/components/StickyComponent'
+import ScrollToTop from '@app/components/ScrollToTop'
 
 
 export const metadata = {
@@ -19,7 +20,8 @@ export default function RootLayout({ children }) {
         {children}
         <GetInTouch />
         <Footer />
-      
+        <StickyComponent />
+      <ScrollToTop />
       
         </body>
     </html>
