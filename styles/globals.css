@@ -124,8 +124,12 @@ section {
 
 /* OurTeam.module.css */
 
-.flip {
-  perspective: 1000px;
+.card:hover .front {
+  display: none; /* Hide the front side on hover */
+}
+
+.card:hover .back {
+  display: block; /* Show the back side on hover */
 }
 
 .card {
@@ -135,9 +139,7 @@ section {
   transition: transform 1s;
 }
 
-.card:hover {
-  transform: rotateY(180deg);
-}
+
 
 .front,
 .back {
@@ -152,7 +154,6 @@ section {
 }
 
 .back {
-  transform: rotateY(180deg);
   background-color: #1b1b1b;
   color: white;
   display: flex;
@@ -182,7 +183,7 @@ section {
   display: flex;
   gap: 1px;
   animation: moveLeftToRight 25s linear infinite;
-  white-space: nowrap; /* Prevent logos from wrapping to the next line */
+  white-space: nowrap; 
 }
 
 .logo-container.reverse {
@@ -259,11 +260,4 @@ section {
   
 }
  
-.scroll-container::-webkit-scrollbar-thumb {
-  background-image: url('/images/scroll.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  
-  
-}
 

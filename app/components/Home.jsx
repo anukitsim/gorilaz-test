@@ -9,39 +9,45 @@ const Home = () => {
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
   const [isHovered4, setIsHovered4] = useState(false);
+  const [initialOpacity, setInitialOpacity] = useState(0);
+
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
 
-  const [scrollX, setScrollX] = useState(0);
   const containerRef = useRef(null);
-
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const scrollX = containerRef.current.scrollLeft;
-      setScrollX(scrollX);
-    }
-  };
+  const whiteLineRef = useRef(null);
+  const scrollSvgRef = useRef(null);
 
   useEffect(() => {
-    const container = containerRef.current;
+    const handleScroll = () => {
+      const container = containerRef.current;
+      const whiteLine = whiteLineRef.current;
+      const scrollSvg = scrollSvgRef.current;
 
-    const updateScroll = () => {
-      const newScrollX = container.scrollLeft;
-      const deltaX = newScrollX - scrollX;
-      const ease = 0.01;
+      if (container && whiteLine && scrollSvg) {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        const scrollPercentage = (container.scrollLeft / maxScroll) * 100;
 
-      setScrollX(scrollX + deltaX * ease);
+        // Set the width of the white line based on scroll position
+        whiteLine.style.width = `${scrollPercentage}%`;
 
-      if (Math.abs(deltaX) > 0.1) {
-        requestAnimationFrame(updateScroll);
+        // Set the position of the scroll SVG based on scroll position
+        const scrollSvgPosition =
+          (scrollPercentage / 100) *
+          (container.clientWidth - scrollSvg.clientWidth);
+        scrollSvg.style.left = `${scrollSvgPosition}px`;
       }
     };
 
+    const container = containerRef.current;
     container.addEventListener("scroll", handleScroll);
+
+    // Initialize the white line width to 0
+    whiteLineRef.current.style.width = "0%";
 
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollX]);
+  }, []);
 
   const blocks = [
     "tourism",
@@ -73,12 +79,13 @@ const Home = () => {
               extreme photo and videography and the creation of evocative
               portraits.
             </p>
-            <p className="text-white pt-[95px] pb-[26px] text-[20px] text-center">
+            <p className="text-white pt-[95px] pb-[26px] uppercase text-[20px] text-center">
               gorillas’industries
             </p>
-            <p className="text-white  text-[10px] uppercase absolute top-[750px] left-[20px] mb-[10px]">drag for more</p>
+            <p className="text-white  text-[10px] uppercase absolute top-[750px] left-[20px] mb-[10px]">
+              drag for more
+            </p>
             <div className="scroll-container" ref={containerRef}>
-           
               {[...Array(12)].map((_, index) => (
                 <div key={index} className="scroll-item">
                   <div className="flex flex-row justify-center gap-[2px]">
@@ -99,7 +106,7 @@ const Home = () => {
                           )
                         }
                       >
-                        <span className="text-white text-[10px]  cursor-pointer">
+                        <span className="text-white text-[10px] uppercase  cursor-pointer">
                           View Gallery
                         </span>
                         <Image
@@ -126,6 +133,20 @@ const Home = () => {
               height={200}
               className="w-full pl-[13px] mt-[-20px]"
             />
+            <div
+              className="bg-[#E9E8EF] h-[7px] w-full pl-[13px] mt-[-8px] z-10 white-line"
+              ref={whiteLineRef}
+            ></div>
+
+            {/* Scroll SVG */}
+            <Image
+              src="/images/scroll.svg"
+              alt="scroll"
+              width={38}
+              height={38}
+              className="absolute top-[780px] left-[20px]"
+              ref={scrollSvgRef}
+            />
 
             <p className="text-white pl-10 mt-[120px] uppercase">
               Our forte lies in crafting gripping documentary films that capture
@@ -140,7 +161,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col gap-[28px] justify-start mt-20 items-center w-1/2">
             <Image src="/images/logo.svg" alt="logo" width={180} height={180} />
-            <p className="text-white text-[25px] font-ASSUAN">
+            <p className="text-white text-[25px] font-ASSUAN uppercase">
               Gorilla’s pRODUCTION
             </p>
             <Image
@@ -189,7 +210,7 @@ const Home = () => {
               onMouseEnter={() => setIsHovered1(true)}
               onMouseLeave={() => setIsHovered1(false)}
             >
-              <span className="text-white text-[10px]  cursor-pointer">
+              <span className="text-white text-[10px] uppercase cursor-pointer">
                 view gallery
               </span>
 
@@ -222,7 +243,7 @@ const Home = () => {
               onMouseEnter={() => setIsHovered2(true)}
               onMouseLeave={() => setIsHovered2(false)}
             >
-              <span className="text-white text-[10px] cursor-pointer">
+              <span className="text-white text-[10px] uppercase cursor-pointer">
                 view gallery
               </span>
               {/* Use conditional rendering to switch between arrow images based on hover state */}
@@ -256,7 +277,7 @@ const Home = () => {
               onMouseEnter={() => setIsHovered3(true)}
               onMouseLeave={() => setIsHovered3(false)}
             >
-              <span className="text-white text-[10px]  cursor-pointer">
+              <span className="text-white text-[10px] uppercase cursor-pointer">
                 view gallery
               </span>
               {/* Use conditional rendering to switch between arrow images based on hover state */}
@@ -309,7 +330,7 @@ const Home = () => {
         <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
       </div>
       <div className="border-t border-t-white overflow-hidden"></div>
-      <div className=" mx-auto relative  w-9/12 h-[1210px] flex flex-col  items-center">
+      <div className=" mx-auto relative  w-9/12 h-[1300px] flex flex-col  items-center">
         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
         <Image
           src="/images/home-production.svg"
@@ -320,32 +341,71 @@ const Home = () => {
         />
         <div className="flex flex-row mt-[180px] justify-center gap-[80px]">
           <div className="flex flex-col items-center gap-[40px]">
-          <p className="uppercase text-white text-[20px]">pre production</p>
-          <Image
-            src="/images/oval.svg"
-            alt="production"
-            width={250}
-            height={214}
-          />
+            <p className="uppercase text-white text-[20px]">pre production</p>
+            <div className="relative">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <Image
+      src='/images/process-foto-1.svg'
+      alt="rounded"
+      width={174}
+      height={120}
+      className='rounded-full'
+    />
+  </div>
+  <div className="relative z-50">
+    <Image
+      src="/images/process-foto-decor.svg"
+      alt="production"
+      width={250}
+      height={214}
+    />
+  </div>
+</div>
           </div>
-          
+
           <div className="flex flex-col items-center gap-[40px]">
-          <p className="uppercase text-white text-[20px]">production</p>
-          <Image
-            src="/images/oval.svg"
-            alt="production"
-            width={250}
-            height={214}
-          />
+            <p className="uppercase text-white text-[20px]">production</p>
+            <div className="relative">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <Image
+      src='/images/process-foto-1.svg'
+      alt="rounded"
+      width={174}
+      height={120}
+      className='rounded-full'
+    />
+  </div>
+  <div className="relative z-50">
+    <Image
+      src="/images/process-foto-decor.svg"
+      alt="production"
+      width={250}
+      height={214}
+    />
+  </div>
+</div>
           </div>
           <div className="flex flex-col items-center gap-[40px]">
-          <p className="uppercase text-white text-[20px]">post production</p>
-          <Image
-            src="/images/oval.svg"
-            alt="production"
-            width={250}
-            height={214}
-          />
+            <p className="uppercase text-white text-[20px]">post production</p>
+            <div className="relative">
+  <div className="absolute inset-0 flex items-center justify-center">
+    <Image
+      src='/images/process-foto-1.svg'
+      alt="rounded"
+      width={174}
+      height={120}
+      className='rounded-full'
+    />
+  </div>
+  <div className="relative z-50">
+    <Image
+      src="/images/process-foto-decor.svg"
+      alt="production"
+      width={250}
+      height={214}
+    />
+  </div>
+</div>
           </div>
         </div>
         <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
