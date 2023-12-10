@@ -58,7 +58,7 @@ const Header = () => {
     "/gorilas/behind-the-scene": "BEHIND THE SCENE",
     "/process": "PROCESS",
     "/services": "SERVICES",
-    "/portfolio/industries": "PORTFOLIO",
+    "/portfolio/industries": "gorillas’industries",
     // Add more entries for other pages as needed
   };
 
@@ -85,7 +85,7 @@ const Header = () => {
           <div className="w-2/6 h-[133.391px] border-b-2 border-l-2 border-white  absolute left-1 bottom-3"></div>
           <div className="w-2/6 h-[133px] border-b-2 border-r-2 border-white  absolute right-1 bottom-3"></div>
         </div>
-        <p className="whitespace-nowrap tracking-wide absolute top-8 right-[32px] z-50 font-VcrMono text-6xl text-[#73E338]">
+        <p className="whitespace-nowrap uppercase absolute top-8 right-[32px] z-50 font-VcrMono text-6xl text-[#73E338]">
           {title}
         </p>
 
@@ -190,40 +190,17 @@ const Header = () => {
             <div className="sublinks uppercase">
               <Link
                 href="/process"
-                className="absolute left-9 top-[55px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
+                className="absolute left-9 top-[45px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
               >
                 process
               </Link>
               <Link
                 href="/services"
-                className="absolute left-9 top-[75px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
+                className="absolute left-9 top-[65px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
               >
                 services
               </Link>
-              <Link
-                href="#"
-                className="absolute left-9 top-[95px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                photography
-              </Link>
-              <Link
-                href="#"
-                className="absolute left-9 top-[115px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                videography
-              </Link>
-              <Link
-                href="#"
-                className="absolute left-9 top-[135px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                location scouting
-              </Link>
-              <Link
-                href="#"
-                className="absolute left-9 top-[155px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                social media service
-              </Link>
+             
             </div>
           </div>
           <div className="folder z-10 w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[120px]">

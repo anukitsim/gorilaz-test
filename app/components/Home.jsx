@@ -3,15 +3,29 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import RunningLine from "./RunningLine";
+import Popup from "./Popup";
 
 const Home = () => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
   const [isHovered4, setIsHovered4] = useState(false);
-  const [initialOpacity, setInitialOpacity] = useState(0);
+
 
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupSectionTitle, setPopupSectionTitle] = useState("");
+
+
+  const openPopup = (sectionTitle) => {
+    setPopupSectionTitle(sectionTitle);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const containerRef = useRef(null);
   const whiteLineRef = useRef(null);
@@ -67,7 +81,7 @@ const Home = () => {
   return (
     <>
       <section className="border-t mt-[130px] border-t-white  overflow-hidden">
-        <div className=" mx-auto w-9/12 h-[1317px] relative  flex flex-row">
+        <div className=" mx-auto w-9/12 h-[1357px] relative  flex flex-row">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full z-50"></div>
           <div className="text-white w-1/2 border-r border-r-white">
             <p className="mt-[70px] text-[18px] uppercase pl-10 text-white">
@@ -85,7 +99,7 @@ const Home = () => {
             <p className="text-white  text-[10px] uppercase absolute top-[750px] left-[20px] mb-[10px]">
               drag for more
             </p>
-            <div className="scroll-container" ref={containerRef}>
+            <div className="scroll-container w-[100%] flex overflow-x-scroll whitespace-normal h-[420px] relative" ref={containerRef}>
               {[...Array(12)].map((_, index) => (
                 <div key={index} className="scroll-item">
                   <div className="flex flex-row justify-center gap-[2px]">
@@ -106,7 +120,7 @@ const Home = () => {
                           )
                         }
                       >
-                        <span className="text-white text-[10px] uppercase  cursor-pointer">
+                        <span className="text-white text-[10px] uppercase  cursor-pointer"  onClick={() => openPopup(blocks[index])}>
                           View Gallery
                         </span>
                         <Image
@@ -125,6 +139,9 @@ const Home = () => {
                 </div>
               ))}
             </div>
+            {isPopupOpen && (
+        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+      )}
 
             <Image
               src="/images/scroll-line.svg"
@@ -277,7 +294,7 @@ const Home = () => {
               onMouseEnter={() => setIsHovered3(true)}
               onMouseLeave={() => setIsHovered3(false)}
             >
-              <span className="text-white text-[10px] uppercase cursor-pointer">
+              <span className="text-white text-[10px] uppercase cursor-pointer" onClick={() => openPopup(blocks[index])}>
                 view gallery
               </span>
               {/* Use conditional rendering to switch between arrow images based on hover state */}
@@ -309,8 +326,9 @@ const Home = () => {
               // Use onMouseEnter and onMouseLeave to handle hover events
               onMouseEnter={() => setIsHovered4(true)}
               onMouseLeave={() => setIsHovered4(false)}
+              onClick={() => openPopup(blocks[index])}
             >
-              <span className="text-white text-[10px]  cursor-pointer">
+              <span className="text-white text-[10px]  cursor-pointer" >
                 view gallery
               </span>
               {/* Use conditional rendering to switch between arrow images based on hover state */}
@@ -407,6 +425,9 @@ const Home = () => {
   </div>
 </div>
           </div>
+          {isPopupOpen && (
+        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+      )}
         </div>
         <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
       </div>
