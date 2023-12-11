@@ -59,17 +59,14 @@ const Portfolio = () => {
 
 
 return (
-  <section className="w-9/12 flex  mx-auto mt-[209px] h-[682px]">
+  <section className="w-9/12 flex  mx-auto mt-[209px] h-[675px]">
   
-     <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full z-50"></div>
+     <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-[120%] z-50"></div>
     
      <div className="scroll-container w-10/12 2xl:w-10/12 xl:w-10/12 lg:w-10/12 items-center ml-[8%] flex flex-col overflow-x-scroll relative whitespace-normal" ref={containerRef}>
-      <div>
-      <h1 className="text-white text-[40px] uppercase">portfolio</h1>
-      <span className="text-white text-[20px] uppercase">gorillas’industries</span>
-      </div>
+      
      
-             <div className="flex flex-row w-full mt-[101px]">
+             <div className="flex flex-row w-full mt-[201px]">
              {blocks.map((block, index) => (
             <div key={index} className="scroll-item w-[181px] h-[338.906px]">
               <div
@@ -111,6 +108,10 @@ return (
              </div>
              
             </div>
+            <div className="absolute top-0 left-[443px]">
+      <h1 className="text-white text-[40px] uppercase">portfolio</h1>
+      <span className="text-white text-[20px] uppercase">gorillas’industries</span>
+      </div>
             <div className="absolute w-[83%] bottom-0 ml-[8%] ">
               <p className="text-white text-[10px] uppercase absolute bottom-14 left-5">drag for more</p>
             <Image
@@ -136,7 +137,7 @@ return (
               className="absolute -bottom-1 z-50 ml-[8%]"
               ref={scrollSvgRef}
             />
-               <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
+               <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-[120%]"></div>
   </section>
 )
   
