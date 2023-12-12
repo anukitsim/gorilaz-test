@@ -8,26 +8,24 @@ const Portfolio = () => {
 
   const containerRef = useRef(null);
   const whiteLineRef = useRef(null);
-  const scrollSvgRef = useRef(null);
+
+
 
   useEffect(() => {
     const handleScroll = () => {
       const container = containerRef.current;
       const whiteLine = whiteLineRef.current;
-      const scrollSvg = scrollSvgRef.current;
 
-      if (container && whiteLine && scrollSvg) {
-        const maxScroll = container.scrollWidth - container.clientWidth;
+     
+
+      if (container && whiteLine) {
+        const maxScroll = container.scrollWidth;
         const scrollPercentage = (container.scrollLeft / maxScroll) * 100;
 
         // Set the width of the white line based on scroll position
         whiteLine.style.width = `${scrollPercentage}%`;
-
-        // Set the position of the scroll SVG based on scroll position
-        const scrollSvgPosition =
-          (scrollPercentage / 100) *
-          (container.clientWidth - scrollSvg.clientWidth);
-        scrollSvg.style.left = `${scrollSvgPosition}px`;
+   
+      
       }
     };
 
@@ -41,6 +39,7 @@ const Portfolio = () => {
       container.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   const blocks = [
     "tourism",
@@ -63,7 +62,7 @@ return (
   
      <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-[120%] z-50"></div>
     
-     <div className="scroll-container w-10/12 2xl:w-10/12 xl:w-10/12 lg:w-10/12 items-center ml-[8%] flex flex-col overflow-x-scroll relative whitespace-normal" ref={containerRef}>
+     <div className="scroll-container w-10/12 2xl:w-10/12 xl:w-10/12 lg:w-10/12 items-center ml-[8%] flex flex-col overflow-x-scroll relative " ref={containerRef}>
       
      
              <div className="flex flex-row w-full mt-[201px]">
@@ -72,7 +71,7 @@ return (
               <div
                 className="w-[181px] h-[338.906px] rounded-[10px] outline outline-offset-[-8px] outline-white relative bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('/images/${block}.svg')`, // Adjust the file extension based on your image format
+                  backgroundImage: `url('/images/${block}.svg')`
                 }}
                 onMouseEnter={() =>
                   setHoveredItems((prev) =>
@@ -120,6 +119,8 @@ return (
               width={200}
               height={200}
               className="w-full z-50"
+            
+
             />
             <div
               className="bg-[#E9E8EF] h-[7px] absolute bottom-1 z-10 white-line"
@@ -129,14 +130,7 @@ return (
           
 
             {/* Scroll SVG */}
-            <Image
-              src="/images/scroll.svg"
-              alt="scroll"
-              width={38}
-              height={38}
-              className="absolute -bottom-1 z-50 ml-[8%]"
-              ref={scrollSvgRef}
-            />
+         
                <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-[120%]"></div>
   </section>
 )

@@ -29,26 +29,22 @@ const Home = () => {
 
   const containerRef = useRef(null);
   const whiteLineRef = useRef(null);
-  const scrollSvgRef = useRef(null);
+
 
   useEffect(() => {
     const handleScroll = () => {
       const container = containerRef.current;
       const whiteLine = whiteLineRef.current;
-      const scrollSvg = scrollSvgRef.current;
+     
 
-      if (container && whiteLine && scrollSvg) {
-        const maxScroll = container.scrollWidth - container.clientWidth;
+      if (container && whiteLine) {
+        const maxScroll = container.scrollWidth;
         const scrollPercentage = (container.scrollLeft / maxScroll) * 100;
 
         // Set the width of the white line based on scroll position
         whiteLine.style.width = `${scrollPercentage}%`;
 
-        // Set the position of the scroll SVG based on scroll position
-        const scrollSvgPosition =
-          (scrollPercentage / 100) *
-          (container.clientWidth - scrollSvg.clientWidth);
-        scrollSvg.style.left = `${scrollSvgPosition}px`;
+      
       }
     };
 
@@ -151,19 +147,19 @@ const Home = () => {
               className="w-full pl-[13px] mt-[-20px]"
             />
             <div
-              className="bg-[#E9E8EF] h-[7px] w-full pl-[13px] mt-[-8px] z-10 white-line"
+              className="bg-[#E9E8EF] h-[5px] w-full pl-[13px] mt-[-8px] z-10 white-line"
               ref={whiteLineRef}
             ></div>
 
             {/* Scroll SVG */}
-            <Image
+            {/* <Image
               src="/images/scroll.svg"
               alt="scroll"
               width={38}
               height={38}
               className="absolute top-[780px] left-[20px]"
               ref={scrollSvgRef}
-            />
+            /> */}
 
             <p className="text-white pl-10 mt-[120px] uppercase">
               Our forte lies in crafting gripping documentary films that capture
