@@ -12,10 +12,15 @@ const Home = () => {
   const [isHovered4, setIsHovered4] = useState(false);
 
 
+
+
+
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
+
+  
 
 
   const openPopup = (sectionTitle) => {
@@ -34,25 +39,16 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       const container = containerRef.current;
-      const whiteLine = whiteLineRef.current;
      
 
-      if (container && whiteLine) {
-        const maxScroll = container.scrollWidth;
-        const scrollPercentage = (container.scrollLeft / maxScroll) * 100;
-
-        // Set the width of the white line based on scroll position
-        whiteLine.style.width = `${scrollPercentage}%`;
-
-      
-      }
+   
     };
 
     const container = containerRef.current;
     container.addEventListener("scroll", handleScroll);
 
-    // Initialize the white line width to 0
-    whiteLineRef.current.style.width = "0%";
+    // Initialize the white line width to 20%
+
 
     return () => {
       container.removeEventListener("scroll", handleScroll);
@@ -95,7 +91,8 @@ const Home = () => {
             <p className="text-white  text-[10px] uppercase absolute top-[750px] left-[20px] mb-[10px]">
               drag for more
             </p>
-            <div className="scroll-container w-[100%] flex overflow-x-scroll whitespace-normal h-[420px] relative" ref={containerRef}>
+            <div className="scroll-container overflow-x-scroll" ref={containerRef}>
+              <div className=" flex  h-[420px] relative">
               {[...Array(12)].map((_, index) => (
                 <div key={index} className="scroll-item">
                   <div className="flex flex-row justify-center gap-[2px]">
@@ -134,32 +131,14 @@ const Home = () => {
                   </div>
                 </div>
               ))}
+              </div>
+              
+             
             </div>
             {isPopupOpen && (
         <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
       )}
 
-            <Image
-              src="/images/scroll-line.svg"
-              alt="homepage"
-              width={200}
-              height={200}
-              className="w-full pl-[13px] mt-[-20px]"
-            />
-            <div
-              className="bg-[#E9E8EF] h-[5px] w-full pl-[13px] mt-[-8px] z-10 white-line"
-              ref={whiteLineRef}
-            ></div>
-
-            {/* Scroll SVG */}
-            {/* <Image
-              src="/images/scroll.svg"
-              alt="scroll"
-              width={38}
-              height={38}
-              className="absolute top-[780px] left-[20px]"
-              ref={scrollSvgRef}
-            /> */}
 
             <p className="text-white pl-10 mt-[120px] uppercase">
               Our forte lies in crafting gripping documentary films that capture

@@ -239,37 +239,39 @@ section {
   position: relative;
 } */
 
+/* ... (existing styles) */
+
 .scroll-container {
-  overflow-x: scroll;
-  scrollbar-width: thin;
+  overflow-x: scroll; /* Initially hidden */
+
+
 }
 
-/* Style for the track */
+.scroll-container.active {
+  overflow-x: scroll; /* Set to scroll when needed */
+}
+
 .scroll-container::-webkit-scrollbar {
-  height: 38.59px;
+  width: 30px;
+   height: 38px;
 }
 
-/* Style for the thumb */
-.scroll-container::-webkit-scrollbar-thumb {
-  background-image: url('/images/scroll.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-/* Style for the track */
 .scroll-container::-webkit-scrollbar-track {
-  width: 100%;
+  background-clip: content-box;
+  background-position-y: center; /* THIS IS IMPORTANT */
+  background-image: url("/images/scroll-line.svg");
+  background-repeat: no-repeat;
+  background-clip: content-box; 
+
 }
 
-.scroll-item:nth-child(1){
-  margin-left: 13px;
-} 
-
-/* .scroll-container::-webkit-scrollbar-track {
- 
-  margin-left: 13px;
- 
+.scroll-container::-webkit-scrollbar-thumb {
   
+   /* background-color: aqua; */
+    background-image: url("/images/scroll.svg");
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-position-y: center;
 }
-  */
+
 
