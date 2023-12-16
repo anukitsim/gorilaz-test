@@ -32,7 +32,7 @@ const ScrollToTop = () => {
       }`}
       onClick={scrollToTop}
     >
-      <Image src="/images/top.svg" alt="top" width={61} height={66}  className='cursor-pointer'/>
+      <Image src="/images/top.svg" alt="top" width={80} height={66}  className='cursor-pointer'/>
     </div>
   );
 };

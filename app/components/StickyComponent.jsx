@@ -51,7 +51,7 @@ const StickyComponent = () => {
 
       {/* Taller folder */}
       {isHovered && (
-        <div className="taller-folder absolute w-[100px] h-[177px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656] rounded-tr-[5px] rounded-br-[5px] z-[99]">
+        <div className="taller-folder absolute w-[100px] h-[210px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656] rounded-tr-[5px] rounded-br-[5px] z-[99]">
           <div className="arrow w-[100px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-2 -right-[0.2px] flex items-center justify-end pr-1">
             <Image
               src={`/images/${isHovered ? 'hoverArrow' : 'arrow'}.svg`}
@@ -60,12 +60,12 @@ const StickyComponent = () => {
               height={0}
             />
           </div>
-          <ul className='text-[#73E338] text-[7px] uppercase flex flex-col gap-[3px] p-[7px]'>
+          <ul className='text-[#73E338] text-[10px] uppercase flex flex-col gap-[3px] p-[7px]'>
             <Link href='#'>home</Link>
             <li onMouseEnter={handleGorillasSubMenuToggle} onMouseLeave={handleGorillasSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>gorillas’</span>
               {isGorillasSubMenuOpen && (
-                <ul className="submenu text-white text-[6px] gap-[4px] flex flex-col">
+                <ul className="submenu text-white text-[7px] gap-[4px] flex flex-col">
                   <Link href='#' className=' uppercase'>Our Team</Link>
                   <Link href='#' className=' uppercase'>Behind the Scenes</Link>
                 </ul>
@@ -74,7 +74,7 @@ const StickyComponent = () => {
             <li onMouseEnter={handlePortfolioSubMenuToggle} onMouseLeave={handlePortfolioSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>portfolio</span>
               {isPortfolioSubMenuOpen && (
-                <ul className="submenu text-white text-[6px] flex flex-col">
+                <ul className="submenu text-white text-[7px] flex flex-col">
                   <Link href='#' className='mt-[4px] uppercase'>gorillas’industries</Link>
                 </ul>
               )}
@@ -82,7 +82,7 @@ const StickyComponent = () => {
             <li onMouseEnter={handleWhatWeDoSubMenuToggle} onMouseLeave={handleWhatWeDoSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>what we do</span>
               {isWhatWeDoSubMenuOpen && (
-                <ul className="submenu text-white text-[6px] gap-[4px] flex flex-col">
+                <ul className="submenu text-white text-[7px] gap-[4px] flex flex-col">
                   <Link href='#' className=' uppercase'>process</Link>
                   <Link href='#' className=' uppercase'>services</Link>
                 </ul>

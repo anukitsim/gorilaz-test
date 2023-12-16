@@ -1,74 +1,28 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import RunningLine from "./RunningLine";
 import Popup from "./Popup";
-
-const Home = () => {
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
-  const [isHovered4, setIsHovered4] = useState(false);
+import Scroll from "./Scroll";
+import WhatWeDoSection from "./WhatWeDoSection";
+import ProductionPhase from "./ProductionPhase";
 
 
+const Home = ({ isPopupOpen, closePopup, openPopup, blocks }) => {
+  const [hoverStates, setHoverStates] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+  });
 
-
-
-  const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
-
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [popupSectionTitle, setPopupSectionTitle] = useState("");
-
-  
-
-
-  const openPopup = (sectionTitle) => {
-    setPopupSectionTitle(sectionTitle);
-    setIsPopupOpen(true);
+  const handleHoverChange = (index, isHovered) => {
+    setHoverStates((prevStates) => ({
+      ...prevStates,
+      [index]: isHovered,
+    }));
   };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-  };
-
-  const containerRef = useRef(null);
-  const whiteLineRef = useRef(null);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = containerRef.current;
-     
-
-   
-    };
-
-    const container = containerRef.current;
-    container.addEventListener("scroll", handleScroll);
-
-    // Initialize the white line width to 20%
-
-
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const blocks = [
-    "tourism",
-    "sports",
-    "fashion",
-    "educatuion",
-    "entertainment",
-    "Food and Beverages",
-    "Agriculture",
-    "Healthcare",
-    "HORECA Sectors",
-    "Wine Industry",
-    "Automotive Industry",
-    "Tele-communications",
-  ];
 
   return (
     <>
@@ -91,54 +45,12 @@ const Home = () => {
             <p className="text-white  text-[10px] uppercase absolute top-[750px] left-[20px] mb-[10px]">
               drag for more
             </p>
-            <div className="scroll-container overflow-x-scroll" ref={containerRef}>
-              <div className=" flex  h-[420px] relative">
-              {[...Array(12)].map((_, index) => (
-                <div key={index} className="scroll-item">
-                  <div className="flex flex-row justify-center gap-[2px]">
-                    <div className="bg-[#181818] w-[181px] h-[339px] rounded-lg outline outline-offset-[-5px] outline-white relative">
-                      <p className="text-white text-[15px] uppercase p-5">
-                        {blocks[index]}
-                      </p>
-                      <div
-                        className="flex flex-row gap-3 absolute bottom-[15px] left-[38px]"
-                        onMouseEnter={() =>
-                          setHoveredItems((prev) =>
-                            prev.map((_, i) => (i === index ? true : _))
-                          )
-                        }
-                        onMouseLeave={() =>
-                          setHoveredItems((prev) =>
-                            prev.map((_, i) => (i === index ? false : _))
-                          )
-                        }
-                      >
-                        <span className="text-white text-[10px] uppercase  cursor-pointer"  onClick={() => openPopup(blocks[index])}>
-                          View Gallery
-                        </span>
-                        <Image
-                          src={
-                            hoveredItems[index]
-                              ? "/images/gallery-errow-green.svg"
-                              : "/images/galerry-errow.svg"
-                          }
-                          alt="arrow"
-                          width={11}
-                          height={11}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              </div>
-              
-             
-            </div>
-            {isPopupOpen && (
-        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
-      )}
 
+            <Scroll />
+
+            {isPopupOpen && (
+              <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+            )}
 
             <p className="text-white pl-10 mt-[120px] uppercase">
               Our forte lies in crafting gripping documentary films that capture
@@ -162,6 +74,7 @@ const Home = () => {
               width={370}
               height={433}
               className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg"
+              priority
             />
             <div className="absolute top-[504px] left-1/2 w-full border-b border-b-white"></div>
             <div className="absolute top-[722px] left-1/2 w-full border-b border-b-white"></div>
@@ -181,147 +94,12 @@ const Home = () => {
       </section>
       <div className="border-t border-t-white overflow-hidden"></div>
 
-      <div className=" mx-auto relative  w-9/12 h-[536px] flex gap-5 flex-col justify-center">
-        <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
-        <h1 className="text-white text-[40px] text-center mt-[80px] uppercase">
-          what we do
-        </h1>
-        <div className="flex flex-row items-center justify-center w-10/12 mx-auto">
-          <div className="flex flex-col gap-2">
-            <div className="image-wrapper  border border-white">
-              <Image
-                src="/images/portfolio1.svg"
-                alt="image"
-                width={266}
-                height={204}
-              />
-            </div>
-            <p className="text-white tracking-wider uppercase">Photography</p>
-            <div
-              className="flex flex-row gap-3"
-              onMouseEnter={() => setIsHovered1(true)}
-              onMouseLeave={() => setIsHovered1(false)}
-            >
-              <span className="text-white text-[10px] uppercase cursor-pointer">
-                view gallery
-              </span>
-
-              <Image
-                src={
-                  isHovered1
-                    ? "/images/gallery-errow-green.svg"
-                    : "/images/galerry-errow.svg"
-                }
-                alt="arrow"
-                width={11}
-                height={11}
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="image-wrapper  border border-white">
-              <Image
-                src="/images/portfolio2.svg"
-                alt="image"
-                width={266}
-                height={204}
-              />
-            </div>
-            <p className="text-white tracking-wider uppercase">videography</p>
-            <div
-              className="flex flex-row gap-3"
-              // Use onMouseEnter and onMouseLeave to handle hover events
-              onMouseEnter={() => setIsHovered2(true)}
-              onMouseLeave={() => setIsHovered2(false)}
-            >
-              <span className="text-white text-[10px] uppercase cursor-pointer">
-                view gallery
-              </span>
-              {/* Use conditional rendering to switch between arrow images based on hover state */}
-              <Image
-                src={
-                  isHovered2
-                    ? "/images/gallery-errow-green.svg"
-                    : "/images/galerry-errow.svg"
-                }
-                alt="arrow"
-                width={11}
-                height={11}
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="image-wrapper  border border-white">
-              <Image
-                src="/images/portfolio1.svg"
-                alt="image"
-                width={266}
-                height={204}
-              />
-            </div>
-            <p className="text-white tracking-wider uppercase whitespace-nowrap cursor-pointer">
-              location scouting
-            </p>
-            <div
-              className="flex flex-row gap-3"
-              // Use onMouseEnter and onMouseLeave to handle hover events
-              onMouseEnter={() => setIsHovered3(true)}
-              onMouseLeave={() => setIsHovered3(false)}
-            >
-              <span className="text-white text-[10px] uppercase cursor-pointer" onClick={() => openPopup(blocks[index])}>
-                view gallery
-              </span>
-              {/* Use conditional rendering to switch between arrow images based on hover state */}
-              <Image
-                src={
-                  isHovered3
-                    ? "/images/gallery-errow-green.svg"
-                    : "/images/galerry-errow.svg"
-                }
-                alt="arrow"
-                width={11}
-                height={11}
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="image-wrapper  border border-white">
-              <Image
-                src="/images/portfolio2.svg"
-                alt="image"
-                width={266}
-                height={204}
-              />
-            </div>
-            <p className="text-white tracking-wider uppercase">social media</p>
-            <div
-              className="flex flex-row gap-3"
-              // Use onMouseEnter and onMouseLeave to handle hover events
-              onMouseEnter={() => setIsHovered4(true)}
-              onMouseLeave={() => setIsHovered4(false)}
-              onClick={() => openPopup(blocks[index])}
-            >
-              <span className="text-white text-[10px]  cursor-pointer" >
-                view gallery
-              </span>
-              {/* Use conditional rendering to switch between arrow images based on hover state */}
-              <Image
-                src={
-                  isHovered4
-                    ? "/images/gallery-errow-green.svg"
-                    : "/images/galerry-errow.svg"
-                }
-                alt="arrow"
-                width={11}
-                height={11}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
-      </div>
+      <WhatWeDoSection
+        hoverStates={hoverStates}
+        handleHoverChange={handleHoverChange}
+        openPopup={openPopup}
+        blocks={blocks}
+      />
       <div className="border-t border-t-white overflow-hidden"></div>
       <div className=" mx-auto relative  w-9/12 h-[1300px] flex flex-col  items-center">
         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
@@ -333,76 +111,9 @@ const Home = () => {
           className="w-[87%] mt-[155px]"
         />
         <div className="flex flex-row mt-[180px] justify-center gap-[80px]">
-          <div className="flex flex-col items-center gap-[40px]">
-            <p className="uppercase text-white text-[20px]">pre production</p>
-            <div className="relative">
-  <div className="absolute inset-0 flex items-center justify-center">
-    <Image
-      src='/images/process-foto-1.svg'
-      alt="rounded"
-      width={174}
-      height={120}
-      className='rounded-full'
-    />
-  </div>
-  <div className="relative z-50">
-    <Image
-      src="/images/process-foto-decor.svg"
-      alt="production"
-      width={250}
-      height={214}
-    />
-  </div>
-</div>
-          </div>
-
-          <div className="flex flex-col items-center gap-[40px]">
-            <p className="uppercase text-white text-[20px]">production</p>
-            <div className="relative">
-  <div className="absolute inset-0 flex items-center justify-center">
-    <Image
-      src='/images/process-foto-1.svg'
-      alt="rounded"
-      width={174}
-      height={120}
-      className='rounded-full'
-    />
-  </div>
-  <div className="relative z-50">
-    <Image
-      src="/images/process-foto-decor.svg"
-      alt="production"
-      width={250}
-      height={214}
-    />
-  </div>
-</div>
-          </div>
-          <div className="flex flex-col items-center gap-[40px]">
-            <p className="uppercase text-white text-[20px]">post production</p>
-            <div className="relative">
-  <div className="absolute inset-0 flex items-center justify-center">
-    <Image
-      src='/images/process-foto-1.svg'
-      alt="rounded"
-      width={174}
-      height={120}
-      className='rounded-full'
-    />
-  </div>
-  <div className="relative z-50">
-    <Image
-      src="/images/process-foto-decor.svg"
-      alt="production"
-      width={250}
-      height={214}
-    />
-  </div>
-</div>
-          </div>
-          {isPopupOpen && (
-        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
-      )}
+          <ProductionPhase title="pre production" />
+          <ProductionPhase title="production" />
+          <ProductionPhase title="post production" />
         </div>
         <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
       </div>

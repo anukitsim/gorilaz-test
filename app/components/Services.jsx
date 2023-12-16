@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Popup from './Modal';
+
 
 const Services = () => {
 

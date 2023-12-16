@@ -1,0 +1,32 @@
+// ProductionPhase.jsx
+import React from "react";
+import Image from "next/image";
+
+const ProductionPhase = ({ title, imageSrc }) => {
+  return (
+    <div className="flex flex-col items-center gap-[40px]">
+      <p className="uppercase text-white text-[20px]">{title}</p>
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src={`/images/process-foto-1.svg`}
+            alt="rounded"
+            width={174}
+            height={120}
+            className="rounded-full"
+          />
+        </div>
+        <div className="relative z-50">
+          <Image
+            src={`/images/process-foto-decor.svg`}
+            alt={title}
+            width={250}
+            height={214}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductionPhase;
