@@ -140,27 +140,30 @@ section {
 }
 
 
+@media (max-width: 767px) {
+  .card {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    margin-left: 38%;
+    
+    
+  }
 
-.front,
-.back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
+  .card .front,
+  .card .back {
+    width: 100%;
+    height: auto;
+  }
+
+  .front {
+    display: block; /* Show the front side on mobile */
+  }
+
+  .back {
+    display: none; /* Initially hide the back side on mobile */
+  }
 }
-
-.front {
-  z-index: 2;
-}
-
-.back {
-  background-color: #1b1b1b;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 
 
 /* styles.css or your preferred styling method */
@@ -258,10 +261,11 @@ section {
 
 .scroll-container::-webkit-scrollbar-track {
   background-clip: content-box;
-  background-position-y: center; /* THIS IS IMPORTANT */
+  background-position-y: center; 
   background-image: url("/images/scroll-line.svg");
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-clip: content-box; 
+
 
 }
 
@@ -269,7 +273,6 @@ section {
   
    /* background-color: aqua; */
     background-image: url("/images/scroll.svg");
-    
     background-position-x: center;
     background-repeat: no-repeat;
     background-position-y: center;
@@ -278,7 +281,7 @@ section {
 
 .popup-scroll::-webkit-scrollbar-track {
   background-clip: content-box;
-  background-position-y: center; /* THIS IS IMPORTANT */
+  background-position-y: center; 
   background-image: url("/images/scroll-line.svg");
 background-repeat: repeat-x;
   background-clip: content-box; 
@@ -299,3 +302,5 @@ background-repeat: repeat-x;
   width: 100%;
    height: 200px;
 }
+
+

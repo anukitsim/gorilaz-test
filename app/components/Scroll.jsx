@@ -63,46 +63,43 @@ const Scroll = () => {
  
   return (
     <>
-      <div className="scroll-container overflow-x-scroll" ref={containerRef}>
-        <div className="flex h-[420px] relative">
-          {[...Array(12)].map((_, index) => (
-            <div key={index} className="scroll-item">
-              <div className="flex flex-row justify-center gap-[2px]">
-                <div
-                  className="bg-[#181818] w-[181px] h-[339px] rounded-lg outline outline-offset-[-5px] outline-white relative"
-                  onMouseEnter={() =>
-                    setHoveredItems((prev) =>
-                      prev.map((_, i) => (i === index ? true : _))
-                    )
-                  }
-                  onMouseLeave={() =>
-                    setHoveredItems((prev) =>
-                      prev.map((_, i) => (i === index ? false : _))
-                    )
-                  }
-                  onClick={() => openPopup(blocks[index])}
-                >
-                  <p className="text-white text-[15px] uppercase p-5">
-                    {blocks[index]}
-                  </p>
-                  <div className="flex flex-row gap-3 absolute bottom-[15px] left-[38px]">
-                    <span
-                      className="text-white text-[10px] uppercase cursor-pointer"
-                      onClick={() => openPopup(blocks[index])}
-                    >
-                      View Gallery
-                    </span>
-                    <Image
-                      src={
-                        hoveredItems[index]
-                          ? "/images/gallery-errow-green.svg"
-                          : "/images/galerry-errow.svg"
-                      }
-                      alt="arrow"
-                      width={11}
-                      height={11}
-                    />
-                  </div>
+      <div className="scroll-container overflow-x-scroll overflow-y-hidden" ref={containerRef}>
+        <div className="flex md:h-[420px] sm:h-[200px] sm:mt-[100px] relative">
+        {blocks.map((block, index) => (
+            <div key={index} className="scroll-item w-[181px] h-[338.906px]"  onClick={() => openPopup(blocks[index])}>
+              <div
+                className="md:w-[181px] sm:w-[130px] md:h-[338.906px] sm:h-[155px] rounded-[10px] outline outline-offset-[-8px] outline-white relative bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('/images/${block}.svg')`
+                }}
+                onMouseEnter={() =>
+                  setHoveredItems((prev) =>
+                    prev.map((_, i) => (i === index ? true : _))
+                  )
+                }
+                onMouseLeave={() =>
+                  setHoveredItems((prev) =>
+                    prev.map((_, i) => (i === index ? false : _))
+                  )
+                }
+               
+              >
+                <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">{blocks[index]}</p>
+                <div className="flex flex-row gap-3 ">
+                  <span className="text-white md:text-[10px] sm:text-[8px] uppercase absolute bottom-4 left-8 cursor-pointer">
+                    View Gallery
+                  </span>
+                  <Image
+                    src={
+                      hoveredItems[index]
+                        ? "/images/gallery-errow-green.svg"
+                        : "/images/galerry-errow.svg"
+                    }
+                    alt="arrow"
+                    width={11}
+                    height={11}
+                    className="absolute md:bottom-[18px] sm:bottom-[17px] md:left-28 sm:left-24"
+                  />
                 </div>
               </div>
             </div>
@@ -110,7 +107,7 @@ const Scroll = () => {
         </div>
       </div>
       {isPopupOpen && (
-        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+        <Popup onClose={closePopup}  sectionTitle={popupSectionTitle} />
       )}
     </>
    

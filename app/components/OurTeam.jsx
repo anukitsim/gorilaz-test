@@ -15,7 +15,7 @@ const TeamMember = ({ src, alt, description, name, span }) => {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="back hidden">
+      <div className="back hidden bg-[#181818] w-full h-full">
       <div className="flex flex-col items-baseline"> 
           <h2 className="text-[15px] uppercase text-[#45FC4C] mt-[75px] self-end pr-5 pt-5">{name}</h2>
           <div className="flex flex-col items-baseline pl-28 pt-10">
@@ -97,23 +97,26 @@ const OurTeam = () => {
   }, []);
 
   return (
-    <section className="w-9/12 mt-[112px] h-[940px] flex mx-auto justify-center">
+    <section className="md:w-9/12 sm:w-full mt-[112px] md:h-[940px] sm:h-[1600px] flex overflow-hidden  mx-auto justify-center">
       <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
       <div>
         <div className="mt-[50px]">
-          <div className="w-[797px] h-[170px] border-b mx-auto flex flex-row border-b-[#E9E8EF]">
+          <div className="w-[797px] md:h-[170px] sm:h-[5px] md:border-b mx-auto  flex flex-row md:border-b-[#E9E8EF]">
             <div className="w-[52px] text-white"></div>
-            <div className="w-[230px] border-r border-r-white border-l text-white  border-l-[#E9E8EF]">
+            <div className="w-[230px] md:border-r md:border-r-white md:border-l text-white  md:border-l-[#E9E8EF]">
               
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white"></div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white"></div>
+            <div className="w-[230px] border-r sm:hidden md:block border-r-[#E9E8EF] text-white"></div>
+            <div className="w-[230px] border-r sm:hidden md:block border-r-[#E9E8EF] text-white"></div>
             <div className="w-[52px] text-white"></div>
           </div>
-          <div className="w-[797px] mx-auto flex flex-row border-b border-b-[#E9E8EF]">
+          <div className="md:w-[797px]  mx-auto flex md:flex-row sm:flex-col  md:border-b md:border-b-[#E9E8EF]">
           <div className="w-[52px] text-white"></div>
-            <div className="w-[230px] border-r text-white border-r-[#E9E8EF] border-l border-l-[#E9E8EF]">
+            <div className="md:w-[230px] sm:w-full sm:border-b sm:border-b-[#E9E8EF] sm:border-t
+             sm:border-t-[#E9E8EF] md:border-r text-white md:border-r-[#E9E8EF] 
+            md:border-l md:border-l-[#E9E8EF]">
+
             {teamMembers.length > 0 && (
     <TeamMember
       key={0}
@@ -124,8 +127,9 @@ const OurTeam = () => {
       span={teamMembers[0].span}
     />
   )}
+
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white">
+            <div className="md:w-[230px] sm:w-full md:border-r md:border-r-[#E9E8EF] text-white">
             {teamMembers.length > 1 && (
     <TeamMember
       key={1}
@@ -137,7 +141,7 @@ const OurTeam = () => {
     />
   )}
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white">
+            <div className="md:w-[230px] sm:w-full md:border-r md:border-r-[#E9E8EF] text-white">
             {teamMembers.length > 2 && (
     <TeamMember
       key={2}
@@ -151,9 +155,9 @@ const OurTeam = () => {
             </div>
             <div className="w-[52px] text-white"></div>
           </div>
-          <div className="w-[797px] flex mx-auto flex-row border-b border-b-[#E9E8EF]">
+          <div className="md:w-[797px] sm:w-[100%] flex mx-auto md:flex-row sm:flex-col md:border-b md:border-b-[#E9E8EF]">
           <div className="w-[52px] text-white"></div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white border-l border-l-[#E9E8EF]">
+            <div className="md:w-[230px] sm:w-full md:border-r md:border-r-[#E9E8EF] text-white md:border-l md:border-l-[#E9E8EF]">
             {teamMembers.length > 3 && (
     <TeamMember
       key={3}
@@ -165,7 +169,7 @@ const OurTeam = () => {
     />
   )}
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white">
+            <div className="md:w-[230px] sm:w-[100%] md:border-r md:border-r-[#E9E8EF] text-white">
             {teamMembers.length > 4 && (
     <TeamMember
       key={4}
@@ -177,7 +181,7 @@ const OurTeam = () => {
     />
   )}
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white">
+            <div className="md:w-[230px] sm:w-[100%] md:border-r md:border-r-[#E9E8EF] text-white">
             {teamMembers.length > 5 && (
     <TeamMember
       key={5}
@@ -193,18 +197,18 @@ const OurTeam = () => {
           </div>
           <div className="w-[797px] h-[170px] flex mx-auto flex-row">
           <div className="w-[52px] text-white"></div>
-            <div className="w-[230px] border-r text-white border-r-[#E9E8EF] border-l border-l-[#E9E8EF]">
+            <div className="w-[230px] md:border-r text-white md:border-r-[#E9E8EF] md:border-l md:border-l-[#E9E8EF]">
               
             </div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white"></div>
-            <div className="w-[230px] border-r border-r-[#E9E8EF] text-white"></div>
+            <div className="w-[230px] md:border-r md:border-r-[#E9E8EF] text-white"></div>
+            <div className="w-[230px] md:border-r md:border-r-[#E9E8EF] text-white"></div>
             <div className="w-[52px] text-white"></div>
           </div>
         </div>
       </div>
+     
     </section>
   );
 };
 
 export default OurTeam;
-

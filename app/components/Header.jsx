@@ -1,46 +1,63 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import MobileNavigation from "./MobileNavigation";
 import { usePathname } from "next/navigation";
+import Folder from "./Folder";
 
 const Header = () => {
   const pathname = usePathname();
   const [isBlurActive, setIsBlurActive] = useState(true);
-  const [hoveredFolder, setHoveredFolder] = useState(null);
- 
-
-
-
   const videoRef = useRef(null);
+  const [videoUrl, setVideoUrl] = useState(null);
 
-  
-  
+  const getVideoUrl = async (videoId) => {
+    try {
+      const response = await fetch(`http://gorillaz.local/wp-json/wp/v2/media/${videoId}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch video data: ${response.statusText}`);
+      }
+
+      const videoData = await response.json();
+      return videoData.source_url || null;
+    } catch (error) {
+      console.error("Error fetching video data:", error.message);
+      return null;
+    }
+  };
 
   useEffect(() => {
-    const folders = document.querySelectorAll(".folder");
-
-    folders.forEach((folder, index) => {
-      folder.addEventListener("mouseenter", () => {
-        setHoveredFolder(index);
-        const links = folder.querySelectorAll("a");
-        const translateYValue = links.length * 25;
-
-        for (let i = 0; i < index; i++) {
-          const sibling = folders[i];
-
-          sibling.style.transform = `translateY(${translateYValue}px)`;
+    console.log("Header component mounted or updated");
+    const fetchHeaderVideo = async () => {
+      try {
+        const response = await fetch("http://gorillaz.local/wp-json/wp/v2/header");
+        const data = await response.json();
+    
+        if (Array.isArray(data) && data.length > 0) {
+          const headerVideoId = data[0].acf.header_video;
+    
+          if (headerVideoId) {
+            const videoUrl = await getVideoUrl(headerVideoId);
+    
+            if (videoUrl) {
+              setVideoUrl(videoUrl);
+              console.log("Video URL:", videoUrl);
+            } else {
+              console.error("Header video URL not found or invalid:", headerVideoId);
+            }
+          } else {
+            console.error("Header video ID not found in the response:", data);
+          }
+        } else {
+          console.error("No headers found in the response:", data);
         }
-      });
-
-      folder.addEventListener("mouseleave", () => {
-        folders.forEach((sibling) => {
-          sibling.style.transform = "translateY(0)";
-        });
-        setHoveredFolder(null);
-      });
-    });
+      } catch (error) {
+        console.error("Error fetching header video:", error);
+      }
+    };
+    
+    fetchHeaderVideo();
   }, []);
 
   const handleVideoHover = () => {
@@ -67,29 +84,32 @@ const Header = () => {
   const title = titles[pathname] || "";
 
   return (
-    <div className="w-full h-[790px] flex  justify-center " id="header">
+    <div
+      className="md:w-full sm:w-11/12 sm:ml-5   md:h-[790px] sm:h-[266px] flex  justify-center"
+      id="header"
+    >
       <div
-        id="header" 
-        className='top-28 w-9/12 h-[680px] relative overflow-hidden videoContainer'
+        id="header"
+        className="top-28 md:w-9/12 sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
       >
         <Image
           className="absolute right-0 top-1/3 "
           src="/images/header-regulator.svg"
           alt="regulator-foto"
-          width={14.35}
-          height={211.64}
+          width={3}
+          height={50}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1/4 h-[133px] border-t-2 border-l-2 border-white  absolute left-1 top-0"></div>
-          <div className="w-1/4 h-[133px] border-t-2 border-r-2 border-white  absolute right-1 top-0"></div>
-          <div className="w-2/6 h-[133.391px] border-b-2 border-l-2 border-white  absolute left-1 bottom-3"></div>
-          <div className="w-2/6 h-[133px] border-b-2 border-r-2 border-white  absolute right-1 bottom-3"></div>
+        <div className="absolute inset-0 flex items-center   justify-center">
+          <div className="md:w-1/4 md:h-[133px] sm:w-[65.861px] sm:h-[31.808px] border-t-2 border-l-2 border-white  absolute left-1 top-0"></div>
+          <div className="md:w-1/4 md:h-[133px] sm:w-[65.861px] sm:h-[31.808px] border-t-2 border-r-2 border-white  absolute right-1 top-0"></div>
+          <div className="md:w-2/6 md:h-[133.391px] sm:w-[81px] sm:h-[31px] border-b-2 border-l-2 border-white  absolute left-1 md:bottom-3 sm:bottom-0"></div>
+          <div className="md:w-2/6 md:h-[133px] sm:w-[81px] sm:h-[31px] border-b-2 border-r-2 border-white  absolute right-1 md:bottom-3 sm:bottom-0"></div>
         </div>
-        <p className="whitespace-nowrap uppercase absolute top-8 right-[32px] z-50 font-VcrMono text-6xl text-[#73E338]">
+        <p className="whitespace-nowrap uppercase absolute top-8 right-[32px] md:block sm:hidden z-50 font-VcrMono text-6xl text-[#73E338]">
           {title}
         </p>
 
-        <div className="absolute -bottom-2  left-1/2 transform text-white -translate-x-1/2 z-50 ">
+        <div className="absolute -bottom-2 md:block sm:hidden  left-1/2 transform text-white -translate-x-1/2 z-50 ">
           <Image
             src="/images/counter.svg"
             alt="counter"
@@ -98,207 +118,27 @@ const Header = () => {
             className="z-50"
           />
         </div>
-        {/* Folder 1 */}
-        <div className="absolute left-8 top-60 ">
-          <div className="relative">
-            <div className="folder flex-col gap-2 z-50  w-[254px] h-[245px] flex justify-center items-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] relative">
-              <div
-                className="arrow w-[55px] h-[15px] bg-[#565656] rounded-tl-[36.75px] rounded-tr-[0] rounded-br-[0] 
-                  rounded-bl-[0] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1"
-              >
-                <Image
-                  src={`/images/${
-                    hoveredFolder === 0 ? "hoverArrow" : "arrow"
-                  }.svg`}
-                  alt="logo"
-                  width={20}
-                  height={0}
-                />
-              </div>
-              <p className="absolute left-5 top-4 text-[7px] text-white">07</p>
-              <Image
-                src="/images/logo.svg"
-                alt="logo"
-                width={100}
-                height={100}
-              />
-            </div>
-          </div>
-          {/* Folder 2 */}
-
-          <div className="folder z-40   w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[30px]">
-            {/* Add content for the second folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 1 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">06</p>
-            <Link
-              href="#"
-              className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
-            >
-              BLOG
-            </Link>
-          </div>
-
-          {/* Folder 3 */}
-          <div className="folder z-30  w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[60px]">
-            {/* Add content for the third folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 2 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">05</p>
-            <Link
-              href="/contact"
-              className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
-            >
-              CONTACT
-            </Link>
-          </div>
-          <div className=" folder z-20  w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[90px]">
-            {/* Add content for the third folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 3 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">04</p>
-            <Link
-              href="#"
-              className="absolute uppercase left-9 top-2.5 text-[20px] flex flex-col  text-[#73E338] font-VcrMono"
-            >
-              WHAT WE DO
-            </Link>
-            <div className="sublinks uppercase">
-              <Link
-                href="/process"
-                className="absolute left-9 top-[45px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                process
-              </Link>
-              <Link
-                href="/services"
-                className="absolute left-9 top-[65px] text-[13px] text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                services
-              </Link>
-             
-            </div>
-          </div>
-          <div className="folder z-10 w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[120px]">
-            {/* Add content for the third folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 4 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">03</p>
-            <Link
-              href="#"
-              className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
-            >
-              PORTFOLIO
-            </Link>
-            <div className="sublinks uppercase">
-              <Link
-                href="/portfolio/industries"
-                className="absolute text-[#D4D4D4] hover:text-white  left-9 top-[45px] text-[13px]  flex flex-col  font-VcrMono "
-              >
-                gorillas’industries
-              </Link>
-            </div>
-          </div>
-          <div className="folder z-[5]  w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656]  flex-col rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[150px]">
-            {/* Add content for the third folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 5 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">02</p>
-            <Link
-              href="#"
-              className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] flex flex-col  font-VcrMono "
-            >
-              GORILLAS'
-            </Link>
-            <div className="sublinks uppercase ">
-              <Link
-                href="/gorilas/our-team"
-                className="absolute text-[#D4D4D4] hover:text-white  left-9 top-[45px] text-[13px]  flex flex-col  font-VcrMono "
-              >
-                our team
-              </Link>
-              <Link
-                href="/gorilas/behind-the-scene"
-                className="absolute left-9 top-[55px] text-[13px] pt-2.5 text-[#D4D4D4] hover:text-white flex flex-col  font-VcrMono "
-              >
-                behind the scene
-              </Link>
-            </div>
-          </div>
-          <div className="folder z-[1]  w-[254px] h-[245px] flex justify-center flex-shrink-0 border border-solid border-[#565656] rounded-tl-[15px] rounded-tr-[0.3px] rounded-br-[5px] rounded-bl-[5px] bg-[#181818] absolute bottom-[180px]">
-            {/* Add content for the third folder here */}
-            <div className="arrow w-[55px] h-[15px]  bg-[#565656] rounded-tl-[15px] z-[999] absolute -top-4 -right-[1px] flex items-center justify-end pr-1">
-              <Image
-                src={`/images/${
-                  hoveredFolder === 6 ? "hoverArrow" : "arrow"
-                }.svg`}
-                alt="logo"
-                width={20}
-                height={0}
-              />
-            </div>
-            <p className="absolute left-5 top-4 text-[7px] text-white">01</p>
-            <Link
-              href="/"
-              className="absolute uppercase left-9 top-2.5 text-[20px] text-[#73E338] font-VcrMono"
-            >
-              HOME
-            </Link>
-          </div>
+        <div className="md:block sm:hidden">
+          <Folder />
         </div>
-        <div className="absolute inset-2 right-7 z-0 flex items-center justify-end videoBackdrop">
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            className="object-cover w-8/12 h-[415px] video"
-            onMouseOver={handleVideoHover}
-          >
-            <source src="/video/test.mp4" type="video/mp4" />
-          </video>
+        <div className="md:hidden sm:block">
+          <MobileNavigation />
         </div>
-       
+
+        <div className="absolute inset-2 right-7 z-0 flex md:items-center sm:items-end md:justify-end sm:justify-end videoBackdrop">
+        {videoUrl && (
+  <video
+    ref={videoRef}
+    autoPlay
+    muted
+    loop
+    className="object-cover md:w-8/12 sm:w-11/12 md:h-[415px] sm:h-[190px] video"
+    onMouseOver={handleVideoHover}
+  >
+    <source src={videoUrl} type="video/mp4" />
+  </video>
+)}
+        </div>
       </div>
     </div>
   );

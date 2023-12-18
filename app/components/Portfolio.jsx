@@ -1,68 +1,27 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react";
+import Scroll from "./Scroll";
 import Image from "next/image";
 
 const Portfolio = () => {
-  const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
-
-  const containerRef = useRef(null);
-  const whiteLineRef = useRef(null);
+  
 
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = containerRef.current;
-      const whiteLine = whiteLineRef.current;
-
-     
-
-      if (container && whiteLine) {
-        const maxScroll = container.scrollWidth;
-        const scrollPercentage = (container.scrollLeft / maxScroll) * 100;
-
-        // Set the width of the white line based on scroll position
-        whiteLine.style.width = `${scrollPercentage}%`;
-   
-      
-      }
-    };
-
-    const container = containerRef.current;
-    container.addEventListener("scroll", handleScroll);
-
-    // Initialize the white line width to 0
-    whiteLineRef.current.style.width = "0%";
-
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  
 
 
-  const blocks = [
-    "tourism",
-    "sports",
-    "fashion",
-    "educatuion",
-    "entertainment",
-    "Food and Beverages",
-    "Agriculture",
-    "Healthcare",
-    "HORECA Sectors",
-    "Wine Industry",
-    "Automotive Industry",
-    "Tele-communications",
-  ];
 
 
 return (
-  <section className="w-9/12 flex  mx-auto mt-[209px] h-[675px]">
+  <section className="md:w-9/12 sm:w-full flex  mx-auto mt-[209px] h-[675px]">
   
      <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-[120%] z-50"></div>
-    
-     <div className="scroll-container w-10/12 2xl:w-10/12 xl:w-10/12 lg:w-10/12 items-center ml-[8%] flex flex-col overflow-x-scroll relative " ref={containerRef}>
+   
+     <Scroll />
+ 
+   
+     {/* <div className="scroll-container w-full 2xl:w-10/12 xl:w-10/12 lg:w-10/12 items-center ml-[8%] flex flex-col overflow-x-scroll relative " ref={containerRef}>
       
      
              <div className="flex flex-row w-full mt-[201px]">
@@ -106,26 +65,15 @@ return (
           ))}
              </div>
              
-            </div>
-            <div className="absolute top-0 left-[443px]">
-      <h1 className="text-white text-[40px] uppercase">portfolio</h1>
-      <span className="text-white text-[20px] uppercase">gorillas’industries</span>
+            </div> */}
+            <div className="absolute top-0 md:left-[443px] sm:left-10">
+      <h1 className="text-white md:text-[40px] sm:text-[10px]  uppercase">portfolio</h1>
+      <span className="text-white md:text-[20px] sm:text-[7px] uppercase">gorillas’industries</span>
       </div>
             <div className="absolute w-[83%] bottom-0 ml-[8%] ">
               <p className="text-white text-[10px] uppercase absolute bottom-14 left-5">drag for more</p>
-            <Image
-              src="/images/scroll-line.svg"
-              alt="homepage"
-              width={200}
-              height={200}
-              className="w-full z-50"
-            
-
-            />
-            <div
-              className="bg-[#E9E8EF] h-[7px] absolute bottom-1 z-10 white-line"
-              ref={whiteLineRef}
-            ></div>
+           
+          
             </div>
           
 

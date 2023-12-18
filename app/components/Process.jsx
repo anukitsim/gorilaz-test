@@ -5,17 +5,18 @@ const Process = () => {
   return (
     
    
-    <div className='flex justify-start mt-[126px] items-center flex-col h-[1361px] gap-5'>      
-         <div className='flex justify-center relative flex-row w-9/12'>
+    <div className='flex justify-start mt-[126px] items-center flex-col md:h-[1361px] sm:h-[2100px] gap-5'>    
+             
+         <div className='flex justify-center relative flex-row md:w-9/12 sm:w-full'>
             {/* Decor lines */}          
-            <div className='absolute left-0 top-0 bottom-0 w-2 h-[1200px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div>
-            <div className='absolute right-0 top-0 bottom-0 w-2 h-[1200px] bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>             
+            <div className='absolute left-0 top-0 bottom-0 w-2 md:h-[1200px]  sm:h-[2100px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div>
+            <div className='absolute right-0 top-0 bottom-0 w-2 md:h-[1200px] sm:h-[2100px] bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>     
             {/* First block */}
-            <div className='w-[75%] h-[299.27px] relative flex  mb-[70px] mt-[30px]'>
+            <div className='md:w-[75%] sm:w-full md:h-[299.27px] sm:h-[600px] relative flex md:flex-row sm:flex-col mb-[70px] mt-[30px]'>
                 <div className='w-[338.05px] relative h-[299.27px] flex flex-col  justify-around min-w-[338.05px]'>
                     <p className='uppercase font-VcrMono text-white text-[20px] tracking-[3px] text-center'>pre production</p>
                     <div className=''> 
-                        <Image src="/images/process-foto-decor.svg" alt='decor-foto' width={338.05} height={244.27} className='absolute left-[0.5px] top-[49px] z-10'/>
+                        <Image src="/images/process-foto-decor.svg" alt='decor-foto' width={338.05} height={244.27} className='absolute left-[0.5px] md:top-[49px] sm:top-[49px] z-10'/>
                     </div>
                     <div className='w-[241.05px] h-[244.27px] relative self-center rounded-full bg-[url("/images/process-foto-1.svg")] bg-no-repeat bg-center bg-cover'/>
                 </div>
@@ -32,9 +33,9 @@ const Process = () => {
         </div> 
 
         {/* 2 Block */}
-        <div className='flex justify-center relative flex-row w-9/12 mb-[70px]'>
+        <div className='flex md:justify-center relative flex-row w-9/12 mb-[70px]'>
             
-            <div className='w-[75%] h-[299.27px] relative flex '>
+            <div className='md:w-[75%] sm:w-full md:h-[299.27px] sm:h-[600px] relative flex md:flex-row sm:flex-col '>
             <div className='w-[338.05px] relative h-[299.27px] flex flex-col  justify-around min-w-[338.05px]'>
                     <p className='uppercase font-VcrMono text-white text-[20px] tracking-[3px] text-center'>pre production</p>
                     <div className=''> 
@@ -54,7 +55,7 @@ const Process = () => {
         {/* 3 Block */}
         <div className='flex justify-center relative flex-row w-9/12 '>
             
-            <div className='w-[75%] h-[299.27px] flex '>
+            <div className='md:w-[75%] sm:w-full md:h-[299.27px] sm:h-[600px] relative flex md:flex-row sm:flex-col'>
                     <div className='w-[338.05px] relative h-[299.27px] flex flex-col  justify-around min-w-[338.05px]'>
                         <p className='uppercase font-VcrMono text-white text-[20px] tracking-[3px] text-center'>pre production</p>
                         <div className=''> 
@@ -86,5 +87,4 @@ export default Process
 
 
 
-// noesi
 

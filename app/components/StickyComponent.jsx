@@ -51,8 +51,8 @@ const StickyComponent = () => {
 
       {/* Taller folder */}
       {isHovered && (
-        <div className="taller-folder absolute w-[100px] h-[210px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656] rounded-tr-[5px] rounded-br-[5px] z-[99]">
-          <div className="arrow w-[100px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-2 -right-[0.2px] flex items-center justify-end pr-1">
+        <div className="taller-folder absolute w-[150px] h-[210px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656] rounded-tr-[5px] rounded-br-[5px] z-[99]">
+          <div className="arrow w-[100px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-3 -left-[2px] flex items-center justify-end pr-1">
             <Image
               src={`/images/${isHovered ? 'hoverArrow' : 'arrow'}.svg`}
               alt="logo"
@@ -75,7 +75,7 @@ const StickyComponent = () => {
               <span style={{ cursor: 'pointer' }}>portfolio</span>
               {isPortfolioSubMenuOpen && (
                 <ul className="submenu text-white text-[7px] flex flex-col">
-                  <Link href='#' className='mt-[4px] uppercase'>gorillas’industries</Link>
+                  <Link  href="/portfolio/industries" className='mt-[4px] uppercase'>gorillas’industries</Link>
                 </ul>
               )}
             </li>
@@ -83,15 +83,18 @@ const StickyComponent = () => {
               <span style={{ cursor: 'pointer' }}>what we do</span>
               {isWhatWeDoSubMenuOpen && (
                 <ul className="submenu text-white text-[7px] gap-[4px] flex flex-col">
-                  <Link href='#' className=' uppercase'>process</Link>
-                  <Link href='#' className=' uppercase'>services</Link>
+                  <Link  href="/process" className=' uppercase'>process</Link>
+                  <Link href="/services" className=' uppercase'>services</Link>
                 </ul>
               )}
             </li>
-            <Link href='#'>contact</Link>
-            <Link href='#'>blog</Link>
+            <Link href='/contact'>contact</Link>
+            <Link href='/blog'>blog</Link>
           </ul>
+          <Link href='/work-in-progress'>
           <Image src="/images/logo.svg" alt="logo" width={48} height={41} className='mx-auto' />
+          </Link>
+         
         </div>
       )}
 

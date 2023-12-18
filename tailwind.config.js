@@ -17,7 +17,14 @@ module.exports = {
         Saira: ['Saira', 'sans-serif'],
         ASSUAN: ['a_Assuan'],
       },
-      
+      screens: {
+        'sm': '375px', 
+        '2sm': '700px',
+        'md': '1200px',
+        'lg': '1600px',
+        'xl': '2000px',
+        
+      },
     
     },
   },

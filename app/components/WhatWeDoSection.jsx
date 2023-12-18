@@ -3,18 +3,28 @@ import Popup from "./Popup";
 import { useState } from "react";
 import ImageWrapper from "./ImageWrapper";
 
-const WhatWeDoSection = ({ hoverStates, handleHoverChange, openPopup, blocks }) => {
+const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
 
+  const openPopup = (label) => {
+    setPopupSectionTitle(label);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    setPopupSectionTitle(""); // Reset the popupSectionTitle when the popup is closed
+  };
+
   return (
-    <div className=" mx-auto relative w-9/12 h-[536px] flex gap-5 flex-col justify-center">
+    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] flex gap-5 flex-col justify-center">
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
       <h1 className="text-white text-[40px] text-center mt-[80px] uppercase">
         what we do
       </h1>
 
-      <div className="flex flex-row items-center justify-center w-10/12 mx-auto">
+      <div className="flex md:flex-row sm:flex-col items-center justify-center w-10/12 mx-auto">
         {[1, 2, 3, 4].map((index) => (
           <ImageWrapper
             key={index}
@@ -24,7 +34,10 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange, openPopup, blocks }) 
             isHovered={hoverStates[index]}
             onMouseEnter={() => handleHoverChange(index, true)}
             onMouseLeave={() => handleHoverChange(index, false)}
-            onClick={() => (index === 3 ? openPopup(blocks[index]) : null)} 
+            onClick={() => {
+              const label = index === 1 ? "Photography" : index === 2 ? 'Videography' : index === 3 ? 'Location Scouting' : index === 4 ? 'Social Media' : '';
+              openPopup(label);
+            }}
           />
         ))}
       </div>

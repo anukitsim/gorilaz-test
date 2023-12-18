@@ -16,7 +16,7 @@ const RunningLine = () => {
     '/images/zara.svg',
     '/images/f1.svg',
     '/images/husky.svg',
-    '/images/izzypizzy.svg',
+    '/images/izzipizzi.svg',
     '/images/althut.svg',
     '/images/mta.svg',
     '/images/snap.svg',
@@ -48,8 +48,8 @@ const RunningLine = () => {
   const duplicatedImages2 = [...logoImages2, ...logoImages2, ...logoImages2];
 
   return (
-    <section className='mt-[127px]'>
-      <div className=" w-full  pt-10">
+    <section className='md:mt-[127px] sm:mt-10'>
+      <div className=" w-full  md:pt-10 sm:pt-20">
         <div className="animated-container">
           <div className="logo-container">
             {/* Render logos in a continuous loop */}
@@ -58,9 +58,9 @@ const RunningLine = () => {
                 key={index}
                 src={image}
                 alt={`Logo ${index + 1}`}
-                width={133}
-                height={133}
-                className="logo"
+                width={95}
+                height={95}
+                className="logo md:w-[95px] md:h-[95px] sm:w-[40px] sm:h-[40px]"
               />
             ))}
             
@@ -72,9 +72,9 @@ const RunningLine = () => {
                 key={index}
                 src={image}
                 alt={`Logo ${index + 1}`}
-                width={133}
-                height={133}
-                className="logo"
+                width={95}
+                height={95}
+                className="logo md:w-[95px] md:h-[95px] sm:w-[40px] sm:h-[40px]"
               />
             ))}
             

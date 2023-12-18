@@ -9,7 +9,7 @@ const ImageWrapper = ({ src, alt, label, isHovered, onMouseEnter, onMouseLeave, 
       onMouseLeave={onMouseLeave}
       onClick={onClick}
     >
-      <div className="image-wrapper border border-white">
+      <div className="image-wrapper outline outline-white outline-offset-[-5px] rounded-lg">
         <Image src={src} alt={alt} width={266} height={204} />
       </div>
       <p className="text-white tracking-wider uppercase">{label}</p>
