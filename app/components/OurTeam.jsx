@@ -3,17 +3,19 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const TeamMember = ({ src, alt, description, name, span }) => {
+const TeamMember = ({ imageUrl, name, description, span }) => {
   return (
     <div className="relative cursor-pointer card">
-      <div className="front">
-        <Image
-          src={src}
-          alt={alt}
-          width={227}
-          height={227}
-          className="object-cover w-full h-full"
-        />
+      <div className="front" 
+     style={{
+      backgroundImage: `url(${imageUrl})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      width: "100%",
+      height: "100%",
+    }}
+      >
+       
       </div>
       <div className="back hidden bg-[#181818] w-full h-full">
       <div className="flex flex-col items-baseline"> 
@@ -82,7 +84,7 @@ const OurTeam = () => {
               name: member.acf.name,
               description: member.acf.description,
               span: member.acf.span,
-              image: imageUrl,
+              imageUrl,
             };
           })
         );
@@ -95,6 +97,7 @@ const OurTeam = () => {
 
     fetchData();
   }, []);
+
 
   return (
     <section className="md:w-9/12 sm:w-full mt-[112px] md:h-[940px] sm:h-[1600px] flex overflow-hidden  mx-auto justify-center">
@@ -119,13 +122,12 @@ const OurTeam = () => {
 
             {teamMembers.length > 0 && (
     <TeamMember
-      key={0}
-      src={teamMembers[0].image}
-      alt={teamMembers[0].name}
-      name={teamMembers[0].name}
-      description={teamMembers[0].description}
-      span={teamMembers[0].span}
-    />
+    key={0}
+    imageUrl={teamMembers[0].imageUrl}
+    name={teamMembers[0].name}
+    description={teamMembers[0].description}
+    span={teamMembers[0].span}
+  />
   )}
 
             </div>
@@ -133,8 +135,7 @@ const OurTeam = () => {
             {teamMembers.length > 1 && (
     <TeamMember
       key={1}
-      src={teamMembers[1].image}
-      alt={teamMembers[1].name}
+      imageUrl={teamMembers[1].imageUrl}
       name={teamMembers[1].name}
       description={teamMembers[1].description}
       span={teamMembers[1].span}
@@ -145,8 +146,7 @@ const OurTeam = () => {
             {teamMembers.length > 2 && (
     <TeamMember
       key={2}
-      src={teamMembers[2].image}
-      alt={teamMembers[2].name}
+      imageUrl={teamMembers[2].imageUrl}
       name={teamMembers[2].name}
       description={teamMembers[2].description}
       span={teamMembers[2].span}
@@ -161,8 +161,7 @@ const OurTeam = () => {
             {teamMembers.length > 3 && (
     <TeamMember
       key={3}
-      src={teamMembers[3].image}
-      alt={teamMembers[3].name}
+      imageUrl={teamMembers[3].imageUrl}
       name={teamMembers[3].name}
       description={teamMembers[3].description}
       span={teamMembers[3].span}
@@ -173,8 +172,7 @@ const OurTeam = () => {
             {teamMembers.length > 4 && (
     <TeamMember
       key={4}
-      src={teamMembers[4].image}
-      alt={teamMembers[4].name}
+      imageUrl={teamMembers[4].imageUrl}
       name={teamMembers[4].name}
       description={teamMembers[4].description}
       span={teamMembers[4].span}
@@ -185,8 +183,7 @@ const OurTeam = () => {
             {teamMembers.length > 5 && (
     <TeamMember
       key={5}
-      src={teamMembers[5].image}
-      alt={teamMembers[5].name}
+      imageUrl={teamMembers[5].imageUrl}
       name={teamMembers[5].name}
       description={teamMembers[5].description}
       span={teamMembers[5].span}
@@ -212,3 +209,4 @@ const OurTeam = () => {
 };
 
 export default OurTeam;
+

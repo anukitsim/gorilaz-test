@@ -48,7 +48,7 @@ const RunningLine = () => {
   const duplicatedImages2 = [...logoImages2, ...logoImages2, ...logoImages2];
 
   return (
-    <section className='md:mt-[127px] sm:mt-10'>
+    <section className='md:mt-[100px] sm:mt-10'>
       <div className=" w-full  md:pt-10 sm:pt-20">
         <div className="animated-container">
           <div className="logo-container">

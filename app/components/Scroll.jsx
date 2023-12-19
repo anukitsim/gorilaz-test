@@ -63,10 +63,10 @@ const Scroll = () => {
  
   return (
     <>
-      <div className="scroll-container overflow-x-scroll overflow-y-hidden" ref={containerRef}>
-        <div className="flex md:h-[420px] sm:h-[200px] sm:mt-[100px] relative">
+      <div className="scroll-container  overflow-x-scroll overflow-y-hidden " ref={containerRef}>
+        <div className="flex md:h-[390px] sm:h-[200px] sm:mt-[11px] md:mt-[26px] relative">
         {blocks.map((block, index) => (
-            <div key={index} className="scroll-item w-[181px] h-[338.906px]"  onClick={() => openPopup(blocks[index])}>
+            <div key={index} className="scroll-item w-[181px] mr-[2px] h-[338.906px]"  onClick={() => openPopup(blocks[index])}>
               <div
                 className="md:w-[181px] sm:w-[130px] md:h-[338.906px] sm:h-[155px] rounded-[10px] outline outline-offset-[-8px] outline-white relative bg-cover bg-center"
                 style={{
@@ -86,7 +86,7 @@ const Scroll = () => {
               >
                 <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">{blocks[index]}</p>
                 <div className="flex flex-row gap-3 ">
-                  <span className="text-white md:text-[10px] sm:text-[8px] uppercase absolute bottom-4 left-8 cursor-pointer">
+                  <span className="text-white md:text-[10px] sm:text-[8px] uppercase absolute bottom-4 left-5 cursor-pointer">
                     View Gallery
                   </span>
                   <Image

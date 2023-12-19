@@ -51,8 +51,8 @@ const StickyComponent = () => {
 
       {/* Taller folder */}
       {isHovered && (
-        <div className="taller-folder absolute w-[150px] h-[210px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656] rounded-tr-[5px] rounded-br-[5px] z-[99]">
-          <div className="arrow w-[100px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-3 -left-[2px] flex items-center justify-end pr-1">
+        <div className="taller-folder absolute w-[250px] h-[310px] -top-1 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656]  rounded-br-[5px] z-[99]">
+          <div className="arrow w-[250px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-2 -left-[1px] flex items-center justify-end pr-1">
             <Image
               src={`/images/${isHovered ? 'hoverArrow' : 'arrow'}.svg`}
               alt="logo"
@@ -60,12 +60,12 @@ const StickyComponent = () => {
               height={0}
             />
           </div>
-          <ul className='text-[#73E338] text-[10px] uppercase flex flex-col gap-[3px] p-[7px]'>
+          <ul className='text-[#73E338] text-[16px] uppercase flex flex-col gap-[3px] p-[7px]'>
             <Link href='#'>home</Link>
             <li onMouseEnter={handleGorillasSubMenuToggle} onMouseLeave={handleGorillasSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>gorillas’</span>
               {isGorillasSubMenuOpen && (
-                <ul className="submenu text-white text-[7px] gap-[4px] flex flex-col">
+                <ul className="submenu text-white text-[10px] gap-[4px] flex flex-col">
                   <Link href='#' className=' uppercase'>Our Team</Link>
                   <Link href='#' className=' uppercase'>Behind the Scenes</Link>
                 </ul>
@@ -74,7 +74,7 @@ const StickyComponent = () => {
             <li onMouseEnter={handlePortfolioSubMenuToggle} onMouseLeave={handlePortfolioSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>portfolio</span>
               {isPortfolioSubMenuOpen && (
-                <ul className="submenu text-white text-[7px] flex flex-col">
+                <ul className="submenu text-white text-[10px] flex flex-col">
                   <Link  href="/portfolio/industries" className='mt-[4px] uppercase'>gorillas’industries</Link>
                 </ul>
               )}
@@ -82,7 +82,7 @@ const StickyComponent = () => {
             <li onMouseEnter={handleWhatWeDoSubMenuToggle} onMouseLeave={handleWhatWeDoSubMenuToggle}>
               <span style={{ cursor: 'pointer' }}>what we do</span>
               {isWhatWeDoSubMenuOpen && (
-                <ul className="submenu text-white text-[7px] gap-[4px] flex flex-col">
+                <ul className="submenu text-white text-[10px] gap-[4px] flex flex-col">
                   <Link  href="/process" className=' uppercase'>process</Link>
                   <Link href="/services" className=' uppercase'>services</Link>
                 </ul>
@@ -92,14 +92,14 @@ const StickyComponent = () => {
             <Link href='/blog'>blog</Link>
           </ul>
           <Link href='/work-in-progress'>
-          <Image src="/images/logo.svg" alt="logo" width={48} height={41} className='mx-auto' />
+          <Image src="/images/logo.svg" alt="logo" width={68} height={61} className='mx-auto' />
           </Link>
          
         </div>
       )}
 
       {/* Arrow */}
-      <div className="arrow w-[40px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-2.5 -right-[1px] flex items-center justify-end pr-1">
+      <div className={`arrow w-[40px] h-[10px] bg-[#565656] rounded-tl-[15px] z-[101] absolute -top-2.5 -right-[1px] flex items-center justify-end pr-1 ${isHovered ? 'hidden' : 'block'}`}>
         <Image
           src={`/images/${isHovered ? 'hoverArrow' : 'arrow'}.svg`}
           alt="logo"

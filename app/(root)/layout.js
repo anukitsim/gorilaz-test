@@ -25,8 +25,9 @@ export default function RootLayout({ children }) {
         <GetInTouch />
         <Footer />
         {children}
-      <StickyComponent />
-      <ScrollToTop />
+        <ScrollToTop />
+        <div className='md:block sm:hidden'><StickyComponent /></div>
+     
         </body>
     </html>
   )

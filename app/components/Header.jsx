@@ -12,6 +12,8 @@ const Header = () => {
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
 
+  
+  
   const getVideoUrl = async (videoId) => {
     try {
       const response = await fetch(`http://gorillaz.local/wp-json/wp/v2/media/${videoId}`);
@@ -93,7 +95,7 @@ const Header = () => {
         className="top-28 md:w-9/12 sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
       >
         <Image
-          className="absolute right-0 top-1/3 "
+          className="absolute right-0 top-1/3 md:w-[14.35px] md:h-[211.64px] sm:w-[8.403px] sm:h-[80px]"
           src="/images/header-regulator.svg"
           alt="regulator-foto"
           width={3}

@@ -46,7 +46,7 @@ const Footer = () => {
             </ul>
             <ul className="flex flex-col 2sm:h-[134px] sm:h-[50px] gap-[4.7px] ">
               <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:text-[8px] text-[#73E338]">connect</h2>
-              <div className="flex flex-row 2sm:max-w-[100px] sm:max-w-[50px] gap-1.5">
+              <div className="flex flex-row 2sm:max-w-[100px] sm:max-w-[50px] pt-2 gap-1.5">
                 <Link href="#" className="z-50">
                   <Image
                     src="/images/facebook.svg"
@@ -81,8 +81,8 @@ const Footer = () => {
                 </Link>
               </div>
             
-              <h2 className="font-VcrMono 2sm:text-sm sm:text-[8px] tracking-[1.95px] uppercase text-[#73E338] ">contact</h2>
-              <Link className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white" href="#">
+              <h2 className="font-VcrMono pt-2 2sm:text-sm sm:text-[8px] tracking-[1.95px] uppercase text-[#73E338] ">contact</h2>
+              <Link className="font-VcrMono z-50 pt-[10px] 2sm:tracking-[1.5px] sm:tracking-[0.75px] 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white" href="#">
               +995 557 46 04 06
               </Link>
               <Link className="font-VcrMono z-50 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[5px]  text-white" href="#">

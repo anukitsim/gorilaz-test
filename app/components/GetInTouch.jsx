@@ -4,7 +4,7 @@ const GetInTouch = () => {
   return (
     <>
        <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center md:mt-[237px] sm:mt-[100px] items-center">
-          <p className="text-black text-xl font-bold uppercase sm:text-[10px] 2sm:text-xl">get in touch</p>
+          <p className="text-black md:text-[25px] font-bold uppercase sm:text-[10px] 2sm:text-xl touch-text">get in touch</p>
         </div>
       <section className="2sm:h-[574px] sm:h-[187px] justify-center flex flex-col ">
        <h2 className="uppercase text-white  text-center 2sm:text-[15px] sm:text-[8px] sm:mt-[60px] ">WE WILL GET YOU BACK</h2>
@@ -38,7 +38,7 @@ const GetInTouch = () => {
           />
           <button
             type="submit"
-            className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="submit-text 2sm:w-2/4 sm:w-[219px] text-center 2sm:h-[45px] sm:h-[18px] text-black md:text-[18px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>

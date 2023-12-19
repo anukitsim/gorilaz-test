@@ -18,13 +18,13 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   };
 
   return (
-    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] flex gap-5 flex-col justify-center">
-      <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-full"></div>
-      <h1 className="text-white text-[40px] text-center mt-[80px] uppercase">
+    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] flex gap-5 flex-col sm:mb-[24px] md:mb-0">
+      <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+      <h1 className="text-white text-[40px] text-center mt-[18px]  uppercase">
         what we do
       </h1>
 
-      <div className="flex md:flex-row sm:flex-col items-center justify-center w-10/12 mx-auto">
+      <div className="flex md:flex-row sm:flex-col gap-[24px]  items-center justify-center w-10/12 mx-auto">
         {[1, 2, 3, 4].map((index) => (
           <ImageWrapper
             key={index}
@@ -44,7 +44,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
       {isPopupOpen && (
         <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
       )}
-         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-full"></div>
+         <div className="bg-[url('/images/sideLayer.svg')] absolute left-5  bg-repeat-y w-2 h-full"></div>
     </div>
   );
 };
