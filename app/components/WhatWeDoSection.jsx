@@ -6,6 +6,7 @@ import ImageWrapper from "./ImageWrapper";
 const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
+  
 
   const openPopup = (label) => {
     setPopupSectionTitle(label);
@@ -14,13 +15,16 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    setPopupSectionTitle(""); // Reset the popupSectionTitle when the popup is closed
+    setPopupSectionTitle(""); 
   };
 
+
+  
+
   return (
-    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] flex gap-5 flex-col sm:mb-[24px] md:mb-0">
+    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] justify-center flex gap-[52px] flex-col sm:mb-[24px] md:mb-0">
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
-      <h1 className="text-white text-[40px] text-center mt-[18px]  uppercase">
+      <h1 className="text-white text-[40px] text-center md:mt-[-80px] sm:mt-0  uppercase">
         what we do
       </h1>
 

@@ -17,6 +17,8 @@
         4: false,
         
       });
+
+      
       
 
 
@@ -128,7 +130,7 @@
       alt="production"
       width={1000}
       height={520}
-      className="md:mt-24 sm:mt-10 outline outline-white outline-offset-[-10px] rounded-lg md:w-[1000px] md:h-[520px] sm:w-[300px] sm:h-[300px]"
+      className="md:mt-24 sm:mt-10 outline outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md md:w-[1000px] md:h-[520px] sm:w-[252.11px] sm:h-[129.83px]"
     />
     <div className="flex md:flex-row sm:flex-col md:mt-[100px] sm:mt-24 justify-center md:gap-[80px] sm:gap-[25px]">
       <ProductionPhase title="pre production" />
