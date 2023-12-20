@@ -54,11 +54,11 @@
     <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
   )}
               <div className="text-white md:w-1/2 sm:hidden md:block border-r h-[90%] border-r-white">
-                <p className="mt-[70px] text-[18px] uppercase pl-10 text-white">
+                <p className="mt-[70px] text-[18px] uppercase pl-16 text-white">
                   <span className="text-[#73E338]">Gorillas' Production</span>{" "}
                   Gorillas' Production embodies a thrilling convergence of artistry, adventure and everyday lifestyle through a different angle.
                 </p>
-                <p className=" text-[18px] uppercase pl-10 pt-[12px] text-white">
+                <p className=" text-[18px] uppercase pl-16 pt-[12px] text-white">
                   For over two decades, Gorilla’s have been pioneers in the realm of
                   extreme photo and videography and the creation of evocative
                   portraits.
@@ -66,13 +66,14 @@
                 <p className="text-white pt-[95px]  uppercase tracking-[0.1em] text-[20px] text-center">
                   gorillas’industries
                 </p>
-                <p className="text-white  text-[10px] uppercase absolute top-[810px] left-[35px] mb-[10px]">
-                  drag for more
-                </p>
-                <div className="mx-auto relative sm:w-full md:w-full ">
+               
+                <div className="relative sm:w-full  flex ml-10  md:w-11/12 ">
+             
                 <Scroll />
-
-
+                <p className="text-white text-[15px] uppercase absolute bottom-20 left-24 transform -translate-x-1/2">
+          drag for more
+        </p>
+             
                 </div>
               
 
@@ -83,10 +84,8 @@
                 
               </div>
               <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
-                <Image src="/images/logo.svg" alt="logo" width={180} height={180}  className='md:w-[180px] md:h-[180px] sm:w-[68px] sm:h-[68px]'/>
-                <p className="text-white md:text-[25px] sm:text-[10px] tracking-[0.1em] font-ASSUAN uppercase">
-                  Gorilla’s pRODUCTION
-                </p>
+                <Image src="/images/logo.png" alt="logo" width={355} height={234}  className='md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]'/>
+               
                 <Image
                   src="/images/home.svg"
                   alt="homepage"
@@ -123,7 +122,7 @@
     />
   </div>
   <div className="border-t border-t-white overflow-hidden"></div>
-  <div className=" mx-auto relative sm:w-full  md:w-9/12 h-[1100px] flex flex-col  items-center">
+  {/* <div className=" mx-auto relative sm:w-full  md:w-9/12 h-[1100px] flex flex-col  items-center">
     <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
     <Image
       src="/images/home-production.svg"
@@ -132,13 +131,37 @@
       height={520}
       className="md:mt-24 sm:mt-10 outline outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md md:w-[1000px] md:h-[520px] sm:w-[252.11px] sm:h-[129.83px]"
     />
+    
     <div className="flex md:flex-row sm:flex-col md:mt-[100px] sm:mt-24 justify-center md:gap-[80px] sm:gap-[25px]">
       <ProductionPhase title="pre production" />
       <ProductionPhase title="production" />
       <ProductionPhase title="post production" />
     </div>
     <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+  </div> */}
+  <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
+  <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
+  <Image
+      src="/images/home-production.svg"
+      alt="production"
+      width={1000}
+      height={520}
+      className="outline md:w-[1000px] md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
+    />
+  <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
   </div>
+  <div className="border-t border-t-white overflow-hidden"></div>
+
+<div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
+<div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
+<div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
+      <ProductionPhase title="pre production" />
+      <ProductionPhase title="production" />
+      <ProductionPhase title="post production" />
+    </div>
+<div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+</div>
+  
 
   <RunningLine />
           </section>

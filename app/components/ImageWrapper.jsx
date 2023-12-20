@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 
-const ImageWrapper = ({ src, alt, label, isHovered, onMouseEnter, onMouseLeave, onClick }) => {
+const ImageWrapper = ({ src, alt, label, isHovered, onMouseEnter, onMouseLeave, onClick, isArrowGreen }) => {
   return (
     <div
       className="flex flex-col gap-2"
@@ -16,7 +16,7 @@ const ImageWrapper = ({ src, alt, label, isHovered, onMouseEnter, onMouseLeave, 
       <div className="flex flex-row gap-3">
         <span className="text-white text-[10px] uppercase pl-2 cursor-pointer">view gallery</span>
         <Image
-          src={isHovered ? "/images/gallery-errow-green.svg" : "/images/galerry-errow.svg"}
+          src={isHovered || isArrowGreen ? "/images/gallery-errow-green.svg" : "/images/galerry-errow.svg"}
           alt="arrow"
           width={11}
           height={11}

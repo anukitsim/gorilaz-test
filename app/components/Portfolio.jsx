@@ -16,7 +16,7 @@ const Portfolio = () => {
           gorillas’industries
         </span>
         <div className="w-10/12 relative h-[380px]">
-        <Scroll className='portfolio-scrollbar'/>
+        <Scroll/>
         <p className="text-white text-[15px] uppercase  -bottom-7 left-10 absolute">
           drag for more
         </p>

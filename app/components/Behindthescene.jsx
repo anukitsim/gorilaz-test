@@ -4,11 +4,11 @@ import Image from 'next/image'
 
 const Behindthescene = () => {
   return (
-    <section className="md:ml-0 sm:ml-2 md:w-full sm:w-full mt-[130px] overflow-hidden">
+    <section className="md:mx-auto sm:ml-2 md:w-9/12 sm:w-full mt-[130px] overflow-hidden">
   <div className='flex justify-center  items-center relative flex-col md:mt-40 sm:mt-10 mb-[250px]'>
       
         
-      <div className='w-9/12 md:h-[1028px] sm:h-[700px] relative flex flex-col'>
+      <div className='w-full md:h-[1028px] sm:h-[700px] relative flex flex-col'>
 
           <div className='absolute left-0 top-0 bottom-0 w-2 h-[1028px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div> 
 
@@ -20,10 +20,10 @@ const Behindthescene = () => {
                   antics—Gorillas’-style! </p>
           </div>
 
-          <Image className='absolute md:left-[38.5%] sm:left-10 md:top-[192px] sm:top-[-60px] md:w-[974.297px] md:h-[799.968px] sm:w-[332.62px] sm:h-[640.07px]' src="/images/behind-the-scene-decor.svg" alt='decor-foto' width={974.297} height={799.968}/>
+          <Image className='absolute md:left-[38.5%] sm:left-10 md:top-[192px] sm:top-[-60px] md:w-full md:h-[799.968px] sm:w-[332.62px] sm:h-[640.07px]' src="/images/behind-the-scene-decor.svg" alt='decor-foto' width={974.297} height={799.968}/>
 
           {/* Block 1 */}
-          <div className='md:w-[80%] sm:w-full h-[300.94px] flex md:flex-row sm:flex-col gap-28 md:mt-[81px] sm:mt-[70px] md:ml-[24.5%] sm:ml-14'>
+          <div className='md:w-full sm:w-full h-[300.94px] flex md:flex-row sm:flex-col gap-28 md:mt-[81px] sm:mt-[70px] md:ml-[24.5%] sm:ml-14'>
               <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10 md:w-[400px] md:h-[300px] sm:w-[160px] sm:h-[120px]' src="/images/behindthescene-foto-1.svg" alt='foto' width={400} height={300}/>
               <div className='md:mt-[104px] sm:mt-[-50px]'>
                   <h1 className='uppercase tracking-[2px]  font-VcrMono text-[#73E338] md:text-[20px] sm:text-[10px] min-w-[399px] '>Unveiling the Gorilla Hustle:</h1> 
@@ -32,7 +32,7 @@ const Behindthescene = () => {
           </div>
 
           {/* Block 2 */}
-          <div className='w-[80%] h-[403.94px] flex md:flex-row sm:flex-col-reverse md:gap-28 sm:gap-5 md:mt-[81px] sm:mt-[50px] ml-[24.5%] z-10'>
+          <div className='w-full h-[403.94px] flex md:flex-row sm:flex-col-reverse md:gap-28 sm:gap-5 md:mt-[81px] sm:mt-[50px] ml-[24.5%] z-10'>
               <div className='flex flex-col md:w-[380px] sm:w-[198px] md:h-[402.3px] sm:h-[120px]'>               
                   <h1 className='uppercase tracking-[1.5px] font-VcrMono text-white md:text-[15px] sm:text-[7px] md:w-[410px] sm:w-[250px] h-[200px] z-10'>
                   Ever tried catching a gorilla? They're the jet-setters of the animal kingdom, zipping
@@ -46,7 +46,7 @@ const Behindthescene = () => {
                   gathering specialized gear—hop, hop, direct to production, and voilà, the project's a wrap in a blink.
                   </h1>
               </div>
-              <div className='md:mt-[35px] sm:mt-0 md:w-[400px] md:h-[300px] sm:w-[168px] sm:h-[126px]'>
+              <div className='md:mt-[35px] sm:mt-0 md:w-full md:h-[300px] sm:w-[168px] sm:h-[126px]'>
                   <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10' src="/images/behindthescene-foto-2.svg" alt='foto' width={400} height={300}/>
               </div>
           </div>

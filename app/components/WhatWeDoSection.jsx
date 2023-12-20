@@ -1,11 +1,13 @@
 // WhatWeDoSection.jsx
 import Popup from "./Popup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageWrapper from "./ImageWrapper";
 
 const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
+  const [activeSection, setActiveSection] = useState(1); 
+  const isMobile = window.innerWidth <= 768;
   
 
   const openPopup = (label) => {
@@ -19,10 +21,34 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   };
 
 
+  useEffect(() => {
+    if (isMobile) {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        // Adjust these values based on your layout and requirements
+        if (scrollPosition <= window.innerHeight / 2) {
+          setActiveSection(1);
+        } else if (scrollPosition <= window.innerHeight * 1.5) {
+          setActiveSection(2);
+        } else if (scrollPosition <= window.innerHeight * 2.5) {
+          setActiveSection(3);
+        } else if (scrollPosition <= window.innerHeight * 3.5) {
+          setActiveSection(4);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [isMobile]);
+
   
 
   return (
-    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] justify-center flex gap-[52px] flex-col sm:mb-[24px] md:mb-0">
+    <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] justify-center flex gap-[30px] flex-col sm:mb-[24px] md:mb-0">
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
       <h1 className="text-white text-[40px] text-center md:mt-[-80px] sm:mt-0  uppercase">
         what we do
@@ -42,6 +68,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
               const label = index === 1 ? "Photography" : index === 2 ? 'Videography' : index === 3 ? 'Location Scouting' : index === 4 ? 'Social Media' : '';
               openPopup(label);
             }}
+            isArrowGreen={isMobile && activeSection === index}
           />
         ))}
       </div>

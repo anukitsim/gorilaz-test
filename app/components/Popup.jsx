@@ -30,6 +30,8 @@ const PopupGallery = () => {
     if (gallery) {
       gallery.addEventListener("scroll", handleScroll);
 
+      
+
       // Remove the event listener when the component is unmounted
       return () => {
         gallery.removeEventListener("scroll", handleScroll);
@@ -66,8 +68,16 @@ const PopupGallery = () => {
 
   const handleHover = (event, index) => {
     const div = event.currentTarget;
-    div.style.width = "480px";
-    div.style.height = "480px";
+
+    const isMobile = window.innerWidth <= 768; 
+
+    if (isMobile) {
+      div.style.width = "100%"; // Set to the size of the container on mobile
+      div.style.height = "auto"; // Adjust as needed
+    } else {
+      div.style.width = "480px";
+      div.style.height = "480px";
+    }
   };
 
   const handleLeave = (event, index) => {
@@ -86,7 +96,7 @@ const PopupGallery = () => {
       {Array.from({ length: 10 }, (_, index) => (
         <div
           key={index}
-          className="gallery-item flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
+          className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
           style={{
             width: `${divDimensions[index].width}px`,
             height: `${divDimensions[index].height}px`,
@@ -122,7 +132,7 @@ const Popup = ({ onClose, sectionTitle }) => {
 
   return (
     <div className="popup-overlay fixed top-0 left-0 flex flex-col items-center justify-center w-full bg-transparent overflow-hidden">
-      <div className="md:w-10/12 sm:w-full bg-opacity-2 backdrop-filter backdrop-blur-[47px] shadow-md relative  max-h-full overflow-y-auto">
+      <div className="md:w-9/12 sm:w-full bg-opacity-2 backdrop-filter backdrop-blur-[47px] shadow-md relative  max-h-full overflow-y-auto">
    
         <div className="relative">
           <p className="text-[#FFF] text-4xl tracking-wide uppercase absolute -top-28 left-11">

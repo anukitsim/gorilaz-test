@@ -63,7 +63,7 @@ const Scroll = () => {
  
   return (
     <>
-      <div className="scroll-container  overflow-x-scroll overflow-y-hidden " ref={containerRef}>
+      <div className="scroll-container md:h-[500px]  overflow-x-scroll overflow-y-hidden " ref={containerRef}>
         <div className="flex md:h-[390px] sm:h-[200px] sm:mt-[11px] md:mt-[26px] relative">
         {blocks.map((block, index) => (
             <div key={index} className="scroll-item w-[181px] mr-[2px] h-[338.906px]"  onClick={() => openPopup(blocks[index])}>
@@ -98,13 +98,16 @@ const Scroll = () => {
                     alt="arrow"
                     width={11}
                     height={11}
-                    className="absolute md:bottom-[18px] sm:bottom-[17px] md:left-28 sm:left-24"
+                    className="absolute md:bottom-[18px] sm:bottom-[17px] md:left-24 sm:left-24"
                   />
                 </div>
               </div>
+              
             </div>
           ))}
+         
         </div>
+       
       </div>
       {isPopupOpen && (
         <Popup onClose={closePopup}  sectionTitle={popupSectionTitle} />

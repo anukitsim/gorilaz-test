@@ -87,7 +87,7 @@ const Header = () => {
 
   return (
     <div
-      className="md:w-full sm:w-11/12 sm:ml-5   md:h-[790px] sm:h-[266px] flex  justify-center"
+      className="md:w-full sm:w-11/12 sm:ml-5 md:ml-0  md:h-[790px] sm:h-[266px] flex  justify-center"
       id="header"
     >
       <div
