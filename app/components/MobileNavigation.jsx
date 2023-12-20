@@ -41,9 +41,9 @@ const MobileNavigation = () => {
 
     {/* Taller folder */}
     {isOpened && (
-      <div className="taller-folder flex flex-row absolute w-[270px] h-[180px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656]  rounded-br-[5px] z-[99]">
+      <div className="taller-folder flex flex-row absolute w-[220px] h-[180px] top-0 left-[24px] right-[125px] bg-[#181818] border border-solid border-[#565656]  rounded-br-[5px] z-[99]">
         
-        <div className="arrow w-[270px] h-[8px] bg-[#565656] rounded-tl-[15px]  absolute -top-2 -left-[1px] z-20 flex items-center justify-end pr-1">
+        <div className="arrow w-[220px] h-[8px] bg-[#565656] rounded-tl-[15px]  absolute -top-2 -left-[1px] z-20 flex items-center justify-end pr-1">
           <Image
             src='/images/arrow.svg'
             alt="logo"
@@ -51,12 +51,12 @@ const MobileNavigation = () => {
             height={11}
           />
         </div>
-        <ul className='text-[#73E338] text-[8px] uppercase flex flex-col whitespace-nowrap gap-[3px] p-[7px]'>
+        <ul className='text-[#73E338] text-[12px] uppercase flex flex-col whitespace-nowrap gap-[3px] p-[7px]'>
           <Link href='/'>home</Link>
           <li onClick={handleGorillasSubMenuToggle}>
             <span style={{ cursor: 'pointer' }}>gorillas’</span>
             {isGorillasSubMenuOpen && (
-              <ul className="submenu text-white text-[8px] gap-[4px] flex flex-col">
+              <ul className="submenu text-white text-[10px] gap-[4px] flex flex-col">
                 <Link href='/gorilas/our-team' className=' uppercase'>Our Team</Link>
                 <Link href='/gorilas/behind-the-scene' className=' uppercase'>Behind the Scenes</Link>
               </ul>
@@ -65,7 +65,7 @@ const MobileNavigation = () => {
           <li onClick={handlePortfolioSubMenuToggle} >
             <span style={{ cursor: 'pointer' }}>portfolio</span>
             {isPortfolioSubMenuOpen && (
-              <ul className="submenu text-white text-[8px] flex flex-col">
+              <ul className="submenu text-white text-[10px] flex flex-col">
                 <Link  href="/portfolio/industries" className='mt-[4px] uppercase'>gorillas’industries</Link>
               </ul>
             )}
@@ -73,7 +73,7 @@ const MobileNavigation = () => {
           <li onClick={handleWhatWeDoSubMenuToggle} >
             <span style={{ cursor: 'pointer' }}>what we do</span>
             {isWhatWeDoSubMenuOpen && (
-              <ul className="submenu text-white text-[8px] gap-[4px] flex flex-col">
+              <ul className="submenu text-white text-[10px] gap-[4px] flex flex-col">
                 <Link  href="/process" className=' uppercase'>process</Link>
                 <Link href="/services" className=' uppercase'>services</Link>
               </ul>
