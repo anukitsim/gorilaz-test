@@ -91,8 +91,8 @@ const Header = () => {
       id="header"
     >
       <div
-        id="header"
-        className="top-28 md:w-9/12 sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
+        
+        className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
       >
         <Image
           className="absolute right-0 top-1/3 md:w-[14.35px] md:h-[211.64px] sm:w-[8.403px] sm:h-[80px]"
@@ -101,7 +101,7 @@ const Header = () => {
           width={3}
           height={50}
         />
-        <div className="absolute inset-0 flex items-center   justify-center">
+        <div className="absolute inset-0 flex items-center justify-center">
           <div className="md:w-1/4 md:h-[133px] sm:w-[65.861px] sm:h-[31.808px] border-t-2 border-l-2 border-white  absolute left-1 top-0"></div>
           <div className="md:w-1/4 md:h-[133px] sm:w-[65.861px] sm:h-[31.808px] border-t-2 border-r-2 border-white  absolute right-1 top-0"></div>
           <div className="md:w-2/6 md:h-[133.391px] sm:w-[81px] sm:h-[31px] border-b-2 border-l-2 border-white  absolute left-1 md:bottom-3 sm:bottom-0"></div>

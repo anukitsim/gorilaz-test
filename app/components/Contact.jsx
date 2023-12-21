@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 const Contact = () => {
   return (
-    <section className='2sm:mt-[112px] sm:mt-[50px] w-9/12 2sm:h-[809px] sm:h-[350px] mx-auto flex flex-col items-center justify-start'>
+    <section className='2sm:mt-[112px] sm:mt-[50px] w-[72%] 2sm:h-[809px] sm:h-[350px] mx-auto flex flex-col items-center justify-start'>
         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 2sm:h-[810px] sm:h-[390px] "></div>
 
         {/* TITLE */}

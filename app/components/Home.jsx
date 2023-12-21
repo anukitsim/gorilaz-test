@@ -155,9 +155,9 @@
 <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
 <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
 <div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
-      <ProductionPhase title="pre production" />
-      <ProductionPhase title="production" />
-      <ProductionPhase title="post production" />
+      <ProductionPhase title="pre production" imageSrc="/images/pre-production-image.svg"/>
+      <ProductionPhase title="production"  imageSrc="/images/production-image.svg"/>
+      <ProductionPhase title="post production"imageSrc="/images/post-production-image.svg" />
     </div>
 <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
 </div>

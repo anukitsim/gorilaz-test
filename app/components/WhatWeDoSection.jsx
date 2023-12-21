@@ -1,39 +1,44 @@
 // WhatWeDoSection.jsx
 import Popup from "./Popup";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ImageWrapper from "./ImageWrapper";
 
 const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
-  const [activeSection, setActiveSection] = useState(1); 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-  
+  const [activeSection, setActiveSection] = useState(1); // Set an initial value
+  const [isMobile, setIsMobile] = useState(false);
 
-  const openPopup = (label) => {
-    setPopupSectionTitle(label);
-    setIsPopupOpen(true);
-  };
+  useEffect(() => {
+    // Set initial value of isMobile after component mounts
+    setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 768);
+  }, []);
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    setPopupSectionTitle(""); 
-  };
+  console.log("Is Mobile:", isMobile);
 
+  const whatWeDoSectionRef = useRef(null);
 
   useEffect(() => {
     if (isMobile) {
       const handleScroll = () => {
-        const scrollPosition = window.scrollY || window.pageYOffset;
-        // Adjust these values based on your layout and requirements
-        if (scrollPosition <= window.innerHeight / 2) {
-          setActiveSection(1);
-        } else if (scrollPosition <= window.innerHeight * 1.5) {
-          setActiveSection(2);
-        } else if (scrollPosition <= window.innerHeight * 2.5) {
-          setActiveSection(3);
-        } else if (scrollPosition <= window.innerHeight * 3.5) {
-          setActiveSection(4);
+        // Check if the ref is not null before accessing getBoundingClientRect
+        if (whatWeDoSectionRef.current) {
+          // Use the current offset of the "What We Do" section as a reference point
+          const sectionTop =
+            whatWeDoSectionRef.current.getBoundingClientRect().top;
+
+          const scrollPosition = window.scrollY || window.pageYOffset;
+
+          // Adjust these values based on your layout and requirements
+          if (scrollPosition <= sectionTop) {
+            setActiveSection(1);
+          } else if (scrollPosition <= sectionTop * 1.5) {
+            setActiveSection(2);
+          } else if (scrollPosition <= sectionTop * 2.5) {
+            setActiveSection(3);
+          } else if (scrollPosition <= sectionTop * 3.5) {
+            setActiveSection(4);
+          }
         }
       };
 
@@ -58,7 +63,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
         {[1, 2, 3, 4].map((index) => (
           <ImageWrapper
             key={index}
-            src={`/images/portfolio${index === 1 || index === 3 ? 1 : 2}.svg`}
+            src={`/images/portfolio${index}.svg`}
             alt={`image-${index}`}
             label={index === 1 ? "Photography" : index === 2 ? 'videography'  : index === 3 ? 'location scouting ' : index === 4 ? 'social media' : ''} 
             isHovered={hoverStates[index]}

@@ -79,7 +79,6 @@ const Scroll = () => {
     "fashion",
     "educatuion",
     "entertainment",
-    "Food and Beverages",
     "Agriculture",
     "Healthcare",
     "HORECA Sectors",

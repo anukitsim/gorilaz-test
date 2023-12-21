@@ -6,7 +6,7 @@ const Process = () => {
     
    
     <div className='flex justify-start md:mt-[126px] 2sm:mt-[80px] sm:mt-[50px] items-center flex-col md:h-[1361px] 2sm:h-[1340px] sm:h-[1100px] gap-5'>      
-         <div className='flex justify-center relative flex-row w-9/12'>
+         <div className='flex justify-center relative flex-row w-[72%]'>
             {/* Decor lines */}          
             <div className='absolute left-0 top-0 bottom-0 w-2 md:h-[1270px] 2sm:h-[1450px] sm:h-[1120px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div>
             <div className='absolute right-0 top-0 bottom-0 w-2 md:h-[1270px] 2sm:h-[1450px] sm:h-[1120px] bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>             

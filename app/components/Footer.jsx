@@ -4,7 +4,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div>
-      <footer className="w-full  2sm:h-[409px] sm:h-[370px] sm:mt-12 md:mt-0 relative flex justify-center items-center ">
+      <footer className="w-full  2sm:h-[409px] sm:h-[270px] relative flex justify-center items-center ">
         <div className="sm:h-[205px] 2sm:h-[280px] md:h-[200px] sm:w-[85%] md:w-[50%] 2sm:h-[203px] 2sm:w-[69%] sm:w-[313px] sm:h-[105px] relative flex  place-content-around 2sm:pt-[30px] sm:pt-[10px]">
           {/* <Image src="/images/footerFoto.svg" alt="(+-)-foto" width={4.01} height={59.2} className="right-0 z-50" /> */}
           <div className="md:w-[97%] 2sm:w-[98%] sm:w-[95%] md:h-[55%] sm:h-[66%] border-t-2 border-l-2 border-white  absolute -left-1 -top-1"></div>
@@ -60,7 +60,7 @@ const Footer = () => {
 
                 <ul className="flex flex-col 2sm:h-[134px] sm:h-[80px] sm:mt-[14px] gap-[4.7px] ">
                     <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:block 2sm:block md:hidden sm:text-[12px] text-[#73E338]">connect</h2>
-                <div className="flex flex-row  2sm:flex 2sm:flex-row 2sm:max-w-[100px]  sm:block  md:hidden sm:max-w-[70px] gap-1.5">
+                <div className="flex sm:flex flex-row  2sm:flex 2sm:flex-row 2sm:max-w-[100px]  sm:block 2sm:block md:hidden sm:max-w-[70px] gap-1.5">
                   <Link href="#" className="z-50">
                     <Image
                       src="/images/facebook.svg"
@@ -171,13 +171,13 @@ const Footer = () => {
       <div className="flex flex-col  mx-auto justify-center w-80 h-[185.39px] 2sm:mt-[150px] 2sm:mb-[30px] sm:mt-[30px]">
         <div className="flex flex-col items-center  2sm:mb-[20px] sm:mb-[5px]">
           <Image
-            src='/images/logo.png'
+            src='/images/logo.svg'
             alt="logo"
-            width={213}
-            height={143}
-            className="2sm:w-[100px] 2sm:h-[100px] sm:w-[60px] sm:h-[60px] md:w-[213px] md:h-[143px]"
+            width={100}
+            height={100}
+            className="2sm:w-[100px] 2sm:h-[100px] sm:w-[60px] sm:h-[60px]"
             />
-             
+              <h1 className="2sm:text-[15px] 2sm:tracking-[2.25px] sm:text-[8px] sm:tracking-[1.2px] text-white uppercase 2sm:mt-[24px] sm:mt-[12px] font-ASSUAN  ">Gorillas’ PRODUCTION</h1>
         </div>
       
         <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] font-VcrMono ">WWW.GORILLASPRODACTION.GE <br /> 

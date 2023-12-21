@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Portfolio = () => {
   return (
-    <section className="md:w-9/12 sm:w-full flex  mx-auto mt-[134px] h-[580px]">
+    <section className="md:w-[72%] sm:w-full flex  mx-auto mt-[134px] h-[580px]">
       <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-[120%] z-50"></div>
 
       <div className="flex flex-col items-center w-full">

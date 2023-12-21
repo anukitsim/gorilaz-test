@@ -9,7 +9,7 @@ const ProductionPhase = ({ title, imageSrc }) => {
       <div className="relative">
         <div className="absolute inset-0 flex items-center justify-center">
           <Image
-            src={`/images/process-foto-1.svg`}
+            src={imageSrc}
             alt="rounded"
             width={174}
             height={120}
