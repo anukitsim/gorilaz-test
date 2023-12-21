@@ -10,9 +10,37 @@ const Scroll = () => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
+  const [activeSection, setActiveSection] = useState(0); 
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
   
+  useEffect(() => {
+    if (isMobile) {
+      const handleScroll = () => {
+        const container = containerRef.current;
+        const containerRect = container.getBoundingClientRect();
+        const itemWidth = containerRect.width / 3; // Assuming you want 3 items visible at a time
+        const activeSection = Math.round((container.scrollLeft + itemWidth / 3) / itemWidth);
 
+        if (activeSection) {
+          setActiveSection(1);
+        } else if (scrollPosition <= window.innerHeight * 1.5) {
+          setActiveSection(2);
+        } else if (scrollPosition <= window.innerHeight * 2.5) {
+          setActiveSection(3);
+        } else if (scrollPosition <= window.innerHeight * 3.5) {
+          setActiveSection(4);
+        }
+      };
+
+      const container = containerRef.current;
+      container.addEventListener("scroll", handleScroll);
+
+      return () => {
+        container.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [isMobile]);
 
   const openPopup = (sectionTitle) => {
     setPopupSectionTitle(sectionTitle);
@@ -26,24 +54,24 @@ const Scroll = () => {
   const containerRef = useRef(null);
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = containerRef.current;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const container = containerRef.current;
      
 
    
-    };
+  //   };
 
-    const container = containerRef.current;
-    container.addEventListener("scroll", handleScroll);
-
-
+  //   const container = containerRef.current;
+  //   container.addEventListener("scroll", handleScroll);
 
 
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+
+
+  //   return () => {
+  //     container.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const blocks = [
     "tourism",
@@ -91,14 +119,14 @@ const Scroll = () => {
                   </span>
                   <Image
                     src={
-                      hoveredItems[index]
+                      hoveredItems[index] || index + 1 === activeSection
                         ? "/images/gallery-errow-green.svg"
                         : "/images/galerry-errow.svg"
                     }
                     alt="arrow"
                     width={11}
                     height={11}
-                    className="absolute md:bottom-[18px] sm:bottom-[17px] md:left-24 sm:left-24"
+                    className="absolute md:bottom-[18px] sm:bottom-[17px] md:left-24 sm:left-20"
                   />
                 </div>
               </div>

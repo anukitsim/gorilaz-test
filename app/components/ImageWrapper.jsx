@@ -2,6 +2,8 @@
 import Image from "next/image";
 
 const ImageWrapper = ({ src, alt, label, isHovered, onMouseEnter, onMouseLeave, onClick, isArrowGreen }) => {
+
+  
   return (
     <div
       className="flex flex-col gap-2"

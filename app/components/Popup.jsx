@@ -187,7 +187,7 @@ const Popup = ({ onClose, sectionTitle }) => {
           />
           <button
             type="submit"
-            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[20px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[20px] text-black text-[15px] sm:mb-[85px] sm:text-[15px] sm:font-bold rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>

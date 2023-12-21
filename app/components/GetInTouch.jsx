@@ -38,7 +38,7 @@ const GetInTouch = () => {
           />
           <button
             type="submit"
-            className="submit-text font-bold 2sm:w-2/4 sm:w-full text-center 2sm:h-[45px] sm:h-[18px] text-black md:text-[18px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="submit-text font-bold 2sm:w-2/4 sm:w-full text-center 2sm:h-[45px] sm:h-[18px] text-black md:text-[18px] sm:text-[8px] sm:mb-[85px] sm:font-bold rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>
