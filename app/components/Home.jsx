@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 import Image from "next/image";
 import RunningLine from "./RunningLine";
@@ -7,6 +8,8 @@ import Popup from "./Popup";
 import Scroll from "./Scroll";
 import WhatWeDoSection from "./WhatWeDoSection";
 import ProductionPhase from "./ProductionPhase";
+import Video1 from "./video1";
+import Video2 from "./Video2";
 
 const Home = ({
   isPopupOpen,
@@ -91,16 +94,8 @@ const Home = ({
               height={234}
               className="md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]"
             />
+          <Video1 />
 
-            <video
-              className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px]"
-              autoPlay
-              muted
-              loop
-   
-            >
-              <source src="/video/1.mp4" />
-            </video>
             <div className="absolute md:top-[504px] sm:top-[200px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
             <div className="absolute md:top-[722px] sm:top-[308px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
             <div className="absolute md:top-[940px] sm:top-[416px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
@@ -130,14 +125,8 @@ const Home = ({
         <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
          
-          <video
-            className="outline md:w-[1000px] md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
-            autoPlay
-            muted
-            loop
-          >
-            <source src="/video/2.mp4" />
-          </video>
+          
+          <Video2 />
           <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
         </div>
         <div className="border-t border-t-white overflow-hidden"></div>
@@ -145,18 +134,7 @@ const Home = ({
         <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
           <div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
-            <ProductionPhase
-              title="pre production"
-              imageSrc="/images/pre-production-image.svg"
-            />
-            <ProductionPhase
-              title="production"
-              imageSrc="/images/production-image.svg"
-            />
-            <ProductionPhase
-              title="post production"
-              imageSrc="/images/post-production-image.svg"
-            />
+          <ProductionPhase />
           </div>
           <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
         </div>

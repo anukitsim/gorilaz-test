@@ -18,7 +18,7 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
       ></div>
       <div className="back hidden bg-[#181818] w-full h-full border border-white">
         <div className="flex flex-col items-baseline">
-          <h2 className="text-[15px] uppercase text-[#45FC4C] mt-[75px] self-end pr-5 pt-5">
+          <h2 className="text-[15px] uppercase text-[#3c463c] mt-[75px] self-end pr-5 pt-5">
             {name}
           </h2>
           <div className="flex flex-col items-baseline pl-28 pt-10">
@@ -46,11 +46,13 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
 
 const OurTeam = () => {
   const [teamMembers, setTeamMembers] = useState([]);
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
 
   const getImageUrl = async (imageId) => {
     try {
       const res = await fetch(
-        `http://gorillaz.local/wp-json/wp/v2/media/${imageId}`
+        `${apiUrl}/media/${imageId}`
       );
       if (!res.ok) {
         throw new Error(`Failed to fetch image data: ${res.statusText}`);
@@ -64,8 +66,7 @@ const OurTeam = () => {
     }
   };
 
-  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
-
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {

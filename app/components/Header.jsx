@@ -17,7 +17,7 @@ const Header = () => {
   const getVideoUrl = async (videoId) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${videoId}`);
-      console.log('API Response:', response);
+    
       if (!response.ok) {
         if (response.status === 404) {
           console.warn(`Video with ID ${videoId} not found.`);
@@ -39,10 +39,10 @@ const Header = () => {
     const fetchHeaderVideo = async () => {
       try {
         const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/header?acf_format=standard&_fields=id,title,acf`;
-        console.log("API URL:", apiUrl);
+       
 
         const response = await fetch(apiUrl);
-        console.log('API Response:', response);
+        
 
         const data = await response.json();
 
