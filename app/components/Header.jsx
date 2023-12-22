@@ -1,3 +1,5 @@
+// header.jsx
+
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -7,19 +9,20 @@ import { usePathname } from "next/navigation";
 import Folder from "./Folder";
 
 const Header = () => {
-
-  
   const pathname = usePathname();
   const [isBlurActive, setIsBlurActive] = useState(true);
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
 
-  
-  
   const getVideoUrl = async (videoId) => {
     try {
-      const response = await fetch(`http://gorillaz.local/wp-json/wp/v2/media/${videoId}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${videoId}`);
+      console.log('API Response:', response);
       if (!response.ok) {
+        if (response.status === 404) {
+          console.warn(`Video with ID ${videoId} not found.`);
+          return null;
+        }
         throw new Error(`Failed to fetch video data: ${response.statusText}`);
       }
 
@@ -35,23 +38,22 @@ const Header = () => {
     console.log("Header component mounted or updated");
     const fetchHeaderVideo = async () => {
       try {
-        const response = await fetch("http://gorillaz.local/wp-json/wp/v2/header");
+        const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/header?acf_format=standard&_fields=id,title,acf`;
+        console.log("API URL:", apiUrl);
+
+        const response = await fetch(apiUrl);
+        console.log('API Response:', response);
+
         const data = await response.json();
-    
+
         if (Array.isArray(data) && data.length > 0) {
-          const headerVideoId = data[0].acf.header_video;
-    
-          if (headerVideoId) {
-            const videoUrl = await getVideoUrl(headerVideoId);
-    
-            if (videoUrl) {
-              setVideoUrl(videoUrl);
-              console.log("Video URL:", videoUrl);
-            } else {
-              console.error("Header video URL not found or invalid:", headerVideoId);
-            }
+          const headerVideoUrl = data[0].acf.header_video;
+
+          if (headerVideoUrl) {
+            setVideoUrl(headerVideoUrl);
+            console.log("Video URL:", headerVideoUrl);
           } else {
-            console.error("Header video ID not found in the response:", data);
+            console.error("Header video URL not found or invalid:", headerVideoUrl);
           }
         } else {
           console.error("No headers found in the response:", data);
@@ -60,7 +62,7 @@ const Header = () => {
         console.error("Error fetching header video:", error);
       }
     };
-    
+
     fetchHeaderVideo();
   }, []);
 
@@ -84,7 +86,6 @@ const Header = () => {
   };
 
   // Get the current pathname from the window location
-
   const title = titles[pathname] || "";
 
   return (
@@ -93,7 +94,6 @@ const Header = () => {
       id="header"
     >
       <div
-        
         className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
       >
         <Image
@@ -130,18 +130,18 @@ const Header = () => {
         </div>
 
         <div className="absolute inset-2 right-7 z-0 flex md:items-center sm:items-end md:justify-end sm:justify-end videoBackdrop">
-        {videoUrl && (
-  <video
-    ref={videoRef}
-    autoPlay
-    muted
-    loop
-    className="object-cover md:w-8/12 sm:w-11/12 md:h-[415px] sm:h-[190px] video"
-    onMouseOver={handleVideoHover}
-  >
-    <source src={videoUrl} type="video/mp4" />
-  </video>
-)}
+          {videoUrl && (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              className="object-cover md:w-8/12 sm:w-11/12 md:h-[415px] sm:h-[190px] video"
+              onMouseOver={handleVideoHover}
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
+          )}
         </div>
       </div>
     </div>

@@ -3,6 +3,10 @@ const nextConfig = {
     images: {
         domains: ['gorillaz.local'],
       },
+      remotePatterns: {
+        protocol: 'http',
+        hostname: 'localhost'
+      }
 }
 
 module.exports = nextConfig

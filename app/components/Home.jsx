@@ -31,6 +31,7 @@ const Home = ({
     }));
   };
 
+
   return (
     <>
       <section className="border-t md:ml-0  md:w-full sm:w-full mt-[130px] border-t-white  overflow-hidden">

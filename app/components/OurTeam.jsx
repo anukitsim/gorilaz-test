@@ -64,11 +64,13 @@ const OurTeam = () => {
     }
   };
 
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "http://gorillaz.local/wp-json/wp/v2/team-member"
+          `${apiUrl}/team-member`
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
