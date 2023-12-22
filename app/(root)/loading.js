@@ -1,10 +1,10 @@
 import React from 'react'
-import Loader from '@app/components/Loader'
+
 
 const Loading = () => {
   return (
-    <div>
-      <Loader />
+    <div className='text-white text-9xl'>
+      Loading...
     </div>
   )
 }

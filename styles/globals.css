@@ -350,36 +350,3 @@ background-repeat: repeat-x;
   object-fit: cover; /* Maintain aspect ratio */
 }
 
-.globalLoader {
-  position: fixed;
-  z-index: 9999;
-  top: 50%;
-  left: 50%;
-  background-color: black;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.bounce {
-  animation: bounce 1s infinite;
-}
-
-.loaderImage {
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
