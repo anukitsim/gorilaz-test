@@ -3,10 +3,13 @@ import Popup from "./Popup";
 import { useState, useEffect, useRef } from "react";
 import ImageWrapper from "./ImageWrapper";
 
+
+
+
 const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
-  const [activeSection, setActiveSection] = useState(1); // Set an initial value
+  const [activeSection, setActiveSection] = useState(null); 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -23,21 +26,22 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
       const handleScroll = () => {
         // Check if the ref is not null before accessing getBoundingClientRect
         if (whatWeDoSectionRef.current) {
-          // Use the current offset of the "What We Do" section as a reference point
-          const sectionTop =
-            whatWeDoSectionRef.current.getBoundingClientRect().top;
-
+          const sectionRect = whatWeDoSectionRef.current.getBoundingClientRect();
           const scrollPosition = window.scrollY || window.pageYOffset;
 
+          // Calculate the center of the section
+          const sectionCenter = sectionRect.top + sectionRect.height / 2;
+
           // Adjust these values based on your layout and requirements
-          if (scrollPosition <= sectionTop) {
-            setActiveSection(1);
-          } else if (scrollPosition <= sectionTop * 1.5) {
-            setActiveSection(2);
-          } else if (scrollPosition <= sectionTop * 2.5) {
-            setActiveSection(3);
-          } else if (scrollPosition <= sectionTop * 3.5) {
-            setActiveSection(4);
+          const threshold = sectionRect.height * 0.3;
+
+          // Check if the center of the section is within the threshold
+          if (Math.abs(sectionCenter - scrollPosition) < threshold) {
+            // Set the active section based on the index
+            const index = Math.floor((sectionCenter - scrollPosition) / threshold) + 1;
+            setActiveSection(index);
+          } else {
+            setActiveSection(null);
           }
         }
       };
@@ -50,6 +54,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
     }
   }, [isMobile]);
 
+
   
 
   return (
@@ -59,8 +64,9 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
         what we do
       </h1>
 
-      <div className="flex md:flex-row sm:flex-col gap-[24px]  items-center justify-center w-10/12 mx-auto">
+      <div className="flex md:flex-row sm:flex-col gap-[5px]  items-center justify-center  mx-auto">
         {[1, 2, 3, 4].map((index) => (
+           
           <ImageWrapper
             key={index}
             src={`/images/portfolio${index}.svg`}

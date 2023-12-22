@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import Folder from "./Folder";
 
 const Header = () => {
+
+  
   const pathname = usePathname();
   const [isBlurActive, setIsBlurActive] = useState(true);
   const videoRef = useRef(null);

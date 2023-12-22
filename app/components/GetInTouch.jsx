@@ -1,6 +1,8 @@
 import React from "react";
 
 const GetInTouch = () => {
+
+  
   return (
     <>
        <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[40px] flex justify-center md:mt-[237px] sm:mt-[80px] items-center">

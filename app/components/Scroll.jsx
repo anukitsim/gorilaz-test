@@ -10,7 +10,7 @@ const Scroll = () => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
-  const [activeSection, setActiveSection] = useState(0); 
+  const [activeSection, setActiveSection] = useState(null); 
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
   

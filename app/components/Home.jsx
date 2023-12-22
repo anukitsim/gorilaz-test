@@ -1,173 +1,169 @@
-    "use client";
+"use client";
 
-    import { useState } from "react";
-    import Image from "next/image";
-    import RunningLine from "./RunningLine";
-    import Popup from "./Popup";
-    import Scroll from "./Scroll";
-    import WhatWeDoSection from "./WhatWeDoSection";
-    import ProductionPhase from "./ProductionPhase";
+import { useState } from "react";
+import Image from "next/image";
+import RunningLine from "./RunningLine";
+import Popup from "./Popup";
+import Scroll from "./Scroll";
+import WhatWeDoSection from "./WhatWeDoSection";
+import ProductionPhase from "./ProductionPhase";
 
-
-    const Home = ({ isPopupOpen, closePopup, openPopup, blocks = [], index = 0, popupSectionTitle }) => {
-      const [hoverStates, setHoverStates] = useState({
-        1: false,
-        2: false,
-        3: false,
-        4: false,
-        
-      });
-
-      
-      
-
-
-      const handleHoverChange = (index, isHovered) => {
-        setHoverStates((prevStates) => ({
-          ...prevStates,
-          [index]: isHovered,
-        }));
-      };
-
-      return (
-        <>
-          <section className="border-t md:ml-0  md:w-full sm:w-full mt-[130px] border-t-white  overflow-hidden">
-            <div className=" mx-auto md:w-9/12 sm:w-full md:h-[1357px] relative  flex md:flex-row sm:flex-col-reverse">
-              <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-              <div className="mx-auto sm:h-[580px] relative sm:w-9/12 sm:mt-[106px] md:hidden sm:block " onClick={() => {
-                if (blocks && index !== undefined && index < blocks.length) {
-                  openPopup(blocks[index]);
-                } else {
-                  console.error("blocks, index, or blocks[index] is undefined");
-                }
-              }}>
-              <p className="text-white   uppercase tracking-[0.1em] text-[10px] mt-[65px] text-center">
-                  gorillas’industries
-                </p>
-                <Scroll />
-
-                <p className="sm:text-white  text-[10px] uppercase absolute sm:bottom-[53%] sm:left-[20px]">
-                  drag for more
-                </p>
-                </div>
-                {isPopupOpen && (
-    <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
-  )}
-              <div className="text-white md:w-1/2 sm:hidden md:block border-r h-[90%] border-r-white">
-                <p className="mt-[70px] text-[18px] uppercase pl-16 text-white">
-                  <span className="text-[#73E338]">Gorillas' Production</span>{" "}
-                  Gorillas' Production embodies a thrilling convergence of artistry, adventure and everyday lifestyle through a different angle.
-                </p>
-                <p className=" text-[18px] uppercase pl-16 pt-[12px] text-white">
-                  For over two decades, Gorilla’s have been pioneers in the realm of
-                  extreme photo and videography and the creation of evocative
-                  portraits.
-                </p>
-                <p className="text-white pt-[95px]  uppercase tracking-[0.1em] text-[20px] text-center">
-                  gorillas’industries
-                </p>
-               
-                <div className="relative sm:w-full  flex ml-10  md:w-11/12 ">
-             
-                <Scroll />
-                <p className="text-white text-[15px] uppercase absolute bottom-20 left-24 transform -translate-x-1/2">
-          drag for more
-        </p>
-             
-                </div>
-              
-
-              
-                <p className="text-white pl-10 mt-[120px] uppercase">
-                  blog here
-                </p>
-                
-              </div>
-              <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
-                <Image src="/images/logo.png" alt="logo" width={355} height={234}  className='md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]'/>
-               
-                <Image
-                  src="/images/home.svg"
-                  alt="homepage"
-                  width={370}
-                  height={433}
-                  className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-[200px] md:w-[370px]"
-                  priority
-                />
-                <div className="absolute md:top-[504px] sm:top-[200px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
-                <div className="absolute md:top-[722px] sm:top-[308px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
-                <div className="absolute md:top-[940px] sm:top-[416px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
-                <div className="absolute md:top-[722px] sm:top-[200px]  md:right-[12vw] sm:right-56  h-[34vw] w-[0.2px] bg-white"></div>
-                <Image
-                  src="/images/counter.svg"
-                  alt="homepage"
-                  width={119}
-                  height={22}
-                  className="absolute top-[1060px] sm:hidden md:block"
-                />
-                <div className="absolute md:top-[722px] sm:top-[480px] md:right-[25vw] sm:right-56  h-[34vw] w-[0.2px] bg-white"></div>
-              </div>
-              
-              <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
-            </div>
-          
-            <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
-            <div className="mx-auto relative sm:w-full sm:h-[1270px] md:h-[536px]  md:w-full">
-            
-    <WhatWeDoSection
-      hoverStates={hoverStates}
-      handleHoverChange={handleHoverChange}
-      openPopup={openPopup}
-      
-    />
-  </div>
-  <div className="border-t border-t-white overflow-hidden"></div>
-  {/* <div className=" mx-auto relative sm:w-full  md:w-9/12 h-[1100px] flex flex-col  items-center">
-    <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-    <Image
-      src="/images/home-production.svg"
-      alt="production"
-      width={1000}
-      height={520}
-      className="md:mt-24 sm:mt-10 outline outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md md:w-[1000px] md:h-[520px] sm:w-[252.11px] sm:h-[129.83px]"
-    />
-    
-    <div className="flex md:flex-row sm:flex-col md:mt-[100px] sm:mt-24 justify-center md:gap-[80px] sm:gap-[25px]">
-      <ProductionPhase title="pre production" />
-      <ProductionPhase title="production" />
-      <ProductionPhase title="post production" />
-    </div>
-    <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
-  </div> */}
-  <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
-  <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-  <Image
-      src="/images/home-production.svg"
-      alt="production"
-      width={1000}
-      height={520}
-      className="outline md:w-[1000px] md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
-    />
-  <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
-  </div>
-  <div className="border-t border-t-white overflow-hidden"></div>
-
-<div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
-<div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-<div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
-      <ProductionPhase title="pre production" imageSrc="/images/pre-production-image.svg"/>
-      <ProductionPhase title="production"  imageSrc="/images/production-image.svg"/>
-      <ProductionPhase title="post production"imageSrc="/images/post-production-image.svg" />
-    </div>
-<div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
-</div>
+const Home = ({
+  isPopupOpen,
+  closePopup,
+  openPopup,
+  blocks = [],
+  index = 0,
+  popupSectionTitle,
   
+}) => {
+  const [hoverStates, setHoverStates] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+  });
 
-  <RunningLine />
-          </section>
-        
-        </>
-      );
-    };
+  const handleHoverChange = (index, isHovered) => {
+    setHoverStates((prevStates) => ({
+      ...prevStates,
+      [index]: isHovered,
+    }));
+  };
 
-    export default Home;
+  return (
+    <>
+      <section className="border-t md:ml-0  md:w-full sm:w-full mt-[130px] border-t-white  overflow-hidden">
+        <div className=" mx-auto md:w-9/12 sm:w-full md:h-[1357px] relative  flex md:flex-row sm:flex-col-reverse">
+          <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
+          <div
+            className="mx-auto sm:h-[580px] relative sm:w-9/12 sm:mt-[106px] md:hidden sm:block "
+            onClick={() => {
+              if (blocks && index !== undefined && index < blocks.length) {
+                openPopup(blocks[index]);
+              } else {
+                console.error("blocks, index, or blocks[index] is undefined");
+              }
+            }}
+          >
+            <p className="text-white   uppercase tracking-[0.1em] text-[10px] md:mt-[65px] sm:mt-[-15%] text-center">
+              gorillas’industries
+            </p>
+            <Scroll />
+
+            <p className="sm:text-white  text-[10px] uppercase absolute sm:bottom-[70%] sm:left-[35px]">
+              drag for more
+            </p>
+          </div>
+          {isPopupOpen && (
+            <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+          )}
+          <div className="text-white md:w-1/2 sm:hidden md:block border-r h-[90%] border-r-white">
+            <p className="mt-[70px] text-[18px] uppercase pl-16 text-white">
+              <span className="text-[#73E338]">Gorillas' Production</span>{" "}
+              Gorillas' Production embodies a thrilling convergence of artistry,
+              adventure and everyday lifestyle through a different angle.
+            </p>
+            <p className=" text-[18px] uppercase pl-16 pt-[12px] text-white">
+              For over two decades, Gorilla’s have been pioneers in the realm of
+              extreme photo and videography and the creation of evocative
+              portraits.
+            </p>
+            <p className="text-white pt-[95px]  uppercase tracking-[0.1em] text-[20px] text-center">
+              gorillas’industries
+            </p>
+
+            <div className="relative sm:w-full  flex ml-10  md:w-11/12 ">
+              <Scroll />
+              <p className="text-white text-[15px] uppercase absolute bottom-20 left-24 transform -translate-x-1/2">
+                drag for more
+              </p>
+            </div>
+
+            <p className="text-white pl-10 mt-[120px] uppercase">blog here</p>
+          </div>
+          <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
+            <Image
+              src="/images/logo.png"
+              alt="logo"
+              width={355}
+              height={234}
+              className="md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]"
+            />
+
+            <video
+              className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px]"
+              autoPlay
+              muted
+              loop
+   
+            >
+              <source src="/video/1.mp4" />
+            </video>
+            <div className="absolute md:top-[504px] sm:top-[200px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
+            <div className="absolute md:top-[722px] sm:top-[308px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
+            <div className="absolute md:top-[940px] sm:top-[416px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
+            <div className="absolute md:top-[722px] sm:top-[200px]  md:right-[12vw] sm:right-56  h-[34vw] w-[0.2px] bg-white"></div>
+            <Image
+              src="/images/counter.svg"
+              alt="homepage"
+              width={119}
+              height={22}
+              className="absolute top-[1060px] sm:hidden md:block"
+            />
+            <div className="absolute md:top-[722px] sm:top-[380px] md:right-[25vw] sm:right-56  h-[34vw] w-[0.2px] bg-white"></div>
+          </div>
+
+          <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+        </div>
+
+        <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
+        <div className="mx-auto relative sm:w-full sm:h-[1270px] md:h-[536px]  md:w-full">
+          <WhatWeDoSection
+            hoverStates={hoverStates}
+            handleHoverChange={handleHoverChange}
+            openPopup={openPopup}
+          />
+        </div>  
+        <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
+        <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
+          <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
+         
+          <video
+            className="outline md:w-[1000px] md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
+            autoPlay
+            muted
+            loop
+          >
+            <source src="/video/2.mp4" />
+          </video>
+          <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+        </div>
+        <div className="border-t border-t-white overflow-hidden"></div>
+
+        <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
+          <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
+          <div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
+            <ProductionPhase
+              title="pre production"
+              imageSrc="/images/pre-production-image.svg"
+            />
+            <ProductionPhase
+              title="production"
+              imageSrc="/images/production-image.svg"
+            />
+            <ProductionPhase
+              title="post production"
+              imageSrc="/images/post-production-image.svg"
+            />
+          </div>
+          <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
+        </div>
+
+        <RunningLine />
+      </section>
+    </>
+  );
+};
+
+export default Home;

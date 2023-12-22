@@ -8,7 +8,7 @@ const Behindthescene = () => {
   <div className='flex justify-center sm:h-[850px]  items-center relative flex-col md:mt-40 sm:mt-10 '>
       
         
-      <div className='w-9/12 md:h-[1150px] sm:h-[1150px]  relative flex flex-col'>
+      <div className='w-9/12 md:h-[1150px] sm:h-[1150px] ml-9  relative flex flex-col'>
 
           <div className='absolute left-0 top-0 bottom-0 w-2 2sm:h-[848px] md:h-[1100px] sm:h-[815px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div> 
 
