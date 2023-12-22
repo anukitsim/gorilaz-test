@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Loading = () => {
+const Loader = () => {
   return (
     <div className='w-full h-full bg-black globalLoader'>
         <div className='w-11/12 h-3/4 flex justify-center items-center'>
@@ -19,4 +19,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default Loader
