@@ -1,9 +1,7 @@
-"use client";
-
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
-const PopupGallery = () => {
+const PopupGallery = ({ sectionData }) => {
   const galleryRef = useRef(null);
 
   useEffect(() => {
@@ -12,6 +10,8 @@ const PopupGallery = () => {
       const scrollPosition = gallery.scrollLeft;
       const totalWidth = gallery.scrollWidth - gallery.clientWidth;
       const percentageScrolled = (scrollPosition / totalWidth) * 100;
+
+      
 
       // Calculate the number of divs to show based on scroll position
       const numDivsToShow = Math.min(
@@ -22,15 +22,12 @@ const PopupGallery = () => {
       // Set the visibility of each div based on the calculated number
       for (let i = 1; i <= 10; i++) {
         const div = gallery.querySelector(`.gallery-item:nth-child(${i})`);
-       
       }
     };
 
     const gallery = galleryRef.current;
     if (gallery) {
       gallery.addEventListener("scroll", handleScroll);
-
-      
 
       // Remove the event listener when the component is unmounted
       return () => {
@@ -39,41 +36,22 @@ const PopupGallery = () => {
     }
   }, []);
 
-  // Define dimensions for each div
-  const divDimensions = [
-    { width: 400, height: 480 },
-    { width: 400, height: 369.9 },
-    { width: 300.34, height: 480 },
-    { width: 400, height: 480 },
-    { width: 400, height: 369.9 },
-    { width: 300.34, height: 480 },
-    { width: 400, height: 480 },
-    { width: 400, height: 369.9 },
-    { width: 300, height: 480 },
-    { width: 400, height: 369.9 },
-  ];
-
-  const text = [
-    "Portrait",
-    "Landscape",
-    "Urban",
-    "real estate",
-    "documentary",
-    "advertising",
-    "events",
-    "photojournalism",
-    "aerial",
-    "film"
-  ];
-
+  const divDimensions = Array.from(
+    { length: Object.keys(sectionData.acf).filter(key => key.startsWith("text")).length },
+    (_, index) => ({
+      width: 300 + Math.random() * 100,
+      height: 400 + Math.random() * 80,
+    })
+  );
+    
   const handleHover = (event, index) => {
     const div = event.currentTarget;
 
-    const isMobile = window.innerWidth <= 768; 
+    const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-      div.style.width = "100%"; // Set to the size of the container on mobile
-      div.style.height = "auto"; // Adjust as needed
+      div.style.width = "100%";
+      div.style.height = "auto";
     } else {
       div.style.width = "480px";
       div.style.height = "480px";
@@ -86,40 +64,56 @@ const PopupGallery = () => {
     div.style.height = `${divDimensions[index].height}px`;
   };
 
+
   return (
     <div
-      ref={galleryRef}
-      className="flex overflow-x-scroll  popup-scroll md:w-11/12 sm:w-full overflow-y-hidden gap-0.5 mt-[200px] sm:pl-5 sm:pr-5 md:pl-0 md:pr-0 md:ml-10 h-full"
-      style={{ scrollSnapType: "x mandatory" }}
-    >
-      <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 -top-[200px] bg-repeat-y w-2 h-[165%] z-50"></div>
-      {Array.from({ length: 10 }, (_, index) => (
-        <div
-          key={index}
-          className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
-          style={{
-            width: `${divDimensions[index].width}px`,
-            height: `${divDimensions[index].height}px`,
-            backgroundImage: `url("/images/popgroup.png")`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          onMouseEnter={(event) => handleHover(event, index)}
-          onMouseLeave={(event) => handleLeave(event, index)}
-        >
-          {/* Add your content for each div here */}
-          <p className="p-[20px] text-[20px] tracking-wide uppercase">{text[index]}</p>
-        </div>
-      ))}
-      <p className="text-white z-50 absolute bottom-36 uppercase text-[10px]">drag for more</p>
-    
-    </div>
+    ref={galleryRef}
+    className="flex overflow-x-scroll popup-scroll md:w-11/12 sm:w-full overflow-y-hidden gap-0.5 mt-[200px] sm:pl-5 sm:pr-5 md:pl-0 md:pr-0 md:ml-10 h-full"
+    style={{ scrollSnapType: "x mandatory" }}
+  >
+    <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 -top-[200px] bg-repeat-y w-2 h-[165%] z-50"></div>
+    {sectionData.acf &&
+  Object.keys(sectionData.acf).map((key) => {
+    if (key.startsWith("gallery-image")) {
+      const index = parseInt(key.replace("gallery-image", ""), 10) - 1;
+      const textKey = `text${index + 1}`;
+      const text = sectionData.acf[textKey];
+
+      // Render div only if the text is defined and not empty
+      if (text && text.trim() !== "") {
+        return (
+          <div
+            key={index}
+            className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
+            style={{
+              width: `${divDimensions[index].width}px`,
+              height: `${divDimensions[index].height}px`,
+              backgroundImage: `url("${sectionData.acf[key]}")`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            onMouseEnter={(event) => handleHover(event, index)}
+            onMouseLeave={(event) => handleLeave(event, index)}
+          >
+            <p className="p-[20px] text-[20px] tracking-wide uppercase">{text}</p>
+          </div>
+        );
+      }
+    }
+    return null;
+  })}
+
+
+    <p className="text-white z-50 absolute bottom-36 uppercase text-[10px]">
+      drag for more
+    </p>
+  </div>
   );
 };
 
 
-const Popup = ({ onClose, sectionTitle }) => {
+const Popup = ({ onClose, sectionTitle, popupData }) => {
   useEffect(() => {
     // Add a class to the body to disable vertical scrolling
     document.body.classList.add("overflow-y-hidden");
@@ -138,7 +132,7 @@ const Popup = ({ onClose, sectionTitle }) => {
           <p className="text-[#FFF] text-4xl tracking-wide uppercase absolute -top-28 left-11">
             {sectionTitle}
           </p>
-          <PopupGallery />
+          <PopupGallery sectionData={popupData}/>
           <Image
             src="/images/cross.svg"
             alt="close"

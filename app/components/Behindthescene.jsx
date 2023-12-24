@@ -1,8 +1,45 @@
-import React from 'react'
-import Image from 'next/image'
+"use client"
+
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import getImageUrl from "./ImageUtils"; 
 
 
 const Behindthescene = () => {
+    const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const res = await fetch(`${apiUrl}/behind-the-scene`);
+          console.log('Response Headers:', res.headers);
+          if (!res.ok) {
+            throw new Error(`Failed to fetch data: ${res.statusText}`);
+          }
+  
+          const data = await res.json();
+          console.log("Fetched production data:", data);
+  
+          const formattedData = await Promise.all(
+            data.map(async (scene) => {
+              const imageId = scene.acf.image;
+              const imageUrl = await getImageUrl(imageId, apiUrl);
+  
+              return {
+                imageUrl,
+              };
+            })
+          );
+  
+          setData(formattedData);
+        } catch (error) {
+          console.error("Error fetching production data:", error.message);
+        }
+      };
+  
+      fetchData();
+    }, []);
   return (
     <section className="md:ml-0 sm:ml-2 md:w-full sm:w-full 2sm:mb-[40px]  md:h-[1200px] overflow-hidden">
   <div className='flex justify-center sm:h-[850px]  items-center relative flex-col md:mt-40 sm:mt-10 '>
@@ -24,7 +61,7 @@ const Behindthescene = () => {
           <Image className='absolute sm:block 2sm:hidden top-[170px] left-[20px] sm:min-w-[333.5px] sm:min-h-[640.5px] ' src="/images/behindthescene-decor-foto-2.svg" alt='decor-foto' width={333.5} height={640.5}/>
           {/* Block 1 */}
           <div className='md:w-[80%] sm:w-[300px]  flex md:flex-row sm:flex-col 2md:ml-[188px] 2sm:gap-24 2sm:flex-row 2md:gap-28 md:gap-28 2md:ml-[188px]  md:mt-[81px] sm:mt-[60px] md:ml-[65px] sm:ml-14'>
-              <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10 md:w-[400px] md:h-[300px] 2sm:w-[285px] 2sm:h-[215px] sm:w-[160px] sm:h-[120px]' src="/images/behindthescene-foto-1.svg" alt='foto' width={400} height={300}/>
+              <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10 md:w-[400px] md:h-[300px] 2sm:w-[285px] 2sm:h-[215px] sm:w-[160px] sm:h-[120px]' src={data.length > 1 ? data[1].imageUrl : ""} alt='foto' width={400} height={300}/>
               <div className='md:mt-[104px] 2sm:mt-[80px] sm:mt-[28px] sm:ml-[-20px] sm:pr-[20px]  md:ml-[1px]'>
                   <h1 className='uppercase tracking-[2px] font-VcrMono text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] min-w-[399px] '>Unveiling the Gorilla Hustle:</h1> 
                   <h1 className='uppercase tracking-[2px] font-VcrMono text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] ml-[14px]'>From Concept to Creation</h1>
@@ -48,7 +85,7 @@ const Behindthescene = () => {
                   </h1>
               </div>
               <div className='md:mt-[35px] sm:mt-0 md:w-[400px] md:h-[300px] sm:w-[168px] sm:h-[126px] z-10'>
-                  <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-50 md:min-w-[400px] md:min-h-[300px] 2sm:min-w-[285px] 2sm:min-h-[215px] sm:w-[160px] sm:h-[120px] 2sm:mt-[30px]' src="/images/behindthescene-foto-2.svg" alt='foto' width={400} height={300}/>
+                  <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-50 md:min-w-[400px] md:min-h-[300px] 2sm:min-w-[285px] 2sm:min-h-[215px] sm:w-[160px] sm:h-[120px] 2sm:mt-[30px]' src={data.length > 0 ? data[0].imageUrl : ""} alt='foto' width={400} height={300}/>
               </div>
           </div>
       

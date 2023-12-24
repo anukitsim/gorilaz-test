@@ -1,8 +1,8 @@
-// ProductionPhase.jsx
+"use client"
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import getImageUrl from "./ImageUtils"; // Import the utility function
+import getImageUrl from "./ImageUtils"; 
 
 const ProductionPhase = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;

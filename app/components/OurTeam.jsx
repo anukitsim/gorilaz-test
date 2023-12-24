@@ -18,7 +18,7 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
       ></div>
       <div className="back hidden bg-[#181818] w-full h-full border border-white">
         <div className="flex flex-col items-baseline">
-          <h2 className="text-[15px] uppercase text-[#3c463c] mt-[75px] self-end pr-5 pt-5">
+          <h2 className="text-[15px] uppercase text-[#45FC4C] mt-[75px] self-end pr-5 pt-5">
             {name}
           </h2>
           <div className="flex flex-col items-baseline pl-28 pt-10">

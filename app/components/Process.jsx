@@ -1,7 +1,47 @@
-import React from 'react'
-import Image from 'next/image'
+"use client"
+
+
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import getImageUrl from "./ImageUtils"; 
 
 const Process = () => {
+
+    const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+  const [productionData, setProductionData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${apiUrl}/production-phase`);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.statusText}`);
+        }
+
+        const data = await res.json();
+        console.log("Fetched production data:", data);
+
+        const formattedData = await Promise.all(
+          data.map(async (phase) => {
+            const imageId = phase.acf.image;
+            const imageUrl = await getImageUrl(imageId, apiUrl);
+
+            return {
+              title: phase.title.rendered,
+              imageUrl,
+            };
+          })
+        );
+
+        setProductionData(formattedData);
+      } catch (error) {
+        console.error("Error fetching production data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     
    
@@ -20,7 +60,9 @@ const Process = () => {
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]'/>
                     </div>
                     <div className='md:w-[241.05px] md:h-[244.27px] sm:w-[122.05px] sm:h-[120.27px] 2sm:w-[162.05px] 2sm:h-[164.27px] relative md:self-center 
-                    sm:left-[10px] 2sm:left-[19px] rounded-full bg-[url("/images/process-foto-1.svg")] bg-no-repeat bg-center bg-cover'/>
+                    sm:left-[10px] 2sm:left-[19px] rounded-full bg-no-repeat bg-center bg-cover'
+                    style={{ backgroundImage: `url(${productionData.length > 2 ? productionData[2].imageUrl : ""})` }}
+                    />
                 </div>
                 <div className='flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]'>
                     <p className='uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]'>Video objectives Distribution Channels </p>
@@ -45,7 +87,9 @@ const Process = () => {
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]'/>
                     </div>
                     <div className='md:w-[241.05px] md:h-[244.27px] sm:w-[122.05px] sm:h-[120.27px] 2sm:w-[162.05px] 2sm:h-[164.27px] relative md:self-center 
-                    sm:left-[10px] 2sm:left-[19px] rounded-full bg-[url("/images/process-foto-1.svg")] bg-no-repeat bg-center bg-cover' />
+                    sm:left-[10px] 2sm:left-[19px] rounded-full  bg-no-repeat bg-center bg-cover' 
+                    style={{ backgroundImage: `url(${productionData.length > 1 ? productionData[1].imageUrl : ""})` }}
+                    />
                 </div>
                 <div className='flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]'>
                     <p className='uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]'>Crew Recruitment </p>
@@ -67,7 +111,9 @@ const Process = () => {
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]'/>
                         </div>
                         <div className='md:w-[241.05px] md:h-[244.27px] sm:w-[122.05px] sm:h-[120.27px] 2sm:w-[162.05px] 2sm:h-[164.27px] relative md:self-center 
-                        sm:left-[10px] 2sm:left-[19px] rounded-full bg-[url("/images/process-foto-1.svg")] bg-no-repeat bg-center bg-cover'/>
+                        sm:left-[10px] 2sm:left-[19px] rounded-full  bg-no-repeat bg-center bg-cover'
+                        style={{ backgroundImage: `url(${productionData.length > 0 ? productionData[0].imageUrl : ""})` }}
+                        />
                 </div>
                 <div className='flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]'>
                     <p className='uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]'>Receipt of Raw Footage</p>

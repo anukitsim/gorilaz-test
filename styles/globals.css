@@ -283,8 +283,9 @@ section {
 
 .scroll-container::-webkit-scrollbar-thumb {
   
-   /* background-color: aqua; */
+   
     background-image: url("/images/scroll.svg");
+ 
     background-position-x: center;
     background-repeat: no-repeat;
     background-position-y: center;

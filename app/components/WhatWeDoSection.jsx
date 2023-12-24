@@ -1,61 +1,50 @@
-// WhatWeDoSection.jsx
+"use client"
+
+
 import Popup from "./Popup";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ImageWrapper from "./ImageWrapper";
-
-
-
 
 const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
-  const [activeSection, setActiveSection] = useState(null); 
-  const [isMobile, setIsMobile] = useState(false);
+  const [popupData, setPopupData] = useState([]);
+  const [sectionData, setSectionData] = useState([]);
 
   useEffect(() => {
-    // Set initial value of isMobile after component mounts
-    setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 768);
-  }, []);
+    // Fetch data from WordPress API
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://gorillaz.local/wp-json/wp/v2/section?acf_format=standard&_fields=id,title,acf"
+        );
+        const data = await response.json();
+        setSectionData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  console.log("Is Mobile:", isMobile);
+    fetchData();
+  }, []); // Run the effect only once on component mount
 
-  const whatWeDoSectionRef = useRef(null);
+  const openPopup = (label, images, text) => {
+    setIsPopupOpen(true);
+    setPopupSectionTitle(label);
+   
+    setPopupData({
+      label: [label],
+      text: Array.isArray(text) ? text : [text],
+      images: images, // Set images as an array directly
+    });
+  };
 
-  useEffect(() => {
-    if (isMobile) {
-      const handleScroll = () => {
-        // Check if the ref is not null before accessing getBoundingClientRect
-        if (whatWeDoSectionRef.current) {
-          const sectionRect = whatWeDoSectionRef.current.getBoundingClientRect();
-          const scrollPosition = window.scrollY || window.pageYOffset;
-
-          // Calculate the center of the section
-          const sectionCenter = sectionRect.top + sectionRect.height / 2;
-
-          // Adjust these values based on your layout and requirements
-          const threshold = sectionRect.height * 0.3;
-
-          // Check if the center of the section is within the threshold
-          if (Math.abs(sectionCenter - scrollPosition) < threshold) {
-            // Set the active section based on the index
-            const index = Math.floor((sectionCenter - scrollPosition) / threshold) + 1;
-            setActiveSection(index);
-          } else {
-            setActiveSection(null);
-          }
-        }
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
-  }, [isMobile]);
-
-
-  
+  // Function to close the popup
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    setPopupSectionTitle("");
+    setPopupData([]);
+  };
 
   return (
     <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] justify-center flex gap-[30px] flex-col sm:mb-[24px] md:mb-0">
@@ -65,28 +54,23 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
       </h1>
 
       <div className="flex md:flex-row sm:flex-col gap-[5px]  items-center justify-center  mx-auto">
-        {[1, 2, 3, 4].map((index) => (
-           
+        {sectionData.map((data, index) => (
           <ImageWrapper
             key={index}
-            src={`/images/portfolio${index}.svg`}
+            src={data.acf.main} // Change this to the correct field containing the main image
             alt={`image-${index}`}
-            label={index === 1 ? "Photography" : index === 2 ? 'videography'  : index === 3 ? 'location scouting ' : index === 4 ? 'social media' : ''} 
+            label={data.title.rendered}
             isHovered={hoverStates[index]}
             onMouseEnter={() => handleHoverChange(index, true)}
             onMouseLeave={() => handleHoverChange(index, false)}
-            onClick={() => {
-              const label = index === 1 ? "Photography" : index === 2 ? 'Videography' : index === 3 ? 'Location Scouting' : index === 4 ? 'Social Media' : '';
-              openPopup(label);
-            }}
-            isArrowGreen={isMobile && activeSection === index}
+            onClick={() => openPopup(data.title.rendered, [data.acf.image1, data.acf.image2, data.acf.image3], [data.acf.text1, data.acf.text2, data.acf.text3])}
           />
         ))}
       </div>
       {isPopupOpen && (
-        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
+        <Popup onClose={closePopup} sectionTitle={popupSectionTitle} popupData={popupData} />
       )}
-         <div className="bg-[url('/images/sideLayer.svg')] absolute left-5  bg-repeat-y w-2 h-full"></div>
+      <div className="bg-[url('/images/sideLayer.svg')] absolute left-5  bg-repeat-y w-2 h-full"></div>
     </div>
   );
 };

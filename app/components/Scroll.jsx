@@ -1,103 +1,73 @@
-"use client"
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Popup from "./Popup";
 
-
 const Scroll = () => {
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
-
+  const [sectionData, setSectionData] = useState([]);
+  const [popupData, setPopupData] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [popupSectionTitle, setPopupSectionTitle] = useState("");
-  const [activeSection, setActiveSection] = useState(null); 
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-  
-  useEffect(() => {
-    if (isMobile) {
-      const handleScroll = () => {
-        const container = containerRef.current;
-        const containerRect = container.getBoundingClientRect();
-        const itemWidth = containerRect.width / 3; // Assuming you want 3 items visible at a time
-        const activeSection = Math.round((container.scrollLeft + itemWidth / 3) / itemWidth);
-
-        if (activeSection) {
-          setActiveSection(1);
-        } else if (scrollPosition <= window.innerHeight * 1.5) {
-          setActiveSection(2);
-        } else if (scrollPosition <= window.innerHeight * 2.5) {
-          setActiveSection(3);
-        } else if (scrollPosition <= window.innerHeight * 3.5) {
-          setActiveSection(4);
-        }
-      };
-
-      const container = containerRef.current;
-      container.addEventListener("scroll", handleScroll);
-
-      return () => {
-        container.removeEventListener("scroll", handleScroll);
-      };
-    }
-  }, [isMobile]);
+  const containerRef = useRef(null);
 
   const openPopup = (sectionTitle) => {
-    setPopupSectionTitle(sectionTitle);
+    // Find the data for the clicked sectionTitle
+    const clickedData = sectionData.find((data) => data.title.rendered === sectionTitle);
+
+    // Set the popupData state with the clicked data
+    setPopupData(clickedData);
+
+    // Open the popup
     setIsPopupOpen(true);
   };
 
   const closePopup = () => {
+    // Close the popup by updating the state
     setIsPopupOpen(false);
   };
 
-  const containerRef = useRef(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/portfolio?acf_format=standard&_fields=id,title,acf`);
+        const data = await response.json();
+        setSectionData(data);
+      } catch (error) {
+        console.error("Error fetching data from WordPress:", error);
+      }
+    };
 
+    fetchData();
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const container = containerRef.current;
-     
+    const handleScroll = () => {
+      const container = containerRef.current;
+      // Handle scroll logic here
+    };
 
-   
-  //   };
+    const container = containerRef.current;
+    container.addEventListener("scroll", handleScroll);
 
-  //   const container = containerRef.current;
-  //   container.addEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, []); 
 
-
-
-
-  //   return () => {
-  //     container.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-  const blocks = [
-    "tourism",
-    "sports",
-    "fashion",
-    "educatuion",
-    "entertainment",
-    "Agriculture",
-    "Healthcare",
-    "HORECA Sectors",
-    "Wine Industry",
-    "Automotive Industry",
-    "Tele-communications",
-  ];
-
- 
   return (
     <>
-      <div className="scroll-container md:h-[500px]  overflow-x-scroll overflow-y-hidden " ref={containerRef}>
+      <div className="scroll-container md:h-[500px] overflow-x-scroll overflow-y-hidden" ref={containerRef}>
         <div className="flex md:h-[390px] sm:h-[200px] sm:mt-[11px] md:mt-[26px] relative">
-        {blocks.map((block, index) => (
-            <div key={index} className="scroll-item w-[181px] mr-[2px] h-[338.906px]"  onClick={() => openPopup(blocks[index])}>
+          {sectionData.map((data, index) => (
+            <div
+              key={index}
+              className="scroll-item w-[181px] mr-[2px] h-[338.906px]"
+              onClick={() => openPopup(data.title.rendered)}
+            >
               <div
                 className="md:w-[181px] sm:w-[130px] md:h-[338.906px] sm:h-[155px] rounded-[10px] outline outline-offset-[-8px] outline-white relative bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('/images/${block}.svg')`
+                  backgroundImage: `url('${data.acf.background}')`,
                 }}
                 onMouseEnter={() =>
                   setHoveredItems((prev) =>
@@ -109,16 +79,17 @@ const Scroll = () => {
                     prev.map((_, i) => (i === index ? false : _))
                   )
                 }
-               
               >
-                <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">{blocks[index]}</p>
-                <div className="flex flex-row gap-3 ">
+                <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">
+                  {data.title.rendered}
+                </p>
+                <div className="flex flex-row gap-3">
                   <span className="text-white md:text-[10px] sm:text-[8px] uppercase absolute bottom-4 left-5 cursor-pointer">
                     View Gallery
                   </span>
                   <Image
                     src={
-                      hoveredItems[index] || index + 1 === activeSection
+                      hoveredItems[index]
                         ? "/images/gallery-errow-green.svg"
                         : "/images/galerry-errow.svg"
                     }
@@ -129,19 +100,13 @@ const Scroll = () => {
                   />
                 </div>
               </div>
-              
             </div>
           ))}
-         
         </div>
-       
       </div>
-      {isPopupOpen && (
-        <Popup onClose={closePopup}  sectionTitle={popupSectionTitle} />
-      )}
+      {isPopupOpen && <Popup onClose={closePopup} sectionTitle={popupData.title.rendered} popupData={popupData} />}
     </>
-   
-  )
-}
+  );
+};
 
-export default Scroll
+export default Scroll;
