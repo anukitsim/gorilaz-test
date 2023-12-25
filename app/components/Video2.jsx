@@ -9,7 +9,7 @@ const Video2 = () => {
     console.log("Video2 component mounted or updated");
     const fetchVideo2 = async () => {
       try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/video2?acf_format=standard&_fields=id,title,acf`;
+        const apiUrl = 'https://bau.wyy.mybluehost.me/.website_749244f3/wp-json/wp/v2/video2?acf_format=standard&_fields=id,title,acf';
         const response = await fetch(apiUrl);
         const data = await response.json();
 
@@ -48,6 +48,7 @@ const Video2 = () => {
       autoPlay
       muted
       loop
+      preload='auto'
     />
   );
 };

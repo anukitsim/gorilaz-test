@@ -38,7 +38,7 @@ const Header = () => {
     console.log("Header component mounted or updated");
     const fetchHeaderVideo = async () => {
       try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/header?acf_format=standard&_fields=id,title,acf`;
+        const apiUrl = 'https://bau.wyy.mybluehost.me/.website_749244f3/wp-json/wp/v2/headers?acf_format=standard&_fields=id,title,acf';
        
 
         const response = await fetch(apiUrl);

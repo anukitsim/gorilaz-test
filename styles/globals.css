@@ -271,17 +271,23 @@ section {
   background-clip: content-box;
   background-position-y: center;
   background-image: url("/images/scroll-line.svg");
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+ 
+
 
   /* background-clip: content-box;  */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  /* background-image: url("/images/scroll.svg"); */
-  background-color: blue;
-  background-position-x: center;
+  background-image: url("/images/scroll.svg");
+  background-position-x: start;
   background-repeat: no-repeat;
   background-position-y: center;
+
+  padding-left: 1200px;
+  margin-right: 1200px;
+ 
 }
 
 .popup-scroll::-webkit-scrollbar-track {
@@ -296,7 +302,7 @@ section {
   /* background-color: aqua; */
   background-image: url("/images/scroll.svg");
 
-  background-position-x: center;
+  background-position-x: start;
   background-repeat: no-repeat;
   background-position-y: center;
 }
