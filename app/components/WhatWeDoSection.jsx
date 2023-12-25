@@ -35,7 +35,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
     setPopupData({
       label: [label],
       text: Array.isArray(text) ? text : [text],
-      images: images, // Set images as an array directly
+      images: images, 
     });
   };
 
@@ -57,7 +57,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
         {sectionData.map((data, index) => (
           <ImageWrapper
             key={index}
-            src={data.acf.main} // Change this to the correct field containing the main image
+            src={data.acf.main} 
             alt={`image-${index}`}
             label={data.title.rendered}
             isHovered={hoverStates[index]}

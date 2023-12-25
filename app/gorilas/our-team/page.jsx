@@ -17,8 +17,10 @@ export default function OurTeamPage() {
     <main className="">
       <Header />
      <OurTeam />
-     <GetInTouch />
-        <Footer />
+     <div className='mt-[15%]'>
+     <Footer />
+     </div>
+        
         <div className='md:block sm:hidden'><StickyComponent /></div>
       <ScrollToTop />
       

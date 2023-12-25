@@ -1,10 +1,6 @@
 
 import '../../../styles/globals.css'
-import Header from '@app/components/Header'
 
-import Footer from '@app/components/Footer'
-import StickyComponent from '@app/components/StickyComponent'
-import ScrollToTop from '@app/components/ScrollToTop'
 
 
 export const metadata = {
@@ -16,11 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        
         {children}
-        <Footer />
-        <div className='md:block sm:hidden'><StickyComponent /></div>
-      <ScrollToTop />
+       
       
         </body>
     </html>

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Popup from "./Popup";
+import ScrollPopup  from "./ScrollPopup";
 
 const Scroll = () => {
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
@@ -12,21 +12,52 @@ const Scroll = () => {
 
   const containerRef = useRef(null);
 
-  const openPopup = (sectionTitle) => {
-    // Find the data for the clicked sectionTitle
-    const clickedData = sectionData.find((data) => data.title.rendered === sectionTitle);
+  const openPopup = async (sectionTitle, isCurrentSection = true) => {
+    try {
+      let data;
+  
+      if (isCurrentSection) {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/portfolio?acf_format=standard&_fields=id,title,acf`
+        );
+        data = await response.json();
+      } else {
+        // Fetch data from the new endpoint for the custom sections
+        // Replace 'YOUR_NEW_ENDPOINT' with the actual endpoint
+        const response = await fetch('YOUR_NEW_ENDPOINT');
+        data = await response.json();
+      }
+  
+      const clickedData = data.find(
+        (item) => item.title.rendered === sectionTitle
+      );
+  
+      console.log('Clicked Data:', clickedData);
+  
+      const galleryImages = Object.keys(clickedData.acf || {})
+        .filter((key) => key.startsWith('gallery-image') && clickedData.acf[key])
+        .map((key) => clickedData.acf[key]);
 
-    // Set the popupData state with the clicked data
-    setPopupData(clickedData);
-
-    // Open the popup
-    setIsPopupOpen(true);
+        const text = clickedData.acf?.text || '';
+  
+      setPopupData({
+        title: clickedData.title.rendered,
+        images: galleryImages,
+        text: text, // Use an empty string as a default value
+      });
+      console.log('Clicked Data:', clickedData);
+      setIsPopupOpen(true);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
+  
 
   const closePopup = () => {
     // Close the popup by updating the state
     setIsPopupOpen(false);
   };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +84,7 @@ const Scroll = () => {
       container.removeEventListener("scroll", handleScroll);
     };
   }, []); 
+
 
   return (
     <>
@@ -83,6 +115,7 @@ const Scroll = () => {
                 <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">
                   {data.title.rendered}
                 </p>
+                
                 <div className="flex flex-row gap-3">
                   <span className="text-white md:text-[10px] sm:text-[8px] uppercase absolute bottom-4 left-5 cursor-pointer">
                     View Gallery
@@ -104,7 +137,8 @@ const Scroll = () => {
           ))}
         </div>
       </div>
-      {isPopupOpen && <Popup onClose={closePopup} sectionTitle={popupData.title.rendered} popupData={popupData} />}
+      {isPopupOpen && <ScrollPopup onClose={closePopup} sectionTitle={popupData.title.rendered} popupData={popupData}  />}
+
     </>
   );
 };

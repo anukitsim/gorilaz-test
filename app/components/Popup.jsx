@@ -37,12 +37,13 @@ const PopupGallery = ({ sectionData }) => {
   }, []);
 
   const divDimensions = Array.from(
-    { length: Object.keys(sectionData.acf).filter(key => key.startsWith("text")).length },
+    { length: sectionData.images ? sectionData.images.length : 0 },
     (_, index) => ({
       width: 300 + Math.random() * 100,
       height: 400 + Math.random() * 80,
     })
   );
+
     
   const handleHover = (event, index) => {
     const div = event.currentTarget;
@@ -72,37 +73,47 @@ const PopupGallery = ({ sectionData }) => {
     style={{ scrollSnapType: "x mandatory" }}
   >
     <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 -top-[200px] bg-repeat-y w-2 h-[165%] z-50"></div>
-    {sectionData.acf &&
-  Object.keys(sectionData.acf).map((key) => {
-    if (key.startsWith("gallery-image")) {
-      const index = parseInt(key.replace("gallery-image", ""), 10) - 1;
-      const textKey = `text${index + 1}`;
-      const text = sectionData.acf[textKey];
+     {/* Check if sectionData is available before mapping over it */}
+     {sectionData && sectionData.images && sectionData.images.map((image, index) => {
+        let text;
 
-      // Render div only if the text is defined and not empty
-      if (text && text.trim() !== "") {
-        return (
-          <div
-            key={index}
-            className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
-            style={{
-              width: `${divDimensions[index].width}px`,
-              height: `${divDimensions[index].height}px`,
-              backgroundImage: `url("${sectionData.acf[key]}")`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            onMouseEnter={(event) => handleHover(event, index)}
-            onMouseLeave={(event) => handleLeave(event, index)}
-          >
-            <p className="p-[20px] text-[20px] tracking-wide uppercase">{text}</p>
-          </div>
-        );
-      }
-    }
-    return null;
-  })}
+        // Check if the data corresponds to the "What We Do" section
+        if (sectionData.label) {
+          text = sectionData.text[index];
+        }
+
+        // Check if the data corresponds to the "Scroll" component
+        if (sectionData.title && sectionData.acf && sectionData.acf.background) {
+          text = sectionData.text[index];
+        }
+
+        // Render div only if the text is defined and not empty
+        if (text && text.trim() !== "") {
+          return (
+            <div
+              key={index}
+              className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
+              style={{
+                width: `${divDimensions[index].width}px`,
+                height: `${divDimensions[index].height}px`,
+                backgroundImage: `url("${image}")`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              onMouseEnter={(event) => handleHover(event, index)}
+              onMouseLeave={(event) => handleLeave(event, index)}
+            >
+              <p className="p-[20px] text-[20px] tracking-wide uppercase">{text}</p>
+            </div>
+          );
+        }
+
+        return null;
+      })}
+
+
+
 
 
     <p className="text-white z-50 absolute bottom-36 uppercase text-[10px]">
@@ -132,7 +143,8 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
           <p className="text-[#FFF] text-4xl tracking-wide uppercase absolute -top-28 left-11">
             {sectionTitle}
           </p>
-          <PopupGallery sectionData={popupData}/>
+          <PopupGallery sectionData={popupData} />
+
           <Image
             src="/images/cross.svg"
             alt="close"

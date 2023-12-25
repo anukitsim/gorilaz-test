@@ -4,7 +4,7 @@ import React from "react";
 const GetInTouchSubjectServices = () => {
   return (
     <>
-       <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center sm:mt-[0px] 2sm:mt-[0px] md:mt-[150px] sm:mt-[0px] items-center">
+       <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center sm:mt-[0px] 2sm:mt-[0px] md:mt-[250px] sm:mt-[0px] items-center">
           <p className="text-black text-xl font-bold uppercase sm:text-[10px] 2sm:text-xl">get in touch</p>
         </div>
       <section className="2sm:h-[574px] sm:h-[187px] justify-center flex flex-col ">
