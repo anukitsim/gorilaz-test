@@ -46,6 +46,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
     setPopupData([]);
   };
 
+
   return (
     <div className=" mx-auto relative md:w-9/12 sm:w-full md:h-[536px] sm:h-[1270px] justify-center flex gap-[30px] flex-col sm:mb-[24px] md:mb-0">
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>

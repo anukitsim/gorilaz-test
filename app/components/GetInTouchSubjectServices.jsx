@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const GetInTouchSubjectServices = () => {
+const GetInTouchSubjectServices = ({}) => {
   return (
     <>
        <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center sm:mt-[0px] 2sm:mt-[0px] md:mt-[250px] sm:mt-[0px] items-center">
