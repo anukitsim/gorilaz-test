@@ -15,7 +15,7 @@ const Portfolio = () => {
         <span className="text-white md:text-[20px] sm:text-[7px] pb-[100px] uppercase">
           gorillas’industries
         </span>
-        <div className="w-10/12 relative h-[380px]">
+        <div className="w-8/12 relative h-[380px]">
         <Scroll/>
         <p className="text-white text-[15px] uppercase  -bottom-7 left-10 absolute">
           drag for more

@@ -135,6 +135,8 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
     };
   }, []);
 
+  const popupTexts = popupData.text || [];
+
   return (
     <div className="popup-overlay fixed top-0 left-0 flex flex-col items-center justify-center w-full bg-transparent overflow-hidden">
       <div className="md:w-9/12 sm:w-full bg-opacity-2 backdrop-filter backdrop-blur-[47px] shadow-md relative  max-h-full overflow-y-auto">
@@ -163,42 +165,60 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
         
        
        <h2 className="uppercase text-white  text-center 2sm:text-[15px] sm:text-[8px] sm:mt-[60px] ">WE WILL GET YOU BACK</h2>
-        <form
-          action="post"
+       <form
+          action="https://api.web3forms.com/submit" 
+          method="POST"
+          id="form"
           className="flex  items-center 2sm:pt-[10px] sm:pt-[10px] gap-1 flex-col"
         >
-          <div className="flex  flex-row 2sm:w-6/12 sm:w-full gap-1">
+          <input type="hidden" name="access_key" value="530bc688-8ad2-45cc-8147-c8e77c8c1b82"></input>
+          <input type="hidden" name="subject" value="New Submission from your Website" />
+          <input type="checkbox" name="botcheck" id="" className="hidden" />
+
+
+          <div className="flex  flex-row 2sm:w-6/12 sm:w-[219px] gap-1">
             <input
               type="text"
+              name="name"
+              id="name"
               required
               placeholder="FULL NAME*"
-              className="2sm:w-2/4 sm:w-6/12 2sm:h-[50px] sm:h-[20px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-black border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
             <input
               type="email"
+              name="email"
+              id="email"
               required
               placeholder="EMAIL*"
-              className="2sm:w-2/4 sm:w-6/12 2sm:h-[50px] sm:h-[20px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-black border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
           </div>
-          <input
-            type="text"
-            required
-            placeholder="SUBJECT*"
-            className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[20px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-black border 2sm:rounded-md sm:rounded-[3px]"
-          />
+          
+          <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] 
+                            sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]">
+            <option className="font-VcrMono text-gray selected disabled hidden" selected>SUBJECT*</option>
+            {popupTexts.map((text, index) => (
+            <option key={index} value={text}>
+              {text}
+            </option>
+          ))}
+          </select>
+
           <textarea
+            name="message"
+            id="message"
             placeholder="MESSAGE*"
-            className="2sm:w-2/4 sm:w-full 2sm:h-[185px] sm:h-[60px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-black border 2sm:rounded-md sm:rounded-[3px]"
+            className="2sm:w-2/4 sm:w-[219px] 2sm:h-[185px] sm:h-[56px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
           />
           <button
             type="submit"
-            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[20px] text-black text-[15px] sm:mb-[85px] sm:text-[15px] sm:font-bold rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>
+          <p class="text-base text-center text-gray-500" id="result"></p>
         </form>
-   
       </section>
         </div>
         <div className="bg-[url('/images/sideLayerLeft.svg')] absolute -top-[200px] z-0 right-0 bg-repeat-y w-2 h-[165%]"></div>

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import ScrollPopup  from "./ScrollPopup";
 
+
 const Scroll = () => {
   const [hoveredItems, setHoveredItems] = useState(Array(12).fill(false));
   const [sectionData, setSectionData] = useState([]);
@@ -88,7 +89,7 @@ const Scroll = () => {
 
   return (
     <>
-      <div className="scroll-container md:h-[500px] overflow-x-scroll overflow-y-hidden" ref={containerRef}>
+      <div className="scroll-container md:h-[500px]  overflow-x-scroll overflow-y-hidden" ref={containerRef}>
         <div className="flex md:h-[390px] sm:h-[200px] sm:mt-[11px] md:mt-[26px] relative">
           {sectionData.map((data, index) => (
             <div
@@ -138,7 +139,7 @@ const Scroll = () => {
         </div>
       </div>
       {isPopupOpen && <ScrollPopup onClose={closePopup} sectionTitle={popupData.title.rendered} popupData={popupData}  />}
-
+     
     </>
   );
 };

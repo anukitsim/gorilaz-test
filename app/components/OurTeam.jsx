@@ -4,10 +4,20 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const TeamMember = ({ imageUrl, name, description, span }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
   return (
-    <div className="relative cursor-pointer card">
+    <div
+      className={`relative cursor-pointer card ${isClicked ? 'clicked' : ''}`}
+      onClick={handleClick}
+      onTouchStart={() => {}} // Placeholder for mobile touch interaction
+    >
       <div
-        className="front outline outline-white outline-offset-[-5px] rounded-lg sm:ml-[-25%] md:ml-0"
+        className={`front outline outline-white outline-offset-[-5px] rounded-lg sm:ml-[-25%] md:ml-0 ${isClicked ? 'mobile-clicked' : ''}`}
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
@@ -16,16 +26,16 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
           height: "100%",
         }}
       ></div>
-      <div className="back hidden bg-[#181818] w-full h-full border border-white">
-        <div className="flex flex-col items-baseline">
+      <div className={`back ${isClicked ? '' : 'hidden'} bg-[#181818] w-full h-full border border-white sm:w-full `}>
+        <div className="flex flex-col md:items-baseline sm:items-center sm:justify-center">
           <h2 className="text-[15px] uppercase text-[#45FC4C] mt-[75px] self-end pr-5 pt-5">
             {name}
           </h2>
-          <div className="flex flex-col items-baseline pl-28 pt-10">
+          <div className="flex flex-col items-baseline md:pl-28 sm:pl-20 pt-10 ">
             <span className="text-white text-[10px]  tracking-wider ">
               {span}
             </span>
-            <span className="text-white text-[10px]  tracking-wider ">
+            <span className="text-white text-[10px] sm:pb-2  tracking-wider ">
               {description}
             </span>
           </div>
@@ -35,14 +45,13 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
           alt="card"
           width={65}
           height={50}
-          className="absolute top-[21px] right-[21px]"
+          className="absolute top-[21px] md:right-[21px] sm:right-[-10%]"
         />
       </div>
     </div>
   );
 };
 
-// ... (other imports and components)
 
 const OurTeam = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -106,8 +115,8 @@ const OurTeam = () => {
 
   return (
     <>
-<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] right-0 flex justify-center items-center bg-white"></div>
-<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] flex justify-center items-center bg-white"></div>
+<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
 <section className="md:w-9/12 relative sm:w-full md:mt-[120px] sm:mt-[150px] md:h-[835px]  sm:h-[1500px] flex overflow-hidden  mx-auto justify-center">
   <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>

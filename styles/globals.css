@@ -139,14 +139,22 @@ section {
   transition: transform 1s;
 }
 
+.card.mobile-clicked .front {
+  display: none; /* Hide the front side on mobile click */
+}
+
+.card.mobile-clicked .back {
+  display: block;
+  
+}
+
+
 
 @media (max-width: 767px) {
   .card {
     width: 190px;
     height: 190px;
     margin-bottom: 20px;
-    margin-left: 38%;
-    
     
   }
 
@@ -154,6 +162,7 @@ section {
   .card .back {
     width: 100%;
     height: auto;
+    margin-left: 20%;
   }
 
   .front {
@@ -172,8 +181,6 @@ section {
   z-index: 1000;
 }
 
-
-
 .animated-container {
   overflow: hidden;
   width: 100%;
@@ -184,13 +191,12 @@ section {
   display: flex;
   gap: 1px;
   animation: moveLeftToRight 25s linear infinite;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .logo-container.reverse {
   animation: moveRightToLeft 25s linear infinite;
 }
-
 
 @keyframes moveRightToLeft {
   0% {
@@ -210,7 +216,6 @@ section {
   }
 }
 
-
 .sticky-div {
   position: fixed;
   top: 44px;
@@ -221,7 +226,6 @@ section {
   background-color: #181818;
   z-index: 1000;
 }
-
 
 .additional-folders {
   position: fixed;
@@ -245,97 +249,78 @@ section {
 /* ... (existing styles) */
 
 .scroll-container {
-  overflow-x: scroll; /* Initially hidden */
-
-
+  overflow-x: scroll;
 }
 
-
-
-
-
 .scroll-container.active {
-  overflow-x: scroll; 
+  overflow-x: scroll;
 }
 
 .scroll-container::-webkit-scrollbar {
-   height: 38px;
-   width: 100%;
-   
+  height: 38px;
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 900px) {
   .scroll-container::-webkit-scrollbar {
     width: 100%;
-     height: 50px;
+    height: 50px;
   }
 }
 
 .scroll-container::-webkit-scrollbar-track {
   background-clip: content-box;
-  background-position-y: center; 
+  background-position-y: center;
   background-image: url("/images/scroll-line.svg");
   background-repeat: repeat-x;
-  background-clip: content-box; 
-  
 
+  /* background-clip: content-box;  */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  
-   
-    background-image: url("/images/scroll.svg");
- 
-    background-position-x: center;
-    background-repeat: no-repeat;
-    background-position-y: center;
+  /* background-image: url("/images/scroll.svg"); */
+  background-color: blue;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
-
-
-
 
 .popup-scroll::-webkit-scrollbar-track {
   background-clip: content-box;
-  background-position-y: center; 
+  background-position-y: center;
   background-image: url("/images/scroll-line.svg");
-background-repeat: repeat-x;
-  background-clip: content-box; 
-
+  background-repeat: repeat-x;
+  background-clip: content-box;
 }
 
 .popup-scroll::-webkit-scrollbar-thumb {
-  
   /* background-color: aqua; */
-   background-image: url("/images/scroll.svg");
-   
-   background-position-x: center;
-   background-repeat: no-repeat;
-   background-position-y: center;
+  background-image: url("/images/scroll.svg");
+
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .popup-scroll::-webkit-scrollbar {
   width: 100%;
-   height: 200px;
+  height: 200px;
 }
 
-
-.touch-text{
+.touch-text {
   -webkit-text-stroke: 0.05px black;
 }
 
-
-.submit-text{
+.submit-text {
   -webkit-text-stroke: 0.05px black;
 }
 
-.scroll-item:first-child{
-  margin-left:15px;
+.scroll-item:first-child {
+  margin-left: 15px;
 }
 
-.scroll-item:last-child{
-  margin-right:10px;
+.scroll-item:last-child {
+  margin-right: 10px;
 }
-
 
 .image-wrapper {
   width: 255px;
@@ -350,4 +335,3 @@ background-repeat: repeat-x;
   height: 100%;
   object-fit: cover; /* Maintain aspect ratio */
 }
-
