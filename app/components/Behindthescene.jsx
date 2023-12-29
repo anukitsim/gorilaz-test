@@ -12,7 +12,7 @@ const Behindthescene = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await fetch(`${apiUrl}/behind-the-scene`);
+          const res = await fetch('https://gorillasproduction.ge/wp-json/wp/v2/behind-the-scene');
           console.log('Response Headers:', res.headers);
           if (!res.ok) {
             throw new Error(`Failed to fetch data: ${res.statusText}`);

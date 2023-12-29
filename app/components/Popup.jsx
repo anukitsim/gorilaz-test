@@ -176,14 +176,14 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
           <input type="checkbox" name="botcheck" id="" className="hidden" />
 
 
-          <div className="flex  flex-row 2sm:w-6/12 sm:w-[219px] gap-1">
+          <div className="flex  flex-row 2sm:w-6/12 sm:w-full gap-1">
             <input
               type="text"
               name="name"
               id="name"
               required
               placeholder="FULL NAME*"
-              className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[25px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
             <input
               type="email"
@@ -191,14 +191,14 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
               id="email"
               required
               placeholder="EMAIL*"
-              className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[25px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
           </div>
           
-          <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] 
+          <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[25px] 2sm:p-4 sm:p-1 text-[#A9A9A9] 
                             sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]">
             <option className="font-VcrMono text-gray selected disabled hidden" selected>SUBJECT*</option>
-            {popupTexts.map((text, index) => (
+           {popupTexts.map((text, index) => (
             <option key={index} value={text}>
               {text}
             </option>
@@ -209,11 +209,11 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
             name="message"
             id="message"
             placeholder="MESSAGE*"
-            className="2sm:w-2/4 sm:w-[219px] 2sm:h-[185px] sm:h-[56px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+            className="2sm:w-2/4 sm:w-full 2sm:h-[185px] sm:h-[70px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
           />
           <button
             type="submit"
-            className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>

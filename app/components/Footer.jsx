@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Block 1 */}
             <div className="flex flex-col 2sm:h-[134px] sm:h-[80px] sm:gap-1.5 2sm:gap-2.5 md:gap-[9px]">
               <h2 className="uppercase font-VcrMono 2sm:text-sm sm:text-[12px] tracking-[1.95px] text-[#73E338]">what we do</h2>
-              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50" href="#">
+              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50" href="/process">
                 process
               </Link>
               <Link className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase font-VcrMono 2sm:text-[10px] sm:text-[8px] text-white z-50" href="#">
@@ -34,7 +34,7 @@ const Footer = () => {
 
               <ul className="flex flex-col 2sm:h-[134px sm:mt-[10px] sm:h-[80px] gap-1.5 ">
                 <h2 className="font-VcrMono tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] sm:block 2sm:block md:hidden text-[#73E338]">gorillas’</h2>
-                <Link className="font-VcrMono text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] z-50" href="#">
+                <Link className="font-VcrMono text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] z-50" href="/gorilas/our-team">
                 our team
                 </Link>
                 <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] sm:block 2sm:block md:hidden z-50 text-white 2sm:mb-8 sm:mb-[10px]" href="#">
@@ -49,12 +49,12 @@ const Footer = () => {
               <Link className="font-VcrMono text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:hidden 2sm:hidden md:block  sm:text-[8px] z-50" href="#">
               our team
               </Link>
-              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] z-50  sm:hidden 2sm:hidden md:block text-white 2sm:mb-8 sm:mb-[10px]" href="#">
+              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] z-50  sm:hidden 2sm:hidden md:block text-white 2sm:mb-8 sm:mb-[10px]" href="/gorilas/behind-the-scene">
               behind the scene
               </Link>
               
               <h2 className="font-VcrMono tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] text-[#73E338]">portfolio</h2>
-              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] z-50 uppercase 2sm:text-[10px] sm:text-[8px] text-white" href="#">
+              <Link className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] z-50 uppercase 2sm:text-[10px] sm:text-[8px] text-white" href="/portfolio/industries">
                 gorillas’insdustries
               </Link>
 

@@ -1,15 +1,22 @@
 "use client";
 
 
-import { useState } from "react";
+import { useState} from "react";
 import Image from "next/image";
-import RunningLine from "./RunningLine";
 import Popup from "./Popup";
 import Scroll from "./Scroll";
 import WhatWeDoSection from "./WhatWeDoSection";
-import ProductionPhase from "./ProductionPhase";
 import Video1 from "./video1";
 import Video2 from "./Video2";
+import ProductionPhase from "./ProductionPhase";
+import RunningLine from "./RunningLine";
+
+
+
+
+
+
+
 
 const Home = ({
   isPopupOpen,
@@ -41,7 +48,7 @@ const Home = ({
         <div className=" mx-auto md:w-9/12 sm:w-full md:h-[1357px] relative  flex md:flex-row sm:flex-col-reverse">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
           <div
-            className="mx-auto sm:h-[580px] relative sm:w-9/12 sm:mt-[106px] md:hidden sm:block "
+            className="mx-auto sm:h-[580px] 2sm:h-[580px] md:h-[580px] relative sm:w-9/12 sm:mt-[40%] md:hidden sm:block "
             onClick={() => {
               if (blocks && index !== undefined && index < blocks.length) {
                 openPopup(blocks[index]);
@@ -88,13 +95,18 @@ const Home = ({
           </div>
           <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
             <Image
-              src="/images/logo.png"
+              src="/images/main-logo.svg"
               alt="logo"
               width={355}
               height={234}
               className="md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]"
             />
-          <Video1 />
+        
+           <Video1 />
+          
+          
+          
+         
 
             <div className="absolute md:top-[504px] sm:top-[200px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
             <div className="absolute md:top-[722px] sm:top-[308px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>

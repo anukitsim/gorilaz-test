@@ -1,0 +1,10 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home4/bauwyymy/public_html
+    - npm install
+    - npm run build
+    - /bin/cp -r .next $DEPLOYPATH
+    - /bin/cp -r out $DEPLOYPATH
+    - /bin/cp -r public $DEPLOYPATH
+    - /bin/cp -r node_modules $DEPLOYPATH

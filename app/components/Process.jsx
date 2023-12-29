@@ -3,9 +3,26 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import getImageUrl from "./ImageUtils"; 
+
+const getImageUrl = async (imageId, apiUrl) => {
+  try {
+    const res = await fetch(`https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch image data: ${res.statusText}`);
+    }
+
+    const imageData = await res.json();
+    return imageData.source_url;
+  } catch (error) {
+    console.error("Error fetching image data:", error.message);
+    return ""; // Default to an empty string if there's an error
+  }
+};
+
 
 const Process = () => {
+
+  
 
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
   const [productionData, setProductionData] = useState([]);
@@ -13,7 +30,7 @@ const Process = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${apiUrl}/production-phase`);
+        const res = await fetch('https://gorillasproduction.ge/wp-json/wp/v2/production-phase');
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
         }
@@ -45,8 +62,8 @@ const Process = () => {
   return (
     
    
-    <div className='flex justify-start md:mt-[126px] 2sm:mt-[80px] sm:mt-[50px] items-center flex-col md:h-[1361px] 2sm:h-[1340px] sm:h-[1100px] gap-5'>      
-         <div className='flex justify-center relative flex-row w-[72%]'>
+    <div className='flex justify-start md:mt-[126px] 2sm:mt-[80px] sm:mt-[90px]  items-center flex-col md:h-[1361px] 2sm:h-[1340px] sm:h-[1100px] gap-5'>      
+         <div className='flex justify-center relative flex-row lg:w-[72%] 2md:w-[72%] sm:w-11/12'>
             {/* Decor lines */}          
             <div className='absolute left-0 top-0 bottom-0 w-2 md:h-[1270px] 2sm:h-[1450px] sm:h-[1120px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div>
             <div className='absolute right-0 top-0 bottom-0 w-2 md:h-[1270px] 2sm:h-[1450px] sm:h-[1120px] bg-[url("/images/sideLayerLeft.svg")] bg-repeat-y'></div>             
@@ -77,7 +94,7 @@ const Process = () => {
             </div> 
 
         {/* 2 Block */}
-        <div className='flex justify-center relative flex-row w-9/12'>
+        <div className='flex justify-center relative flex-row w-full md:w-9/12'>
             
             <div className='md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[50px] mt-[30px]'>
             <div className='md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]'>
@@ -101,7 +118,7 @@ const Process = () => {
         </div>
 
         {/* 3 Block */}
-        <div className='flex justify-center relative flex-row w-9/12'>
+        <div className='flex justify-center relative flex-row w-full md:w-9/12'>
             
             <div className='md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] md:mt-[30px] 2sm:mt-[30px] sm:mt-[0px]'>
                     <div className='md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]'>

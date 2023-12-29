@@ -35,10 +35,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log("Header component mounted or updated");
     const fetchHeaderVideo = async () => {
       try {
-        const apiUrl = 'https://bau.wyy.mybluehost.me/.website_749244f3/wp-json/wp/v2/headers?acf_format=standard&_fields=id,title,acf';
+        const apiUrl = 'https://gorillasproduction.ge/wp-json/wp/v2/header?acf_format=standard&_fields=id,title,acf';
        
 
         const response = await fetch(apiUrl);
@@ -51,7 +50,7 @@ const Header = () => {
 
           if (headerVideoUrl) {
             setVideoUrl(headerVideoUrl);
-            console.log("Video URL:", headerVideoUrl);
+            
           } else {
             console.error("Header video URL not found or invalid:", headerVideoUrl);
           }
@@ -73,17 +72,17 @@ const Header = () => {
     }
   };
 
-  const titles = {
-    "/": "HOME",
-    "/blog": "BLOG",
-    "/contact": "CONTACT",
-    "/gorilas/our-team": "OUR TEAM",
-    "/gorilas/behind-the-scene": "BEHIND THE SCENE",
-    "/process": "PROCESS",
-    "/services": "SERVICES",
-    "/portfolio/industries": "gorillas’industries",
-    // Add more entries for other pages as needed
-  };
+    const titles = {
+      "/": "HOME",
+      "/blog": "BLOG",
+      "/contact": "CONTACT",
+      "/gorilas/our-team": "OUR TEAM",
+      "/gorilas/behind-the-scene": "BEHIND THE SCENE",
+      "/process": "PROCESS",
+      "/services": "SERVICES",
+      "/portfolio/industries": "gorillas’industries",
+      // Add more entries for other pages as needed
+    };
 
   // Get the current pathname from the window location
   const title = titles[pathname] || "";
@@ -138,6 +137,7 @@ const Header = () => {
               loop
               className="object-cover md:w-8/12 sm:w-11/12 md:h-[415px] sm:h-[190px] video"
               onMouseOver={handleVideoHover}
+              preload='auto'
             >
               <source src={videoUrl} type="video/mp4" />
             </video>

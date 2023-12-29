@@ -61,7 +61,7 @@ const OurTeam = () => {
   const getImageUrl = async (imageId) => {
     try {
       const res = await fetch(
-        `${apiUrl}/media/${imageId}`
+        `https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`
       );
       if (!res.ok) {
         throw new Error(`Failed to fetch image data: ${res.statusText}`);
@@ -80,7 +80,7 @@ const OurTeam = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${apiUrl}/team-member`
+          'https://gorillasproduction.ge/wp-json/wp/v2/team-member'
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
@@ -124,47 +124,14 @@ const OurTeam = () => {
     <div className="md:w-10/12 sm:w-full h-3/4 md:gap-1 sm:gap-0 flex flex-col justify-center items-center">
       <div className="md:w-full sm:w-full  flex md:flex-row sm:flex-col justify-center md:gap-1 sm:gap-0 sm:mt-96 md:mt-0">
 
-          {teamMembers.length > 5 && (
+          {teamMembers.length > 0 && (
             <TeamMember
-              key={5}
-              imageUrl={teamMembers[5].imageUrl}
-              name={teamMembers[5].name}
-              description={teamMembers[5].description}
-              span={teamMembers[5].span}
+              key={0}
+              imageUrl={teamMembers[0].imageUrl}
+              name={teamMembers[0].name}
+              description={teamMembers[0].description}
+              span={teamMembers[0].span}
 
-            />
-          )}
-
-          {teamMembers.length > 4 && (
-            <TeamMember
-              key={4}
-              imageUrl={teamMembers[4].imageUrl}
-              name={teamMembers[4].name}
-              description={teamMembers[4].description}
-              span={teamMembers[4].span}
-            />
-          )}
-
-          {teamMembers.length > 3 && (
-            <TeamMember
-              key={3}
-              imageUrl={teamMembers[3].imageUrl}
-              name={teamMembers[3].name}
-              description={teamMembers[3].description}
-              span={teamMembers[3].span}
-            />
-          )}
-
-      </div>
-      <div className="w-full flex md:flex-row  justify-center sm:flex-col md:gap-1 sm:gap-0">
-
-          {teamMembers.length > 2 && (
-            <TeamMember
-              key={2}
-              imageUrl={teamMembers[2].imageUrl}
-              name={teamMembers[2].name}
-              description={teamMembers[2].description}
-              span={teamMembers[2].span}
             />
           )}
 
@@ -178,13 +145,46 @@ const OurTeam = () => {
             />
           )}
 
-          {teamMembers.length > 0 && (
+          {teamMembers.length > 2 && (
             <TeamMember
-              key={0}
-              imageUrl={teamMembers[0].imageUrl}
-              name={teamMembers[0].name}
-              description={teamMembers[0].description}
-              span={teamMembers[0].span}
+              key={2}
+              imageUrl={teamMembers[2].imageUrl}
+              name={teamMembers[2].name}
+              description={teamMembers[2].description}
+              span={teamMembers[2].span}
+            />
+          )}
+
+      </div>
+      <div className="w-full flex md:flex-row  justify-center sm:flex-col md:gap-1 sm:gap-0">
+
+          {teamMembers.length > 3 && (
+            <TeamMember
+              key={3}
+              imageUrl={teamMembers[3].imageUrl}
+              name={teamMembers[3].name}
+              description={teamMembers[3].description}
+              span={teamMembers[3].span}
+            />
+          )}
+
+          {teamMembers.length > 4 && (
+            <TeamMember
+              key={4}
+              imageUrl={teamMembers[4].imageUrl}
+              name={teamMembers[4].name}
+              description={teamMembers[4].description}
+              span={teamMembers[4].span}
+            />
+          )}
+
+          {teamMembers.length > 5 && (
+            <TeamMember
+              key={5}
+              imageUrl={teamMembers[5].imageUrl}
+              name={teamMembers[5].name}
+              description={teamMembers[5].description}
+              span={teamMembers[5].span}
             />
           )}
 

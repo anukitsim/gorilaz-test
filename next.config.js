@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
+ 
     images: {
-        domains: ['gorillaz.local'],
+        domains: ['gorillasproduction.ge'],
       },
-      remotePatterns: {
-        protocol: 'http',
-        hostname: 'localhost'
-      }
+   
 }
 
 module.exports = nextConfig

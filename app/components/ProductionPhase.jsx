@@ -1,8 +1,4 @@
-"use client"
-
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import getImageUrl from "./ImageUtils"; 
 
 const ProductionPhase = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
@@ -11,18 +7,31 @@ const ProductionPhase = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${apiUrl}/production-phase`);
-        if (!res.ok) {
-          throw new Error(`Failed to fetch data: ${res.statusText}`);
+        const response = await fetch(
+          "https://gorillasproduction.ge/wp-json/wp/v2/production-phase"
+        );
+        if (!response.ok) {
+          throw new Error(`Failed to fetch data: ${response.statusText}`);
         }
 
-        const data = await res.json();
+        const data = await response.json();
         console.log("Fetched production data:", data);
 
         const formattedData = await Promise.all(
           data.map(async (phase) => {
             const imageId = phase.acf.image;
-            const imageUrl = await getImageUrl(imageId, apiUrl);
+            const imageResponse = await fetch(
+              `https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`
+            );
+
+            if (!imageResponse.ok) {
+              throw new Error(
+                `Failed to fetch image data: ${imageResponse.statusText}`
+              );
+            }
+
+            const imageData = await imageResponse.json();
+            const imageUrl = imageData.source_url;
 
             return {
               title: phase.title.rendered,
@@ -33,7 +42,7 @@ const ProductionPhase = () => {
 
         setProductionData(formattedData);
       } catch (error) {
-        console.error("Error fetching production data:", error.message);
+        console.error("Error fetching data:", error.message);
       }
     };
 
@@ -41,15 +50,19 @@ const ProductionPhase = () => {
   }, []);
 
   return (
-    <div className="flex md:flex-row  items-center justify-center sm:flex-col 
-       md:gap-[80px] sm:gap-[25px]">
+    <div className="flex md:flex-row items-center justify-center sm:flex-col md:gap-[80px] sm:gap-[25px]">
       {productionData.map((phase, index) => (
-        <div key={index} className="flex flex-col items-center md:gap-[40px] sm:gap-[15px]">
-          <p className="uppercase text-white text-[20px] sm:pt-[18px] md:pt-0">{phase.title}</p>
+        <div
+          key={index}
+          className="flex flex-col items-center md:gap-[40px] sm:gap-[15px]"
+        >
+          <p className="uppercase text-white text-[20px] sm:pt-[18px] md:pt-0">
+            {phase.title}
+          </p>
           {phase.imageUrl && (
             <div className="relative">
               <div className="absolute inset-0 flex items-center justify-center">
-                <Image
+                <img
                   src={phase.imageUrl}
                   alt={phase.title}
                   width={174}
@@ -58,7 +71,7 @@ const ProductionPhase = () => {
                 />
               </div>
               <div className="relative z-50">
-                <Image
+                <img
                   src={`/images/process-foto-decor.svg`}
                   alt={phase.title}
                   width={250}

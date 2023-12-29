@@ -19,13 +19,13 @@ const GetInTouch = () => {
               type="text"
               required
               placeholder="FULL NAME*"
-              className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-full sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
             <input
               type="email"
               required
               placeholder="EMAIL*"
-              className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+              className="2sm:w-full sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
             />
           </div>
           <input
