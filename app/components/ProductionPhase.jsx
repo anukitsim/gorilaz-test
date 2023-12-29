@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+
 
 
 const getImageUrl = async (imageId, apiUrl) => {
@@ -77,7 +77,7 @@ const ProductionPhase = () => {
                 />
               </div>
               <div className="relative z-50">
-                <img
+                <Image
                   src={`/images/process-foto-decor.svg`}
                   alt={phase.title}
                   width={250}
