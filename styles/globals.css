@@ -284,9 +284,9 @@ section {
   background-position-x: start;
   background-repeat: no-repeat;
   background-position-y: center;
+ 
 
-  padding-left: 1200px;
-  margin-right: 1200px;
+ 
  
 }
 
@@ -341,3 +341,4 @@ section {
   height: 100%;
   object-fit: cover; /* Maintain aspect ratio */
 }
+

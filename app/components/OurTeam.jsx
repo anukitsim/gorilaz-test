@@ -80,7 +80,7 @@ const OurTeam = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          'https://gorillasproduction.ge/wp-json/wp/v2/team-member'
+          'https://gorillasproduction.pro/wp-json/wp/v2/team-member'
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
@@ -115,8 +115,8 @@ const OurTeam = () => {
 
   return (
     <>
-<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
-<div className="w-[20%] absolute h-[1px] md:top-[190%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%] line1 absolute h-[1px] md:top-[125%] 2md:top-[125%] sm:top-[110%] right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%] line2 absolute h-[1px] md:top-[125%] 2md:top-[125%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
 <section className="md:w-9/12 relative sm:w-full md:mt-[120px] sm:mt-[150px] md:h-[835px]  sm:h-[1500px] flex overflow-hidden  mx-auto justify-center">
   <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>

@@ -3,6 +3,22 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
+
+const getImageUrl = async (imageId, apiUrl) => {
+  try {
+    const res = await fetch(`https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch image data: ${res.statusText}`);
+    }
+
+    const imageData = await res.json();
+    return imageData.source_url;
+  } catch (error) {
+    console.error("Error fetching image data:", error.message);
+    return ""; // Default to an empty string if there's an error
+  }
+};
+
 const ProductionPhase = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
   const [productionData, setProductionData] = useState([]);
@@ -10,31 +26,18 @@ const ProductionPhase = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://gorillasproduction.pro/wp-json/wp/v2/production-phase?acf_format=standard&_fields=id,title,acf"
-        );
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data: ${response.statusText}`);
+        const res = await fetch('https://gorillasproduction.pro/wp-json/wp/v2/production-phase');
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.statusText}`);
         }
 
-        const data = await response.json();
+        const data = await res.json();
         console.log("Fetched production data:", data);
 
         const formattedData = await Promise.all(
           data.map(async (phase) => {
             const imageId = phase.acf.image;
-            const imageResponse = await fetch(
-              `https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`
-            );
-
-            if (!imageResponse.ok) {
-              throw new Error(
-                `Failed to fetch image data: ${imageResponse.statusText}`
-              );
-            }
-
-            const imageData = await imageResponse.json();
-            const imageUrl = imageData.source_url;
+            const imageUrl = await getImageUrl(imageId, apiUrl);
 
             return {
               title: phase.title.rendered,
@@ -45,7 +48,7 @@ const ProductionPhase = () => {
 
         setProductionData(formattedData);
       } catch (error) {
-        console.error("Error fetching data:", error.message);
+        console.error("Error fetching production data:", error.message);
       }
     };
 

@@ -17,7 +17,14 @@ const Home = ({
   blocks = [],
   index = 0,
   popupSectionTitle,
+  
 }) => {
+
+
+
+
+
+
   const [hoverStates, setHoverStates] = useState({
     1: false,
     2: false,
@@ -31,6 +38,8 @@ const Home = ({
       [index]: isHovered,
     }));
   };
+
+
 
   return (
     <>
@@ -130,9 +139,9 @@ const Home = ({
 
         <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-          <div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
-            <ProductionPhase />
-          </div>
+          <div className="flex md:flex-row items-center justify-center sm:flex-col md:mt-[100px] md:gap-[80px] sm:gap-[25px]">
+          <ProductionPhase  />
+        </div>
           <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
         </div>
 
