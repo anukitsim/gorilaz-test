@@ -67,7 +67,7 @@ const RunningLine = () => {
             {duplicatedImages.map(({ id, title, acf }, index) =>
               acf.logo1 && (
                 <img
-                  key={id}
+                key={`${id}_${index}`} 
                   src={acf.logo1}
                   alt={title.rendered}
                   width={95}
@@ -82,7 +82,7 @@ const RunningLine = () => {
             {duplicatedImages2.map(({ id, title, acf }, index) =>
               acf.logo2 && (
                 <img
-                  key={id}
+                key={`${id}_${index}`} 
                   src={acf.logo2}
                   alt={title.rendered}
                   width={95}

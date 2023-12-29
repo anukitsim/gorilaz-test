@@ -1,7 +1,6 @@
 "use client";
 
-
-import { useState} from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Popup from "./Popup";
 import Scroll from "./Scroll";
@@ -11,13 +10,6 @@ import Video2 from "./Video2";
 import ProductionPhase from "./ProductionPhase";
 import RunningLine from "./RunningLine";
 
-
-
-
-
-
-
-
 const Home = ({
   isPopupOpen,
   closePopup,
@@ -25,7 +17,6 @@ const Home = ({
   blocks = [],
   index = 0,
   popupSectionTitle,
-  
 }) => {
   const [hoverStates, setHoverStates] = useState({
     1: false,
@@ -40,7 +31,6 @@ const Home = ({
       [index]: isHovered,
     }));
   };
-
 
   return (
     <>
@@ -101,12 +91,8 @@ const Home = ({
               height={234}
               className="md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]"
             />
-        
-           <Video1 />
-          
-          
-          
-         
+
+            <Video1 />
 
             <div className="absolute md:top-[504px] sm:top-[200px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
             <div className="absolute md:top-[722px] sm:top-[308px] md:left-1/2 sm:left-0 w-full border-b border-b-white"></div>
@@ -132,12 +118,11 @@ const Home = ({
             handleHoverChange={handleHoverChange}
             openPopup={openPopup}
           />
-        </div>  
+        </div>
         <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
         <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
-         
-          
+
           <Video2 />
           <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
         </div>
@@ -146,7 +131,7 @@ const Home = ({
         <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
           <div className="flex md:flex-row  items-center justify-center sm:flex-col md:mt-[100px]   md:gap-[80px] sm:gap-[25px]">
-          <ProductionPhase />
+            <ProductionPhase />
           </div>
           <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
         </div>

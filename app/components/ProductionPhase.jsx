@@ -1,4 +1,7 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const ProductionPhase = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
@@ -8,7 +11,7 @@ const ProductionPhase = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://gorillasproduction.ge/wp-json/wp/v2/production-phase"
+          "https://gorillasproduction.ge/wp-json/wp/v2/production-phase?acf_format=standard&_fields=id,title,acf"
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch data: ${response.statusText}`);
@@ -62,7 +65,7 @@ const ProductionPhase = () => {
           {phase.imageUrl && (
             <div className="relative">
               <div className="absolute inset-0 flex items-center justify-center">
-                <img
+                <Image
                   src={phase.imageUrl}
                   alt={phase.title}
                   width={174}
