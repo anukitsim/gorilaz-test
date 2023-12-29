@@ -61,7 +61,7 @@ const OurTeam = () => {
   const getImageUrl = async (imageId) => {
     try {
       const res = await fetch(
-        `https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`
+        `https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`
       );
       if (!res.ok) {
         throw new Error(`Failed to fetch image data: ${res.statusText}`);

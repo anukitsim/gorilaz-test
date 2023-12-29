@@ -16,7 +16,7 @@ const RunningLine = () => {
     const fetchLogoData = async () => {
       try {
         const res = await fetch(
-          'https://gorillasproduction.ge/wp-json/wp/v2/logo1?acf_format=standard&_fields=id,title,acf'
+          'https://gorillasproduction.pro/wp-json/wp/v2/logo1?acf_format=standard&_fields=id,title,acf'
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch logo data: ${res.statusText}`);
@@ -37,7 +37,7 @@ const RunningLine = () => {
     const fetchLogoData = async () => {
       try {
         const res = await fetch(
-       'https://gorillasproduction.ge/wp-json/wp/v2/logo2?acf_format=standard&_fields=id,title,acf'
+       'https://gorillasproduction.pro/wp-json/wp/v2/logo2?acf_format=standard&_fields=id,title,acf'
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch logo data: ${res.statusText}`);

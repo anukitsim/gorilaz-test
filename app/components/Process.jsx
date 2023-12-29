@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const getImageUrl = async (imageId, apiUrl) => {
   try {
-    const res = await fetch(`https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`);
+    const res = await fetch(`https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`);
     if (!res.ok) {
       throw new Error(`Failed to fetch image data: ${res.statusText}`);
     }
@@ -30,7 +30,7 @@ const Process = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://gorillasproduction.ge/wp-json/wp/v2/production-phase');
+        const res = await fetch('https://gorillasproduction.pro/wp-json/wp/v2/production-phase');
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
         }

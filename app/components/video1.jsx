@@ -9,7 +9,7 @@ const Video1 = () => {
     console.log("Video1 component mounted or updated");
     const fetchVideo1 = async () => {
       try {
-        const apiUrl = 'https://gorillasproduction.ge/wp-json/wp/v2/video1?acf_format=standard&_fields=id,title,acf';
+        const apiUrl = 'https://gorillasproduction.pro/wp-json/wp/v2/video1?acf_format=standard&_fields=id,title,acf';
         const response = await fetch(apiUrl);
         const data = await response.json();
 

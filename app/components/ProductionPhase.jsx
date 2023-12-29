@@ -11,7 +11,7 @@ const ProductionPhase = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://gorillasproduction.ge/wp-json/wp/v2/production-phase?acf_format=standard&_fields=id,title,acf"
+          "https://gorillasproduction.pro/wp-json/wp/v2/production-phase?acf_format=standard&_fields=id,title,acf"
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch data: ${response.statusText}`);
@@ -24,7 +24,7 @@ const ProductionPhase = () => {
           data.map(async (phase) => {
             const imageId = phase.acf.image;
             const imageResponse = await fetch(
-              `https://gorillasproduction.ge/wp-json/wp/v2/media/${imageId}`
+              `https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`
             );
 
             if (!imageResponse.ok) {

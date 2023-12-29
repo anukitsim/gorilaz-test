@@ -14,7 +14,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://gorillasproduction.ge/wp-json/wp/v2/section?acf_format=standard&_fields=id,title,acf"
+          "https://gorillasproduction.pro/wp-json/wp/v2/section?acf_format=standard&_fields=id,title,acf"
         );
         const data = await response.json();
         setSectionData(data);

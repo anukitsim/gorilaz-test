@@ -16,7 +16,7 @@ const Header = () => {
 
   const getVideoUrl = async (videoId) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${videoId}`);
+      const response = await fetch(`https://gorillasproduction.pro/media/${videoId}`);
     
       if (!response.ok) {
         if (response.status === 404) {
@@ -37,7 +37,7 @@ const Header = () => {
   useEffect(() => {
     const fetchHeaderVideo = async () => {
       try {
-        const apiUrl = 'https://gorillasproduction.ge/wp-json/wp/v2/header?acf_format=standard&_fields=id,title,acf';
+        const apiUrl = 'https://gorillasproduction.pro/wp-json/wp/v2/header?acf_format=standard&_fields=id,title,acf';
        
 
         const response = await fetch(apiUrl);
