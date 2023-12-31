@@ -9,7 +9,7 @@ const Blog = () => {
     
 
         try {
-          const response = await fetch('https://api.instagram.com/oauth/authorize?client_id=1584615455679017&redirect_uri=https://dev.uz.setantasports.com/&scope=user_profile,user_media&response_type=code', 
+          const response = await fetch('https://api.instagram.com/oauth/authorize?client_id=1584615455679017&redirect_uri=https://gorilaz-test.vercel.app/&scope=user_profile,user_media&response_type=code', 
           {
             method: 'GET',
             headers: {
