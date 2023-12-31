@@ -8,8 +8,7 @@ const Blog = () => {
     const instagramAuth = async (e) => {
 
             try{
-              axios
-                  .get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=10&access_token=IGQWROSFFldkRFanBjblR3TXlHSjBWTDROLS1fQzMzcTV4VGZAxVTUxdXZALT1hQWGMxQm1ZAekJaandQLW1TRW9rQWJKUjJ4YWV4bnp0RE5FazY2SVlIbVpDcVR4ckhod2NnTm1HWVQ2QlhKa09IbWJoYkdqTVB4eE0ZD`)
+              await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption&limit=10&access_token=IGQWROSFFldkRFanBjblR3TXlHSjBWTDROLS1fQzMzcTV4VGZAxVTUxdXZALT1hQWGMxQm1ZAekJaandQLW1TRW9rQWJKUjJ4YWV4bnp0RE5FazY2SVlIbVpDcVR4ckhod2NnTm1HWVQ2QlhKa09IbWJoYkdqTVB4eE0ZD`)
                   .then((resp) => {
                     console.log(resp)
                   })
