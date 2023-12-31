@@ -9,7 +9,7 @@ const GetInTouchSubjectPortolio = ({ sectionData }) => {
        <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center  2sm:mt-[0px] md:mt-[250px] sm:mt-[0px] items-center">
           <p className="text-black text-xl font-bold uppercase sm:text-[10px] 2sm:text-xl">get in touch</p>
         </div>
-      <section className="2sm:h-[574px] sm:h-[187px] justify-center flex flex-col ">
+      <section className="2sm:h-[574px] sm:mr-5 sm:mb-5 md:mb-0 sm:ml-5 md:mr-0 md:ml-0 sm:h-[320px] justify-center flex flex-col">
        <h2 className="uppercase text-white  text-center 2sm:text-[15px] sm:text-[8px] sm:mt-[60px] ">WE WILL GET YOU BACK</h2>
         <form
           action="https://api.web3forms.com/submit" 
@@ -17,7 +17,7 @@ const GetInTouchSubjectPortolio = ({ sectionData }) => {
           id="form"
           className="flex  items-center 2sm:pt-[10px] sm:pt-[10px] gap-1 flex-col"
         >
-          <input type="hidden" name="access_key" value="530bc688-8ad2-45cc-8147-c8e77c8c1b82"></input>
+          <input type="hidden" name="access_key" value="cec0113c-df12-4ce4-ba12-6e32cd6edab3"></input>
           <input type="hidden" name="subject" value="New Submission from your Website" />
           <input type="checkbox" name="botcheck" id="" className="hidden" />
 
@@ -42,21 +42,21 @@ const GetInTouchSubjectPortolio = ({ sectionData }) => {
           </div>
           
           <select
-  required
-  type="subject"
-  name="text"
-  className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
->
-  <option className="font-VcrMono text-gray" disabled hidden>
-    SUBJECT*
-  </option>
-  {sectionData &&
-    sectionData.map((data, index) => (
-      <option key={index} value={data.title.rendered}>
-        {data.title.rendered}
-      </option>
-    ))}
-</select>
+              required
+              type="subject"
+              name="text"
+              className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+            >
+              <option className="font-VcrMono text-gray" disabled hidden>
+                SUBJECT*
+              </option>
+              {sectionData &&
+                sectionData.map((data, index) => (
+                  <option key={index} value={data.title.rendered}>
+                    {data.title.rendered}
+                  </option>
+                  ))}
+         </select>
 
 
           <textarea
@@ -67,7 +67,7 @@ const GetInTouchSubjectPortolio = ({ sectionData }) => {
           />
           <button
             type="submit"
-            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+            className="2sm:w-2/4 sm:w-full 2sm:h-[45px] sm:h-[18px] text-black md:text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
           >
             SUBMIT NOW
           </button>

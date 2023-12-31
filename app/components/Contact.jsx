@@ -2,11 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 const Contact = () => {
   return (
-    <section className='2sm:mt-[112px] sm:mt-[50px] w-[72%] 2sm:h-[809px] sm:h-[350px] mx-auto flex flex-col items-center justify-start'>
+    <section className='2sm:mt-[112px] sm:mt-[80px] w-[72%] 2sm:h-[809px] sm:h-[350px] mx-auto flex flex-col items-center justify-start'>
         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 2sm:h-[810px] sm:h-[390px] "></div>
 
         {/* TITLE */}
-        <h1 className='text-white 2sm:text-[30px] sm:text-[15px] uppercase tracking-[4.5px] top-[30px]'>contact</h1>
+        <h1 className='text-white 2sm:text-[30px] sm:text-[15px] uppercase tracking-[4.5px] top-[30px] '>contact</h1>
 
         <div className="flex flex-col relative 2sm:w-[454px] 2sm:h-[225px] sm:w-[254px] sm:mb-[20px] 2md:mb-[0px] sm:h-[125px] items-center mt-[40px]">
           <a href="facetime://+995593508848" >

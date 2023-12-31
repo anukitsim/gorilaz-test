@@ -222,7 +222,7 @@ const Footer = () => {
               connect
             </h2>
             <div className="flex md:flex flex-row  2sm:max-w-[100px]  sm:hidden 2sm:hidden md:block sm:max-w-[50px] gap-1.5">
-              <Link href="#" className="z-50">
+              <Link href="https://www.facebook.com/profile.php?id=100087287107008%2F" target="_blank" className="z-50">
                 <Image
                   src="/images/facebook.svg"
                   alt="social-media-icon"
@@ -230,7 +230,7 @@ const Footer = () => {
                   height={20}
                 />
               </Link>
-              <Link href="#" className="z-50">
+              <Link href="https://www.instagram.com/gorillasproduction/" target="_blank" className="z-50">
                 <Image
                   src="/images/instagram.svg"
                   alt="social-media-icon"
@@ -238,14 +238,23 @@ const Footer = () => {
                   height={20}
                 />
               </Link>
-              <Link href="#" className="z-50">
+              {/* <Link href="#" className="z-50">
                 <Image
                   src="/images/whatsup.svg"
                   alt="social-media-icon"
                   width={19}
                   height={19}
                 />
-              </Link>
+              </Link> */}
+                <a className="z-50" href="facetime://+995593508848" >
+                <Image
+                src='/images/whatsup.svg'
+                alt="whatsup"
+                width={65}
+                height={50}
+                className="w-[22px] h-[22px]"
+                  />
+                </a>
               <Link href="#" className="z-50">
                 <Image
                   src="/images/google.svg"
@@ -259,18 +268,14 @@ const Footer = () => {
             <h2 className="font-VcrMono 2sm:text-sm sm:text-[8px] tracking-[1.95px] md:mt-[11px] sm:hidden 2sm:hidden md:block uppercase text-[#73E338] ">
               contact
             </h2>
-            <Link
-              className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white"
-              href="#"
-            >
-              +995 557 46 04 06
-            </Link>
-            <Link
-              className="font-VcrMono z-50 2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px]  text-white"
-              href="#"
-            >
-              +995 593 50 88 48
-            </Link>
+           
+            <a className="z-50" href="whatsapp://send?phone=+995 557460406" >
+              <p className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white">+995 557 46 04 06</p>
+            </a> 
+            
+              <a className="z-50" href="whatsapp://send?phone=+995593508848" >
+                <p className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px]  text-white">+995 593 50 88 48</p>
+              </a>
             <Link
               className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px] text-white"
               href="#"
@@ -300,12 +305,12 @@ const Footer = () => {
             height={100}
             className="2sm:w-[100px] 2sm:h-[100px] sm:w-[60px] sm:h-[60px]"
           />
-          <h1 className="2sm:text-[15px] 2sm:tracking-[2.25px] sm:text-[8px] sm:tracking-[1.2px] text-white uppercase 2sm:mt-[24px] sm:mt-[12px] font-ASSUAN  ">
+          <h1 className="2sm:text-[15px] 2sm:tracking-[2.25px] sm:text-[8px] sm:tracking-[1.2px] text-white uppercase 2sm:mt-[24px] sm:mt-[12px] font-ASSUAN">
             Gorillas’ PRODUCTION
           </h1>
         </div>
 
-        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] font-VcrMono ">
+        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] font-VcrMono">
           WWW.GORILLASPRODACTION.GE <br />
           <Image
             className="inline-block "

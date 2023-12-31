@@ -67,8 +67,8 @@ const Portfolio = () => {
               get in touch
             </p>
           </div>
-          <section className="2sm:h-[574px] sm:h-[187px] justify-center flex flex-col ">
-            <h2 className="uppercase text-white pb-[10px] text-center 2sm:text-[15px] sm:text-[8px] sm:mt-[60px] ">
+          <section className="2sm:h-[574px] sm:mr-5 sm:mb-5 md:mb-0 sm:ml-5 md:mr-0 md:ml-0 sm:h-[320px] justify-center flex flex-col">
+            <h2 className="uppercase text-white pb-[10px] text-center 2sm:text-[15px] sm:text-[8px] sm:mt-[90px] ">
               WE WILL GET YOU BACK
             </h2>
             <form
@@ -80,7 +80,7 @@ const Portfolio = () => {
               <input
                 type="hidden"
                 name="access_key"
-                value="530bc688-8ad2-45cc-8147-c8e77c8c1b82"
+                value="cec0113c-df12-4ce4-ba12-6e32cd6edab3"
               ></input>
               <input
                 type="hidden"
@@ -89,14 +89,14 @@ const Portfolio = () => {
               />
               <input type="checkbox" name="botcheck" id="" className="hidden" />
 
-              <div className="flex  flex-row 2sm:w-6/12 sm:w-[219px] gap-1">
+              <div className="flex  md:flex-row sm:flex-col 2sm:w-6/12 sm:w-full gap-1 ">
                 <input
                   type="text"
                   name="name"
                   id="name"
                   required
                   placeholder="FULL NAME*"
-                  className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                  className="2sm:w-full sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
                 />
                 <input
                   type="email"
@@ -104,7 +104,7 @@ const Portfolio = () => {
                   id="email"
                   required
                   placeholder="EMAIL*"
-                  className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                  className="2sm:w-full sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
                 />
               </div>
 
@@ -112,23 +112,23 @@ const Portfolio = () => {
                 required
                 type="subject"
                 name="text"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-4 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
               >
-                  <option className="font-VcrMono text-gray" disabled hidden>
-        SUBJECT*
-      </option>
-      {generateOptions(sectionData)}
-    </select>
+                  <option className="font-VcrMono text-gray" disabled hidden selected>
+                SUBJECT*
+              </option>
+              {generateOptions(sectionData)}
+            </select>
 
               <textarea
                 name="message"
                 id="message"
                 placeholder="MESSAGE*"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[185px] sm:h-[56px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                className="2sm:w-2/4 sm:w-full 2sm:h-[185px] sm:h-[70px] 2sm:p-5 sm:p-1 text-white sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
               />
               <button
                 type="submit"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+                className="submit-text font-bold 2sm:w-2/4 sm:w-full text-center 2sm:h-[45px] sm:h-[27px] text-black md:text-[18px] sm:text-[10px] sm:mb-[85px] sm:font-bold rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
               >
                 SUBMIT NOW
               </button>

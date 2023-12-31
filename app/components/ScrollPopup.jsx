@@ -154,7 +154,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
               <input
                 type="hidden"
                 name="access_key"
-                value="530bc688-8ad2-45cc-8147-c8e77c8c1b82"
+                value="cec0113c-df12-4ce4-ba12-6e32cd6edab3"
               ></input>
               <input
                 type="hidden"
@@ -207,7 +207,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
               />
               <button
                 type="submit"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black text-[15px] sm:mb-[85px] sm:text-[8px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
+                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[45px] sm:h-[18px] text-black md:text-[15px] sm:mb-[85px] sm:text-[10px] rounded-[3px] 2sm:rounded-md sm:bg-[#73E338]"
               >
                 SUBMIT NOW
               </button>
