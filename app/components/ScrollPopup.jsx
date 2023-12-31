@@ -190,7 +190,8 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                             sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
               >
                 <option
-                  className="font-VcrMono text-gray selected disabled hidden"
+                  className="font-VcrMono text-gray hidden"
+                  defaultValue=''
                   selected
                 >
                   SUBJECT*
@@ -211,7 +212,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
               >
                 SUBMIT NOW
               </button>
-              <p class="text-base text-center text-gray-500" id="result"></p>
+              <p className="text-base text-center text-gray-500" id="result"></p>
             </form>
           </section>
         </div>

@@ -217,7 +217,7 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
           >
             SUBMIT NOW
           </button>
-          <p class="text-base text-center text-gray-500" id="result"></p>
+          <p className="text-base text-center text-gray-500" id="result"></p>
         </form>
       </section>
         </div>

@@ -40,7 +40,7 @@ const GetInTouchSubjectServices = ({}) => {
           </div>
           
           <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[30px] 2sm:p-4 sm:p-0 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]">
-            <option className="font-VcrMono text-gray selected disabled hidden" defaultValue="">SUBJECT*</option>
+            <option className="font-VcrMono text-gray"  disabled hidden selected>SUBJECT*</option>
             <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
             <option value="VIDEOGRAPHY">VIDEOGRAPHY</option>
             <option value="LOCATION SCOUTING">LOCATION SCOUTING</option>
@@ -59,7 +59,7 @@ const GetInTouchSubjectServices = ({}) => {
           >
             SUBMIT NOW
           </button>
-          <p class="text-base text-center text-gray-500" id="result"></p>
+          <p className="text-base text-center text-gray-500" id="result"></p>
         </form>
       </section>
 
