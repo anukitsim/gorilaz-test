@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 import Folder from "./Folder";
 
 const Header = () => {
-
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
   

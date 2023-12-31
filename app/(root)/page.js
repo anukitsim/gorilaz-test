@@ -6,6 +6,7 @@
   import ScrollToTop from "@app/components/ScrollToTop";
   import { Suspense } from "react";
   import Loading from "./loading";
+import Blog from "@app/components/Blog";
 
   export default function Root() {
     return (
@@ -17,7 +18,7 @@
         </Suspense>
         <GetInTouch />
         <Footer />
-
+        
         <ScrollToTop />
         <div className="md:block sm:hidden">
           <StickyComponent />

@@ -36,8 +36,6 @@ const Scroll = () => {
         (item) => item.title.rendered === sectionTitle
       );
   
-
-  
       const galleryImages = Object.keys(clickedData.acf || {})
         .filter((key) => key.startsWith('gallery-image') && clickedData.acf[key])
         .map((key) => clickedData.acf[key]);

@@ -62,66 +62,6 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const selectedSubject = document.querySelector('select[name="text"]').value;
-    console.log('Selected Subject:', selectedSubject);
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    result.innerHTML = "Please wait...";
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
-      });
-
-      const jsonResponse = await response.json();
-
-      if (response.status === 200) {
-        // Show success message
-        result.innerHTML = jsonResponse.message;
-        result.classList.remove("text-gray-500");
-        result.classList.add("text-green-500");
-      } else {
-        // Show error message
-        console.log(response);
-        result.innerHTML = jsonResponse.message;
-        result.classList.remove("text-gray-500");
-        result.classList.add("text-red-500");
-      }
-      
-      // Show the result element
-      result.style.display = "block";
-
-      
-      // Hide the result element after 3 seconds
-      setTimeout(() => {
-        result.style.display = "none";
-      }, 3000);
-      
-    } catch (error) {
-      console.log(error);
-      result.innerHTML = "Something went wrong!";
-      // Show alert instead of refreshing the page
-      window.alert('An error occurred. Please try again later.');
-    } finally {
-      form.reset();
-      setTimeout(() => {
-        result.style.display = "none";
-      }, 3000);
-    }
-  };
-
-
-
   return (
     <div
       ref={galleryRef}
@@ -173,6 +113,66 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
       document.body.classList.remove("overflow-y-hidden");
     };
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+    const formData = new FormData(form);
+    const selectedSubject = document.querySelector('select[name="text"]').value;
+    console.log('Selected Subject:', selectedSubject);
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Please wait...";
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+      if (response.status === 200) {
+        // Show success message
+        result.innerHTML = jsonResponse.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-green-500");
+      } else {
+        // Show error message
+        console.log(response);
+        result.innerHTML = jsonResponse.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-red-500");
+      }
+      
+      // Show the result element
+      result.style.display = "block";
+
+      
+      // Hide the result element after 3 seconds
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 3000);
+      
+    } catch (error) {
+      console.log(error);
+      result.innerHTML = "Something went wrong!";
+      // Show alert instead of refreshing the page
+      window.alert('An error occurred. Please try again later.');
+    } finally {
+      form.reset();
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 3000);
+    }
+  };
 
   return (
     <div className="popup-overlay fixed top-0 left-0 flex flex-col items-center justify-center w-full bg-transparent overflow-hidden">
@@ -247,6 +247,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
               </div>
 
               <select
+                id="subj"
                 required
                 type="subject"
                 name="text"
@@ -260,7 +261,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                 >
                   SUBJECT*
                 </option>
-                <option value="PHOTOGRAPHY">{popupData.title}</option>
+                <option value={popupData.title}>{popupData.title}</option>
               
               </select>
 

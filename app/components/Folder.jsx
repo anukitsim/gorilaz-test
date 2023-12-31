@@ -71,7 +71,7 @@ const Folder = () => {
         </div>
         <p className="absolute left-5 top-4 text-[7px] text-white">06</p>
         <Link
-          href="#"
+          href="/blog"
           className="absolute uppercase left-9 top-2.5 tracking-[0.1em] text-[20px] text-[#73E338] font-VcrMono"
         >
           BLOG
