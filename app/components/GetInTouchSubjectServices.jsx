@@ -2,6 +2,67 @@ import React from "react";
 
 
 const GetInTouchSubjectServices = ({}) => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const selectedSubject = document.querySelector('select[name="text"]').value;
+    console.log('Selected Subject:', selectedSubject);
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Please wait...";
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      const jsonResponse = await response.json();
+
+      if (response.status === 200) {
+        // Show success message
+        result.innerHTML = jsonResponse.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-green-500");
+      } else {
+        // Show error message
+        console.log(response);
+        result.innerHTML = jsonResponse.message;
+        result.classList.remove("text-gray-500");
+        result.classList.add("text-red-500");
+      }
+      
+      // Show the result element
+      result.style.display = "block";
+
+      
+      // Hide the result element after 3 seconds
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 3000);
+      
+    } catch (error) {
+      console.log(error);
+      result.innerHTML = "Something went wrong!";
+      // Show alert instead of refreshing the page
+      window.alert('An error occurred. Please try again later.');
+    } finally {
+      form.reset();
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 3000);
+    }
+  };
+
+  
+
   return (
     <>
        <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center sm:mt-[0px] 2sm:mt-[0px] md:mt-[250px] sm:mt-[0px] items-center">
@@ -14,6 +75,7 @@ const GetInTouchSubjectServices = ({}) => {
           method="POST"
           id="form"
           className="flex  items-center pt-[10px] gap-1 flex-col"
+          onSubmit={handleSubmit} 
         >
           <input type="hidden" name="access_key" value="cec0113c-df12-4ce4-ba12-6e32cd6edab3"></input>
           <input type="hidden" name="subject" value="New Submission from your Website" />
@@ -59,7 +121,7 @@ const GetInTouchSubjectServices = ({}) => {
           >
             SUBMIT NOW
           </button>
-          <p className="text-base text-center text-gray-500" id="result"></p>
+          <p className="text-base text-center text-gray-500 absolute bottom-5" id="result"></p>
         </form>
       </section>
 
