@@ -7,6 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupSectionTitle, setPopupSectionTitle] = useState("");
   const [popupData, setPopupData] = useState([]);
@@ -16,7 +19,7 @@ const Footer = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://gorillasproduction.pro/wp-json/wp/v2/section?acf_format=standard&_fields=id,title,acf"
+          `${apiUrl}/section?acf_format=standard&_fields=id,title,acf`
         );
         const data = await response.json();
         setSectionData(data);

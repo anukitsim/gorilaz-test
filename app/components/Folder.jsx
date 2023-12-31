@@ -12,7 +12,7 @@ const Folder = () => {
 
     folders.forEach((folder, index) => {
       folder.addEventListener("mouseenter", () => {
-        console.log(`Mouse entered folder ${index}`);
+       
         setHoveredFolder(index);
         const links = folder.querySelectorAll("a");
         const translateYValue = links.length * 25;

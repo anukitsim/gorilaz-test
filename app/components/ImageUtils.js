@@ -1,6 +1,7 @@
 const getImageUrl = async (imageId, apiUrl) => {
+  
   try {
-    const res = await fetch(`https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`);
+    const res = await fetch(`${apiUrl}/media/${imageId}`);
     if (!res.ok) {
       throw new Error(`Failed to fetch image data: ${res.statusText}`);
     }

@@ -61,7 +61,7 @@ const OurTeam = () => {
   const getImageUrl = async (imageId) => {
     try {
       const res = await fetch(
-        `https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`
+        `${apiUrl}/media/${imageId}`
       );
       if (!res.ok) {
         throw new Error(`Failed to fetch image data: ${res.statusText}`);
@@ -80,14 +80,14 @@ const OurTeam = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          'https://gorillasproduction.pro/wp-json/wp/v2/team-member'
+          `${apiUrl}/team-member`
         );
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
         }
 
         const data = await res.json();
-        console.log("Fetched data:", data);
+       
 
         const formattedData = await Promise.all(
           data.map(async (member) => {

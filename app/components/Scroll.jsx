@@ -13,13 +13,16 @@ const Scroll = () => {
 
   const containerRef = useRef(null);
 
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
+
   const openPopup = async (sectionTitle, isCurrentSection = true) => {
     try {
       let data;
   
       if (isCurrentSection) {
         const response = await fetch(
-          'https://gorillasproduction.pro/wp-json/wp/v2/portfolio?acf_format=standard&_fields=id,title,acf'
+          `${apiUrl}/portfolio?acf_format=standard&_fields=id,title,acf`
         );
         data = await response.json();
       } else {
@@ -33,7 +36,7 @@ const Scroll = () => {
         (item) => item.title.rendered === sectionTitle
       );
   
-      console.log('Clicked Data:', clickedData);
+
   
       const galleryImages = Object.keys(clickedData.acf || {})
         .filter((key) => key.startsWith('gallery-image') && clickedData.acf[key])
@@ -63,7 +66,7 @@ const Scroll = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://gorillasproduction.pro/wp-json/wp/v2/portfolio?acf_format=standard&_fields=id,title,acf');
+        const response = await fetch(`${apiUrl}/portfolio?acf_format=standard&_fields=id,title,acf`);
         const data = await response.json();
         setSectionData(data);
       } catch (error) {

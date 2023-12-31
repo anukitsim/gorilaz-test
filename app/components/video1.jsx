@@ -5,12 +5,14 @@ const Video1 = () => {
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
 
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
   useEffect(() => {
-    console.log("Video1 component mounted or updated");
+  
     const fetchVideo1 = async () => {
       try {
-        const apiUrl = 'https://gorillasproduction.pro/wp-json/wp/v2/video1?acf_format=standard&_fields=id,title,acf';
-        const response = await fetch(apiUrl);
+        const videoUrl = `${apiUrl}/video1?acf_format=standard&_fields=id,title,acf`;
+        const response = await fetch(videoUrl);
         const data = await response.json();
 
         if (Array.isArray(data) && data.length > 0) {
@@ -18,7 +20,7 @@ const Video1 = () => {
 
           if (video1Url) {
             setVideoUrl(video1Url);
-            console.log("Video1 URL:", video1Url);
+           
           } else {
             console.error("Video1 URL not found or invalid:", video1Url);
           }

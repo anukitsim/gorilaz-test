@@ -7,13 +7,16 @@ import StickyComponent from "@app/components/StickyComponent";
 import ScrollToTop from "@app/components/ScrollToTop";
 
 const Portfolio = () => {
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
+
   const [sectionData, setSectionData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://gorillasproduction.pro/wp-json/wp/v2/portfolio?acf_format=standard&_fields=id,title,acf'
+          `${apiUrl}/portfolio?acf_format=standard&_fields=id,title,acf`
         );
         const data = await response.json();
         setSectionData(data);

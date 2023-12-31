@@ -9,6 +9,10 @@ import { usePathname } from "next/navigation";
 import Folder from "./Folder";
 
 const Header = () => {
+
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+
+  
   const pathname = usePathname();
   const [isBlurActive, setIsBlurActive] = useState(true);
   const videoRef = useRef(null);
@@ -37,10 +41,10 @@ const Header = () => {
   useEffect(() => {
     const fetchHeaderVideo = async () => {
       try {
-        const apiUrl = 'https://gorillasproduction.pro/wp-json/wp/v2/header?acf_format=standard&_fields=id,title,acf';
+        const videoUrl = `${apiUrl}/header?acf_format=standard&_fields=id,title,acf`;
        
 
-        const response = await fetch(apiUrl);
+        const response = await fetch(videoUrl);
         
 
         const data = await response.json();

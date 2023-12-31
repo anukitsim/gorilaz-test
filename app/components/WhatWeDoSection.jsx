@@ -10,11 +10,13 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   const [popupData, setPopupData] = useState([]);
   const [sectionData, setSectionData] = useState([]);
 
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://gorillasproduction.pro/wp-json/wp/v2/section?acf_format=standard&_fields=id,title,acf"
+          `${apiUrl}/section?acf_format=standard&_fields=id,title,acf`
         );
         const data = await response.json();
         setSectionData(data);

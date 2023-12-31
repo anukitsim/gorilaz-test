@@ -2,22 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
-
-const getImageUrl = async (imageId, apiUrl) => {
-  try {
-    const res = await fetch(`https://gorillasproduction.pro/wp-json/wp/v2/media/${imageId}`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch image data: ${res.statusText}`);
-    }
-
-    const imageData = await res.json();
-    return imageData.source_url;
-  } catch (error) {
-    console.error("Error fetching image data:", error.message);
-    return ""; // Default to an empty string if there's an error
-  }
-};
+import getImageUrl from "./ImageUtils";
 
 const ProductionPhase = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
@@ -26,13 +11,13 @@ const ProductionPhase = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://gorillasproduction.pro/wp-json/wp/v2/production-phase');
+        const res = await fetch(`${apiUrl}/production-phase`);
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res.statusText}`);
         }
 
         const data = await res.json();
-        console.log("Fetched production data:", data);
+       
 
         const formattedData = await Promise.all(
           data.map(async (phase) => {
