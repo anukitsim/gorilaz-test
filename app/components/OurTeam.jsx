@@ -17,7 +17,7 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
       onTouchStart={() => {}} // Placeholder for mobile touch interaction
     >
       <div
-        className={`front outline outline-white outline-offset-[-5px] rounded-lg sm:ml-[-25%] md:ml-0 ${isClicked ? 'mobile-clicked' : ''}`}
+        className={`front outline outline-white outline-offset-[-5px] rounded-lg  md:ml-0 ${isClicked ? 'mobile-clicked' : ''}`}
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
@@ -45,7 +45,7 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
           alt="card"
           width={65}
           height={50}
-          className="absolute top-[21px] md:right-[21px] sm:right-[-10%]"
+          className="absolute top-[21px] md:right-[21px] sm:right-[10%]"
         />
       </div>
     </div>
@@ -122,7 +122,7 @@ const OurTeam = () => {
   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
   <div className="md:h-3/4  sm:h-full  w-9/12 border-t border-t-white border-b border-b-white sm:border-b sm:border-b-white flex md:justify-center md:items-center md:mt-[136px] sm:mt-0 ">
     <div className="md:w-10/12 sm:w-full h-3/4 md:gap-1 sm:gap-0 flex flex-col justify-center items-center">
-      <div className="md:w-full sm:w-full  flex md:flex-row sm:flex-col justify-center md:gap-1 sm:gap-0 sm:mt-96 md:mt-0">
+      <div className="md:w-full sm:w-full  flex md:flex-row sm:flex-col justify-center items-center md:gap-1 sm:gap-0 sm:mt-96 md:mt-0">
 
           {teamMembers.length > 0 && (
             <TeamMember
@@ -156,7 +156,7 @@ const OurTeam = () => {
           )}
 
       </div>
-      <div className="w-full flex md:flex-row  justify-center sm:flex-col md:gap-1 sm:gap-0">
+      <div className="w-full flex md:flex-row  justify-center items-center sm:flex-col md:gap-1 sm:gap-0">
 
           {teamMembers.length > 3 && (
             <TeamMember

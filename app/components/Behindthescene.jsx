@@ -58,7 +58,7 @@ const Behindthescene = () => {
           </div>
 
           <Image className='absolute md:left-[247px] 2md:left-[370px] sm:left-10 md:top-[192px] sm:top-[-60px] sm:hidden 2sm:block 2sm:top-[172px] 2sm:left-[145px]  md:min-w-[974.297px] md:min-h-[799.968px] 2sm:min-w-[764.297px] 2sm:min-h-[579.968px] sm:w-[332.62px] sm:h-[640.07] z-0 ' src="/images/behind-the-scene-decor.svg" alt='decor-foto' width={974.297} height={799.968}/>
-          <Image className='absolute sm:block 2sm:hidden top-[170px] left-[20px] sm:min-w-[333.5px] sm:min-h-[640.5px] ' src="/images/behind-the-scene-decor.svg" alt='decor-foto' width={333.5} height={640.5}/>
+          <Image className='absolute sm:block 2sm:hidden top-[170px] left-[20px] sm:min-w-[333.5px] sm:min-h-[640.5px] ' src="/images/behind-the-scene-decor-sm.svg" alt='decor-foto' width={333.5} height={640.5}/>
           {/* Block 1 */}
           <div className='md:w-[80%] sm:w-[300px]  flex md:flex-row sm:flex-col 2md:ml-[188px] 2sm:gap-24 2sm:flex-row 2md:gap-28 md:gap-28 2md:ml-[188px]  md:mt-[81px] sm:mt-[60px] md:ml-[65px] sm:ml-14'>
               <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10 md:w-[400px] md:h-[300px] 2sm:w-[285px] 2sm:h-[215px] sm:w-[160px] sm:h-[120px]' src={data.length > 1 ? data[1].imageUrl : "/images/behindthesceneFoto.svg"} alt='foto' width={400} height={300}/>
