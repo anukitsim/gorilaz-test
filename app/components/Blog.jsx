@@ -1,70 +1,50 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react';
 
 const Blog = () => {
-  
-    const instagramAuth = async (e) => {
-    
+  const [feed, setFeed] = useState(null);
 
-        try {
-          const response = await fetch('https://api.instagram.com/oauth/authorize?client_id=1584615455679017&redirect_uri=https://dev.uz.setantasports.com/&scope=user_profile,user_media&response_type=code', 
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            }
-          });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=${process.env.INSTAGRAM_KEY}`;
+        const response = await fetch(url);
+        const data = await response.json();
 
-        console.log(response);
-    
-    
-        //   const jsonResponse = await response.json();
-    
-        //   if (response.status === 200) {
-        //     // Show success message
-        //     result.innerHTML = jsonResponse.message;
-        //     result.classList.remove("text-gray-500");
-        //     result.classList.add("text-green-500");
-        //   } else {
-        //     // Show error message
-        //     console.log(response);
-        //     result.innerHTML = jsonResponse.message;
-        //     result.classList.remove("text-gray-500");
-        //     result.classList.add("text-red-500");
-        //   }
-          
-        //   // Show the result element
-        //   result.style.display = "block";
-    
-          
-        //   // Hide the result element after 3 seconds
-        //   setTimeout(() => {
-        //     result.style.display = "none";
-        //   }, 3000);
-          
-        } catch (error) {
-          console.log(error);
-          result.innerHTML = "Something went wrong!";
-          // Show alert instead of refreshing the page
-          window.alert('An error occurred. Please try again later.');
-        } finally {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = "none";
-          }, 3000);
-        }
-      };
-      instagramAuth();
+        // Assuming data is an array, slice the last 5 posts
+        const lastFivePosts = data.data.slice(0, 5);
+
+        setFeed({ data: lastFivePosts });
+      } catch (error) {
+        console.error(error);
+        setFeed(null);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to ensure the effect runs only once on mount
 
   return (
     <>
-</>
-
+      <div>
+        {feed &&
+          feed.data.map((item) => (
+            <div key={item.id}>
+              {item.media_type === 'IMAGE' ? (
+                <img src={item.media_url} alt={item.caption} style={{ maxWidth: '100%' }} />
+              ) : (
+                <video controls width="100%" height="auto">
+                  <source src={item.media_url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+              <p>{item.caption}</p>
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 
 export default Blog;
-

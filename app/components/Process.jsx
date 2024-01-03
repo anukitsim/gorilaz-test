@@ -103,8 +103,8 @@ const Process = () => {
       </div>
 
       {/* 2 Block */}
-      <div className="flex justify-center relative flex-row w-full md:w-9/12">
-        <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[50px] mt-[30px]">
+      <div className="flex justify-center relative flex-row lg:w-[72%] 2md:w-[72%] sm:w-11/12">
+      <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[120px] mt-[30px]">
           <div className="md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]">
             <p className="uppercase font-VcrMono text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center">
               production
@@ -148,8 +148,8 @@ const Process = () => {
       </div>
 
       {/* 3 Block */}
-      <div className="flex justify-center relative flex-row w-full md:w-9/12">
-        <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] md:mt-[30px] 2sm:mt-[30px] sm:mt-[0px]">
+      <div className="flex justify-center relative flex-row lg:w-[72%] 2md:w-[72%] sm:w-11/12">
+      <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[120px] mt-[30px]">
           <div className="md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]">
             <p className="uppercase font-VcrMono text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center">
               pre production
