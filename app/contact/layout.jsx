@@ -11,6 +11,9 @@ import ScrollToTop from '@app/components/ScrollToTop'
 export const metadata = {
   
   description: 'contact page',
+  icons: {
+    icon: '/images/logo.svg'
+  },
 }
 
 export default function RootLayout({ children }) {

@@ -9,6 +9,9 @@ import GetInTouchSubjectServices from "@app/components/GetInTouchSubjectServices
 export const metadata = {
  
   description: 'services',
+  icons: {
+    icon: '/images/logo.svg'
+  },
 };
 
 export default function RootLayout({ children }) {
