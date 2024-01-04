@@ -14,7 +14,7 @@
         const data = await response.json();
 
         // Assuming data is an array, slice the last 5 posts
-        const lastFivePosts = data.data.slice(0, 5);
+        const lastFivePosts = data.data
 
         setFeed({ data: lastFivePosts });
       } catch (error) {

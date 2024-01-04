@@ -161,7 +161,7 @@ const Footer = () => {
               <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:block 2sm:block md:hidden sm:text-[12px] text-[#73E338]">
                 connect
               </h2>
-              <div className="flex  flex-row    2sm:max-w-[100px]  sm:block 2sm:block md:hidden sm:max-w-[70px] gap-1.5">
+              <div className="flex sm:flex flex-row  2sm:flex 2sm:flex-row 2sm:max-w-[100px]  sm:block 2sm:block md:hidden sm:max-w-[70px] gap-1.5">
                 <Link href="/portfolio/industries" className="z-50">
                   <Image
                     src="/images/facebook.svg"
@@ -224,7 +224,7 @@ const Footer = () => {
             <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:text-[8px] sm:hidden 2sm:hidden md:block text-[#73E338]">
               connect
             </h2>
-            <div className="flex  flex-row  2sm:max-w-[100px]  sm:hidden 2sm:hidden md:block sm:max-w-[50px] gap-1.5">
+            <div className="flex md:flex flex-row  2sm:max-w-[100px]  sm:hidden 2sm:hidden md:block sm:max-w-[50px] gap-1.5">
               <Link href="https://www.facebook.com/profile.php?id=100087287107008%2F" target="_blank" className="z-50">
                 <Image
                   src="/images/facebook.svg"
@@ -241,7 +241,14 @@ const Footer = () => {
                   height={20}
                 />
               </Link>
-              
+              {/* <Link href="#" className="z-50">
+                <Image
+                  src="/images/whatsup.svg"
+                  alt="social-media-icon"
+                  width={19}
+                  height={19}
+                />
+              </Link> */}
                 <a className="z-50" href="facetime://+995593508848" >
                 <Image
                 src='/images/whatsup.svg'
