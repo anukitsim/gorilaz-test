@@ -9,7 +9,7 @@
     const fetchData = async () => {
       try {
         const url =
-          "https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=IGQWRQaHJrZADZAScTByVWVabFJxYVV6cUo3T3FKcE9DVEFka21OQWIybVhHUU82QXVvZAGh1a0RwNUVlbHVHTVBMc3NGM25TTldnT3NTWVNOMWZAKaWl3eW04X0NITkRiR09VblRpNVNPekFDQTBQdFZAaYmVDTUYzVncZD";
+          "https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=IGQWRQZAFVVU1lpWHRySjVrbk9fTW9oS3ZAIb1RMVkRBREhTYllfMnRfZAzBwNmRZAR002aHRDNkZAmWkQwWFlVQ1AwU0hLV3VKdXlWVE1lM2dKeHNMVGFTQkpxMm1QajNOc3BWUGluVWp3WHBxelpRanRtMmt5TnNHRDgZD";
         const response = await fetch(url);
         const data = await response.json();
 
