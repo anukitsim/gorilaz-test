@@ -9,12 +9,12 @@
     const fetchData = async () => {
       try {
         const url =
-          `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
+          `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&limit=100&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
         const response = await fetch(url);
         const data = await response.json();
 
-        // Assuming data is an array, slice the last 5 posts
-        const lastFivePosts = data.data.slice(0, 5);
+        // Assuming data is an array, the posts
+        const lastFivePosts = data.data 
 
         setFeed({ data: lastFivePosts });
       } catch (error) {
@@ -28,10 +28,10 @@
       fetchData();
 
       // Set up an interval to fetch data every day (24 hours)
-      const interval = setInterval(fetchData, 24 * 60 * 60 * 1000);
+      // const interval = setInterval(fetchData, 24 * 60 * 60 * 1000);
 
       // Clear the interval on component unmount
-      return () => clearInterval(interval);
+      // return () => clearInterval(interval);
     }, []); // Empty dependency array to ensure the effect runs only once on mount
 
     return (
@@ -45,7 +45,7 @@
                   key={item.id}
                   className="flex flex-col justify-center items-center w-6/12 gap-5"
                 >
-                  {item.media_type === "IMAGE" ? (
+                  {item.media_type === "IMAGE" || item.media_type === "CAROUSEL_ALBUM" ? (
                     <img
                       src={item.media_url}
                       alt={item.caption}
