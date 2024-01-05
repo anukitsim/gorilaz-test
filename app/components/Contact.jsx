@@ -1,6 +1,14 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 const Contact = () => {
+  const emailRecipient = "info@gorillasproduction.ge";
+
+  const openMailTo = () => {
+    window.location.href = `mailto:${emailRecipient}`;
+  };
+
   return (
     <section className='2sm:mt-[112px] sm:mt-[80px] w-[72%] 2sm:h-[809px] sm:h-[350px] mx-auto flex flex-col items-center justify-start'>
         <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 2sm:h-[810px] sm:h-[390px] "></div>
@@ -16,6 +24,7 @@ const Contact = () => {
               width={65}
               height={50}
               className="2sm:w-[80px] 2sm:h-[65px] sm:w-[45px] sm:h-[40px]"
+              
                 />
           </a>
             
@@ -32,13 +41,14 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col 2sm:w-[454px] 2sm:h-[225px] sm:w-[254px] sm:h-[125px] relative items-center 2sm:pt-[60px] sm:pt-[0px] 2md:border-[1px] 2md:border-[#E9E8EF]   2md:border">
-              <Link lassName="z-10 self-center" href="#">
+              <Link href='#' className="z-10 self-center" onClick={openMailTo}>
                   <Image
                     src='/images/google.svg'
                     alt="whatsup"
                     width={65}
                     height={65}
                     className="2sm:w-[80px] 2sm:h-[65px] sm:w-[45px] sm:h-[40px]"
+                    
                     />
               </Link> 
 

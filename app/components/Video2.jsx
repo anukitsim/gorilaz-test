@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 const Video2 = () => {
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
-
+  const [isVideo1Loaded, setIsVideo1Loaded] = useState(false);
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Video2 = () => {
 
           if (video2Url) {
             setVideoUrl(video2Url);
-           
+            setIsVideo1Loaded(true);
           } else {
             console.error("Video2 URL not found or invalid:", video2Url);
           }
@@ -42,7 +42,7 @@ const Video2 = () => {
     }
   }, [videoUrl]);
 
-  return (
+  return isVideo1Loaded ? (
     <video
       ref={videoRef}
       className="outline md:w-11/12 md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
@@ -51,6 +51,8 @@ const Video2 = () => {
       loop
       preload='auto'
     />
+  ) : (
+    <div  className="outline md:w-11/12 md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md text-white text-4xl flex justify-center items-center">Loading..</div>
   );
 };
 

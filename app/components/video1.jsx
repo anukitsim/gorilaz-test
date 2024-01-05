@@ -1,14 +1,14 @@
 // Video1.jsx
+// Video1.jsx
 import { useRef, useState, useEffect } from "react";
 
 const Video1 = () => {
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
-
-  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+  const [isVideo1Loaded, setIsVideo1Loaded] = useState(false);
+  const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
   useEffect(() => {
-  
     const fetchVideo1 = async () => {
       try {
         const videoUrl = `${apiUrl}/video1?acf_format=standard&_fields=id,title,acf`;
@@ -20,7 +20,7 @@ const Video1 = () => {
 
           if (video1Url) {
             setVideoUrl(video1Url);
-           
+            setIsVideo1Loaded(true);
           } else {
             console.error("Video1 URL not found or invalid:", video1Url);
           }
@@ -43,7 +43,7 @@ const Video1 = () => {
     }
   }, [videoUrl]);
 
-  return (
+  return isVideo1Loaded ? (
     <video
       ref={videoRef}
       className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px]"
@@ -52,6 +52,8 @@ const Video1 = () => {
       loop
       preload="auto"
     />
+  ) : (
+    <div className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px] flex justify-center text-white items-center">Loading...</div>
   );
 };
 
