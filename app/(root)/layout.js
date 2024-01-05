@@ -4,7 +4,7 @@ export const metadata = {
   title: "gorillasproduction",
   description: 'home page',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 };
 

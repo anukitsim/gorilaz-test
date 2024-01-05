@@ -63,7 +63,7 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
             isHovered={hoverStates[index]}
             onMouseEnter={() => handleHoverChange(index, true)}
             onMouseLeave={() => handleHoverChange(index, false)}
-            onClick={() => openPopup(data.title.rendered, [data.acf.image1, data.acf.image2, data.acf.image3], [data.acf.text1, data.acf.text2, data.acf.text3])}
+            onClick={() => openPopup(data.title.rendered, [data.acf.image1, data.acf.image2, data.acf.image3, data.acf.image4, data.acf.image5, data.acf.image6, data.acf.image7, data.acf.image8, data.acf.image9, data.acf.image10,], [data.acf.text1, data.acf.text2, data.acf.text3, data.acf.text4, data.acf.text5, data.acf.text6, data.acf.text7, data.acf.text8, data.acf.text9, data.acf.text10])}
           />
         ))}
       </div>

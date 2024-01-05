@@ -12,7 +12,7 @@ export const metadata = {
   
   description: 'blog page',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 }
 

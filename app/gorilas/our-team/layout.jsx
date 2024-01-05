@@ -7,7 +7,7 @@ export const metadata = {
   
   description: 'our-team',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 }
 

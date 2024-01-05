@@ -18,11 +18,12 @@ module.exports = {
         ASSUAN: ['a_Assuan'],
       },
       screens: {
-        'sm': '300px', 
-        '2sm': '700px',
-        'md': '1200px',
+        'sm': '300px',                  
+        '2sm': '700px',                 
+        'md': '1200px',                 
         '2md': '1400px',
-        'lg': '1600px',
+        'lg': '1470px',                
+        'xl': '1920px',                 
       },
       
     

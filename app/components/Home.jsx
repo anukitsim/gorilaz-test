@@ -9,6 +9,7 @@ import Video1 from "./video1";
 import Video2 from "./Video2";
 import ProductionPhase from "./ProductionPhase";
 import RunningLine from "./RunningLine";
+import HomeBlog from "./homeBlog";
 
 const Home = ({
   isPopupOpen,
@@ -69,7 +70,7 @@ const Home = ({
             <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
           )}
           <div className="text-white md:w-1/2 sm:hidden md:block border-r h-[90%] border-r-white">
-            <p className="mt-[70px] text-[18px] uppercase pl-16 text-white">
+            <p className="mt-[70px] text-[18px] uppercase pl-16 text-white xl:mr-10 mr-10">
               <span className="text-[#73E338]">Gorillas' Production</span>{" "}
               Gorillas' Production embodies a thrilling convergence of artistry,
               adventure and everyday lifestyle through a different angle.
@@ -89,8 +90,8 @@ const Home = ({
                 drag for more
               </p>
             </div>
-
-            <p className="text-white pl-10 mt-[120px] uppercase">blog here</p>
+            
+            <HomeBlog />
           </div>
           <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
             <Image
@@ -121,7 +122,7 @@ const Home = ({
         </div>
 
         <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
-        <div className="mx-auto relative sm:w-full sm:h-[1270px] md:h-[536px]  md:w-full">
+        <div className="mx-auto relative sm:w-full sm:h-[1270px] md:h-[1236px] lg:h-[536px] xl:h-[536px] 2md:h-[536px]  md:w-full">
           <WhatWeDoSection
             hoverStates={hoverStates}
             handleHoverChange={handleHoverChange}
@@ -129,7 +130,7 @@ const Home = ({
           />
         </div>
         <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
-        <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px] flex flex-col justify-center  items-center">
+        <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px]  flex flex-col justify-center  items-center">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
 
           <Video2 />

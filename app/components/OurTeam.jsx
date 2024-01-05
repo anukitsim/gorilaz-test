@@ -31,11 +31,11 @@ const TeamMember = ({ imageUrl, name, description, span }) => {
           <h2 className="text-[15px] uppercase text-[#45FC4C] mt-[75px] self-end pr-5 pt-5">
             {name}
           </h2>
-          <div className="flex flex-col items-baseline md:pl-28 sm:pl-20 pt-10 ">
-            <span className="text-white text-[10px]  tracking-wider ">
+          <div className="flex flex-col justify-end items-end  self-end pr-5 pt-12">
+            <span className="text-white uppercase text-[10px]  tracking-wider ">
               {span}
             </span>
-            <span className="text-white text-[10px] sm:pb-2  tracking-wider ">
+            <span className="text-white uppercase text-[10px] sm:pb-2  tracking-wider ">
               {description}
             </span>
           </div>
@@ -115,8 +115,8 @@ const OurTeam = () => {
 
   return (
     <>
-<div className="w-[20%] line1 absolute h-[1px] md:top-[125%] 2md:top-[125%] sm:top-[110%] right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
-<div className="w-[20%] line2 absolute h-[1px] md:top-[125%] 2md:top-[125%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[140%] 2md:top-[125%] sm:top-[110%]  right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[140%] 2md:top-[125%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
 <section className="md:w-9/12 relative sm:w-full md:mt-[120px] sm:mt-[150px] md:h-[835px]  sm:h-[1500px] flex overflow-hidden  mx-auto justify-center">
   <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>

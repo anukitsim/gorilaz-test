@@ -6,6 +6,9 @@ import Header from '@app/components/Header'
 export const metadata = {
  
   description: 'production',
+  icons: {
+    icon: '/images/black-logo.png'
+  },
 }
 
 export default function RootLayout({ children }) {

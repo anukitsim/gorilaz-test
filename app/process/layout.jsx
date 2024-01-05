@@ -11,7 +11,7 @@ export const metadata = {
 
   description: 'process',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 }
 

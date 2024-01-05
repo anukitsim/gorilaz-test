@@ -7,7 +7,7 @@ export const metadata = {
   
   description: 'behind the scenes page',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 }
 

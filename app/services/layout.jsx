@@ -10,7 +10,7 @@ export const metadata = {
  
   description: 'services',
   icons: {
-    icon: '/images/logo.svg'
+    icon: '/images/black-logo.png'
   },
 };
 
