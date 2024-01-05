@@ -42,8 +42,8 @@ const HomeBlog = () => {
             feed.data.map((item, index) => (
               <div
                 key={item.id}
-                className={`flex-shrink-0 w-[300px] h-[270px] flex flex-col justify-start items-center gap-5 rounded-lg border-2 border-white overflow-hidden ${
-                  index >= 2 ? "hidden md:flex" : ""
+                className={`flex-shrink-0 w-[300px]  h-[270px] flex flex-col justify-start items-center gap-5 rounded-lg border-2 border-white overflow-hidden ${
+                  index >= 2 ? "" : ""
                 }`}
               >
                 <div

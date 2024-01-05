@@ -69,7 +69,7 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
       style={{ scrollSnapType: "x mandatory" }}
     >
       {text && (
-        <p className="text-white uppercase absolute -top-20 text-[15px] w-10/12 left-14 tracking-widest">
+        <p className="text-white uppercase absolute -top-20 text-[15px] w-10/12 left-14  tracking-widest">
           {text}
         </p>
       )}
@@ -77,7 +77,7 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
       {images.map((image, index) => (
         <div
           key={index}
-          className="gallery-item text-white flex-shrink-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
+          className="gallery-item text-white flex-shrink-0 sm:mt-[50px] md:mt-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
           style={{
             width: `${divDimensions[index].width}px`,
             height: `${divDimensions[index].height}px`,

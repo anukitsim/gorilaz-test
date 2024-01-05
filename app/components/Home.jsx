@@ -61,7 +61,7 @@ const Home = ({
               gorillas’industries
             </p>
             <Scroll />
-
+            <HomeBlog />
             <p className="sm:text-white  text-[10px] uppercase absolute sm:bottom-[70%] sm:left-[35px]">
               drag for more
             </p>
@@ -90,8 +90,10 @@ const Home = ({
                 drag for more
               </p>
             </div>
-            
+            <div>
             <HomeBlog />
+            </div>
+           
           </div>
           <div className="flex flex-col  gap-[28px] justify-start sm:h-[426px] md:mt-20 sm:mt-10 items-center md:w-1/2 sm:w-full">
             <Image
