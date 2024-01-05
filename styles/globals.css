@@ -257,6 +257,7 @@ section {
 
 .scroll-container::-webkit-scrollbar {
   height: 38px;
+ 
 }
 
 @media only screen and (max-width: 900px) {
@@ -267,43 +268,44 @@ section {
 }
 
 .scroll-container::-webkit-scrollbar-track {
-  background-clip: content-box;
+  
   background-position-y: center;
   background-image: url("/images/scroll-line.svg");
   background-repeat: no-repeat;
-  margin-left: 20px;
- margin-right: 120px;
-
+  margin-left: 40px;
+  margin-right: 40px;
+  
 
   /* background-clip: content-box;  */
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
   background-image: url("/images/scroll.svg");
-  background-position-x: center;
+  background-position-x: start;
   background-repeat: no-repeat;
   background-position-y: center;
-
+  
  
  
 }
+
 
 .popup-scroll::-webkit-scrollbar-track {
   background-clip: content-box;
   background-position-y: center;
   background-image: url("/images/scroll-line.svg");
   background-repeat: repeat-x;
-  background-clip: content-box;
-  margin-left: 20px;
-  margin-right: 120px;
+  
 }
 
 .popup-scroll::-webkit-scrollbar-thumb {
-  /* background-color: aqua; */
+
   background-image: url("/images/scroll.svg");
-  background-position-x: start;
+  background-position-x: center;
   background-repeat: no-repeat;
   background-position-y: center;
+
+  
   
 }
 

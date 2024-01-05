@@ -65,7 +65,7 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
   return (
     <div
       ref={galleryRef}
-      className="flex overflow-x-scroll popup-scroll md:w-11/12 sm:w-full overflow-y-hidden gap-0.5 mt-[200px] sm:pl-5 sm:pr-5 md:pl-0 md:pr-0 md:ml-10 h-full"
+      className="flex overflow-x-scroll popup-scroll md:w-11/12 sm:w-full overflow-y-hidden gap-0.5 mt-[200px] sm:pl-5 sm:pr-5 md:pl-0 md:pr-0 md:ml-10 "
       style={{ scrollSnapType: "x mandatory" }}
     >
       {text && (
