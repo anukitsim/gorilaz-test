@@ -16,10 +16,9 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="XaVrDV0GoR7Pzjdl_2cyPfcCszKRnb-K4zSiOejky4k"
         />
-        <meta property="og:image" content="<generated>" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta property="og:image:width" content="<generated>" />
-        <meta property="og:image:height" content="<generated>" />
+        <meta property="og:image" content="https://i.imgur.com/rlqENB0.png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
       </head>
       <body>{children}</body>
     </html>
