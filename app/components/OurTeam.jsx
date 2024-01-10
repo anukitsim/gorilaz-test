@@ -115,8 +115,8 @@ const OurTeam = () => {
 
   return (
     <>
-<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[140%] 2md:top-[125%] sm:top-[110%]  right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
-<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[140%] 2md:top-[125%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[120%] 2md:top-[192%] sm:top-[110%]  right-0 flex justify-center items-center bg-white md:block sm:hidden"></div>
+<div className="w-[20%]  absolute h-[1px] md:top-[125%] lg:top-[120%] 2md:top-[192%] sm:top-[110%] flex justify-center items-center bg-white md:block sm:hidden"></div>
 <section className="md:w-9/12 relative sm:w-full md:mt-[120px] sm:mt-[150px] md:h-[835px]  sm:h-[1500px] flex overflow-hidden  mx-auto justify-center">
   <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
   <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
