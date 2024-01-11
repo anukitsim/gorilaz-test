@@ -3,36 +3,52 @@
   import { useEffect, useState } from "react";
   import Link from "next/link";
 
+  import useSWR from 'swr';
+
+  const fetcher = async (url) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+  
+
   const Blog = () => {
-    const [feed, setFeed] = useState(null);
+    const wordpressApiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+  const instagramToken = process.env.NEXT_PUBLIC_INSTAGRAM_KEY;
+  const [feed, setFeed] = useState(null);
 
-    const fetchData = async () => {
-      try {
-        const url =
-          `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&limit=100&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
-        const response = await fetch(url);
-        const data = await response.json();
+  const { data: wordpressData, error: wordpressError } = useSWR(
+    `${wordpressApiUrl}/posts`,
+    fetcher
+  );
 
-        // Assuming data is an array, the posts
-        const lastFivePosts = data.data.slice(0, 5);
-
-        setFeed({ data: lastFivePosts });
-      } catch (error) {
-        console.error(error);
-        setFeed(null);
-      }
-    };
+  // Fetch data from Instagram using SWR
+  const { data: instagramData, error: instagramError } = useSWR(
+    `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&limit=100&access_token=${instagramToken}`,
+    fetcher
+  );
 
     useEffect(() => {
-      // Fetch data on component mount
-      fetchData();
-
-      // Set up an interval to fetch data every day (24 hours)
-      // const interval = setInterval(fetchData, 24 * 60 * 60 * 1000);
-
-      // Clear the interval on component unmount
-      // return () => clearInterval(interval);
-    }, []); // Empty dependency array to ensure the effect runs only once on mount
+      // Combine and set feed data if both WordPress and Instagram data are available
+      if (wordpressData && instagramData) {
+        const combinedData = {
+          wordpressPosts: wordpressData,
+          instagramPosts: instagramData.data.slice(0, 5),
+        };
+        setFeed(combinedData);
+      }
+  
+      // Handle errors
+      if (wordpressError) {
+        console.error('WordPress error:', wordpressError);
+        setFeed(null);
+      }
+      if (instagramError) {
+        console.error('Instagram error:', instagramError);
+        setFeed(null);
+      }
+    }, [wordpressData, instagramData, wordpressError, instagramError]);
+  
 
     return (
       <>
