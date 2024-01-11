@@ -3,13 +3,7 @@
   import { useEffect, useState } from "react";
   import Link from "next/link";
 
-  import useSWR from 'swr';
 
-  const fetcher = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  };
   
 
   const Blog = () => {
@@ -50,6 +44,17 @@
     }, [wordpressData, instagramData, wordpressError, instagramError]);
   
 
+    useEffect(() => {
+      const refreshInterval = setInterval(async () => {
+        const newToken = await getToken();
+        mutate(`https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&limit=100&access_token=${newToken}`);
+      }, 60 * 60 * 1000);
+  
+      // Clear interval on component unmount
+      return () => clearInterval(refreshInterval);
+    }, []);
+
+    
     return (
       <>
         <section className="md:ml-0 md:w-full sm:w-full mt-[130px] overflow-hidden">
