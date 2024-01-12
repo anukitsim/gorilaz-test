@@ -307,6 +307,7 @@ const Footer = () => {
             width={100}
             height={100}
             className="2sm:w-[100px] 2sm:h-[100px] sm:w-[60px] sm:h-[60px]"
+            priority
           />
           <h1 className="2sm:text-[15px] 2sm:tracking-[2.25px] sm:text-[8px] sm:tracking-[1.2px] text-white uppercase 2sm:mt-[24px] sm:mt-[12px] font-ASSUAN">
             Gorillas’ PRODUCTION

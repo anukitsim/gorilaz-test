@@ -7,70 +7,45 @@ import Image from "next/image";
 import MobileNavigation from "./MobileNavigation";
 import { usePathname } from "next/navigation";
 import Folder from "./Folder";
+import useSWR from "swr";
 
 const Header = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
-
-  
   const pathname = usePathname();
   const [isBlurActive, setIsBlurActive] = useState(true);
   const videoRef = useRef(null);
-  const [videoUrl, setVideoUrl] = useState(null);
   const [isHeaderLoaded, setIsHeaderLoaded] = useState(false);
 
-
-
-  const getVideoUrl = async (videoId) => {
-    try {
-      const response = await fetch(`https://gorillasproduction.pro/media/${videoId}`);
-    
-      if (!response.ok) {
-        if (response.status === 404) {
-          console.warn(`Video with ID ${videoId} not found.`);
-          return null;
-        }
-        throw new Error(`Failed to fetch video data: ${response.statusText}`);
-      }
-
-      const videoData = await response.json();
-      return videoData.source_url || null;
-    } catch (error) {
-      console.error("Error fetching video data:", error.message);
-      return null;
+  const fetcher = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
+    return response.json();
   };
 
+  const { data: headerData, error: headerError } = useSWR(
+    `${apiUrl}/header?acf_format=standard&_fields=id,title,acf`,
+    fetcher
+  );
+
   useEffect(() => {
-    const fetchHeaderVideo = async () => {
-      try {
-        const videoUrl = `${apiUrl}/header?acf_format=standard&_fields=id,title,acf`;
-       
+    if (headerError) {
+      console.error("Error fetching header data:", headerError);
+    }
 
-        const response = await fetch(videoUrl);
-        
+    if (headerData && Array.isArray(headerData) && headerData.length > 0) {
+      const headerVideoUrl = headerData[0].acf.header_video;
 
-        const data = await response.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          const headerVideoUrl = data[0].acf.header_video;
-
-          if (headerVideoUrl) {
-            setVideoUrl(headerVideoUrl);
-            setIsHeaderLoaded(true);
-            
-          } else {
-            console.error("Header video URL not found or invalid:", headerVideoUrl);
-          }
-        } else {
-          console.error("No headers found in the response:", data);
-        }
-      } catch (error) {
-        console.error("Error fetching header video:", error);
+      if (headerVideoUrl) {
+        setIsHeaderLoaded(true);
+      } else {
+        console.error("Header video URL not found or invalid:", headerVideoUrl);
       }
-    };
-
-    fetchHeaderVideo();
-  }, []);
+    } else {
+      console.error("No headers found in the response:", headerData);
+    }
+  }, [headerData, headerError]);
 
   const handleVideoHover = () => {
     if (videoRef.current) {
@@ -78,6 +53,7 @@ const Header = () => {
       setIsBlurActive(false);
     }
   };
+
 
     const titles = {
       "/": "HOME",
@@ -137,7 +113,7 @@ const Header = () => {
  </div>
 
  <div className="absolute inset-2 right-7 z-0 flex md:items-center sm:items-end md:justify-end sm:justify-end videoBackdrop">
-   {videoUrl && (
+ {headerData && headerData[0].acf.header_video && (
      <video
        ref={videoRef}
        autoPlay
@@ -146,8 +122,9 @@ const Header = () => {
        className="object-cover md:w-8/12 sm:w-11/12 md:h-[415px] sm:h-[190px] video"
        onMouseOver={handleVideoHover}
        preload='auto'
+       loading='lazy'
      >
-       <source src={videoUrl} type="video/mp4" />
+       <source src={headerData[0].acf.header_video} type="video/mp4" />
      </video>
    )}
  </div>
