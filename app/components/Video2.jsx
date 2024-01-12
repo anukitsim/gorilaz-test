@@ -49,7 +49,7 @@ const Video2 = () => {
       autoPlay
       muted
       loop
-      preload='auto'
+      preload="metadata"
     />
   ) : (
     <div  className="outline md:w-11/12 md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md text-white text-4xl flex justify-center items-center">Loading..</div>

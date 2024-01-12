@@ -102,7 +102,8 @@ const Home = ({
               width={355}
               height={234}
               className="md:w-[355px] md:h-[234px] sm:w-[142px] sm:h-[90px]"
-             priority
+             loading="lazy"
+             sizes="(min-width: 1200px) calc(78.22vw - 97px), 100vw"
             />
 
             <Video1 />

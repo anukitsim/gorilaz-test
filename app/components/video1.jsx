@@ -1,5 +1,5 @@
-// Video1.jsx
-// Video1.jsx
+"use client"
+
 import { useRef, useState, useEffect } from "react";
 
 const Video1 = () => {
@@ -50,7 +50,7 @@ const Video1 = () => {
       autoPlay
       muted
       loop
-      preload="auto"
+      preload="metadata"
     />
   ) : (
     <div className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px] flex justify-center text-white items-center">Loading...</div>
