@@ -25,7 +25,9 @@ module.exports = {
         'lg': '1470px',                
         'xl': '1920px',                 
       },
-      
+      corePlugins: {
+        preflight: true,
+      },
     
     },
   },
