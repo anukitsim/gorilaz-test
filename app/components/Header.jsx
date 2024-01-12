@@ -7,6 +7,7 @@ import Image from "next/image";
 import MobileNavigation from "./MobileNavigation";
 import { usePathname } from "next/navigation";
 import Folder from "./Folder";
+import getVideoUrl from "./VideoUtils";
 
 const Header = () => {
   const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
@@ -19,26 +20,6 @@ const Header = () => {
   const [isHeaderLoaded, setIsHeaderLoaded] = useState(false);
 
 
-
-  const getVideoUrl = async (videoId) => {
-    try {
-      const response = await fetch(`https://gorillasproduction.pro/media/${videoId}`);
-    
-      if (!response.ok) {
-        if (response.status === 404) {
-          console.warn(`Video with ID ${videoId} not found.`);
-          return null;
-        }
-        throw new Error(`Failed to fetch video data: ${response.statusText}`);
-      }
-
-      const videoData = await response.json();
-      return videoData.source_url || null;
-    } catch (error) {
-      console.error("Error fetching video data:", error.message);
-      return null;
-    }
-  };
 
   useEffect(() => {
     const fetchHeaderVideo = async () => {
