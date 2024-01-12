@@ -14,7 +14,7 @@ const ImageWrapper = ({ videoSrc, src, alt, label, isHovered, onMouseEnter, onMo
       ) : (
         src ? (
           <div className="image-wrapper outline outline-white outline-offset-[-5px] rounded-lg">
-            <Image src={src} alt={alt} width={266} height={204} />
+            <Image src={src} alt={alt} width={266} height={204} loading='lazy'/>
           </div>
         ) : null
       )}

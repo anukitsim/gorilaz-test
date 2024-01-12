@@ -62,6 +62,7 @@ const Process = () => {
                 height={244.27}
                 className="absolute sm:left-[-13.95px] 2sm:left-[-14.5px] md:left-[19.5px] md:top-[53.8px] sm:top-[3.5px] 2sm:top-[31px] z-10 md:w-[338.5px]
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]"
+                                   loading="lazy"
               />
             </div>
             <div
@@ -117,6 +118,7 @@ const Process = () => {
                 height={244.27}
                 className="absolute sm:left-[-13.95px] 2sm:left-[-14.5px] md:left-[19.5px] md:top-[51.8px] sm:top-[3.5px] 2sm:top-[31px] z-10 md:w-[338.5px]
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]"
+                                   loading="lazy"
               />
             </div>
             <div
@@ -162,6 +164,7 @@ const Process = () => {
                 height={244.27}
                 className="absolute sm:left-[-13.95px] 2sm:left-[-14.5px] md:left-[19.5px] md:top-[51.8px] sm:top-[3.5px] 2sm:top-[31px] z-10 md:w-[338.5px]
                                    md:h-[244.27px] sm:w-[230.5px] sm:h-[200.27px]"
+                                   loading="lazy"
               />
             </div>
             <div

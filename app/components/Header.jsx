@@ -113,7 +113,7 @@ const Header = () => {
  </div>
 
  <div className="absolute inset-2 right-7 z-0 flex md:items-center sm:items-end md:justify-end sm:justify-end videoBackdrop">
- {headerData && headerData[0].acf.header_video && (
+ {headerData  && (
      <video
        ref={videoRef}
        autoPlay

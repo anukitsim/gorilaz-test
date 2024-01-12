@@ -59,6 +59,7 @@ const ProductionPhase = () => {
                   width={174}
                   height={120}
                   className="rounded-full"
+                  loading="lazy"
                 />
               </div>
               <div className="relative z-50">
@@ -67,6 +68,7 @@ const ProductionPhase = () => {
                   alt={phase.title}
                   width={250}
                   height={214}
+                  loading="lazy"
                 />
               </div>
             </div>
