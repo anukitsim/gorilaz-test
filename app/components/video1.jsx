@@ -1,6 +1,6 @@
 "use client"
-
 import { useRef, useState, useEffect } from "react";
+
 
 const Video1 = () => {
   const videoRef = useRef(null);
@@ -44,16 +44,19 @@ const Video1 = () => {
   }, [videoUrl]);
 
   return isVideo1Loaded ? (
+    <div className="z-10 mt-[93px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px] relative">
+    <div className="absolute top-[5px] left-[5px] right-[5px] bottom-[5px] rounded-lg border border-white"></div>
     <video
       ref={videoRef}
-      className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px]"
+      className="rounded-md"
       autoPlay
       muted
       loop
       preload="metadata"
     />
+  </div>
   ) : (
-    <div className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px] flex justify-center text-white items-center">Loading...</div>
+     <div className="z-10 mt-[93px] outline outline-white outline-offset-[-5px] rounded-lg sm:w-9/12 md:w-[390px] md:h-[445px] flex justify-center text-white items-center">Loading...</div>
   );
 };
 

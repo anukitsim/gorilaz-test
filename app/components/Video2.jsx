@@ -43,14 +43,17 @@ const Video2 = () => {
   }, [videoUrl]);
 
   return isVideo1Loaded ? (
+    <div  className="md:w-11/12  md:h-[560px] sm:w-[255.11px] sm:h-[172.83px] object-cover  text-white text-4xl flex justify-center items-center relative" >
+     <div className="absolute  md:h-[540px] top-[10px] bottom-[10px] left-[10px] right-[10px]   z-50 rounded-md border border-white"></div>
     <video
       ref={videoRef}
-      className="outline md:w-11/12 md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md "
+      className="rounded-md z-0"
       autoPlay
       muted
       loop
       preload="metadata"
     />
+    </div>
   ) : (
     <div  className="outline md:w-11/12 md:h-[520px] sm:w-[255.11px] sm:h-[172.83px] object-cover outline-white md:outline-offset-[-10px] sm:outline-offset-[-4px] md:rounded-[15px] sm:rounded-md text-white text-4xl flex justify-center items-center">Loading..</div>
   );

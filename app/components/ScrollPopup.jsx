@@ -77,7 +77,7 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
       {images.map((image, index) => (
         <div
           key={index}
-          className="gallery-item text-white flex-shrink-0 sm:mt-[50px] md:mt-0 sm:w-[150px] bg-[#181818] outline outline-white outline-offset-[-10px] rounded-lg transition-all duration-300"
+          className="gallery-item text-white flex-shrink-0 sm:mt-[50px] md:mt-0 sm:w-[150px] bg-[#181818] relative rounded-lg transition-all duration-300"
           style={{
             width: `${divDimensions[index].width}px`,
             height: `${divDimensions[index].height}px`,
@@ -89,6 +89,7 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
           onMouseEnter={(event) => handleHover(event, index)}
           onMouseLeave={(event) => handleLeave(event, index)}
         >
+           <div className="absolute border z-50 rounded-md border-white top-[5px] left-[5px] right-[5px] bottom-[5px]"></div>
           <p className="text-white z-50 absolute -top-40 left-14 uppercase text-[40px] tracking-widest">
             {sectionTitle}
           </p>
