@@ -9,13 +9,9 @@
   width: 12px;
 }
 
-.scroll-container::-webkit-scrollbar-track {
-  background-color: #141414;
-}
 
-.scroll-container::-webkit-scrollbar-thumb {
-  background-color: #181818;
-}
+
+
 
 /* Flexbox Animations */
 @keyframes moveRightToLeft {
