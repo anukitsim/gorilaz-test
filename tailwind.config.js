@@ -13,7 +13,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        VcrMono: ['VCR OSD Mono', 'sans-serif'],
+        VcrMono: ['VCR-OSD-Mono', 'sans-serif'],
         Saira: ['Saira', 'sans-serif'],
         ASSUAN: ['a_Assuan'],
       },

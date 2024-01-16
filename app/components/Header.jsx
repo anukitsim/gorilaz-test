@@ -82,7 +82,7 @@ const Header = () => {
     >
       {isHeaderLoaded ? (
  <div
- className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer"
+ className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer "
 >
  <Image
    className="absolute right-0 top-1/3 md:w-[14.35px] md:h-[211.64px] sm:w-[8.403px] sm:h-[80px]"
@@ -97,7 +97,7 @@ const Header = () => {
    <div className="md:w-2/6 md:h-[133.391px] sm:w-[81px] sm:h-[31px] border-b-2 border-l-2 border-white  absolute left-1 md:bottom-3 sm:bottom-0"></div>
    <div className="md:w-2/6 md:h-[133px] sm:w-[81px] sm:h-[31px] border-b-2 border-r-2 border-white  absolute right-1 md:bottom-3 sm:bottom-0"></div>
  </div>
- <p className="whitespace-nowrap uppercase absolute top-8 right-[32px] md:block sm:hidden md:text-4xl z-50 font-VcrMono lg:text-6xl 2md:text-6xl xl:text-6xl text-[#73E338]">
+ <p className="whitespace-nowrap uppercase absolute top-8 right-[32px] md:block sm:hidden md:text-4xl z-50  lg:text-6xl 2md:text-6xl xl:text-6xl text-[#73E338]">
    {title}
  </p>
 

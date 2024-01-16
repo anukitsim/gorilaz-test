@@ -42,6 +42,24 @@ const Video2 = () => {
     }
   }, [videoUrl]);
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      // Check if the browser is Safari
+      const isSafari =
+        /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+        /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+      if (isSafari) {
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+      }
+    }
+  };
+
+  
   return isVideo1Loaded ? (
     <div  className="md:w-11/12  md:h-[560px] sm:w-[255.11px] sm:h-[172.83px] object-cover  text-white text-4xl flex justify-center items-center relative" >
      <div className="absolute  md:h-[540px] top-[10px] bottom-[10px] left-[10px] right-[10px]   z-50 rounded-md border border-white"></div>
@@ -52,6 +70,7 @@ const Video2 = () => {
       muted
       loop
       preload="metadata"
+      onClick={handleVideoClick}
     />
     </div>
   ) : (
