@@ -62,9 +62,7 @@ const Home = ({
             </p>
             <Scroll />
             <HomeBlog />
-            <p className="sm:text-white  text-[10px] uppercase absolute sm:bottom-[70%] sm:left-[35px]">
-              drag for more
-            </p>
+          
           </div>
           {isPopupOpen && (
             <Popup onClose={closePopup} sectionTitle={popupSectionTitle} />
@@ -86,9 +84,7 @@ const Home = ({
 
             <div className="relative sm:w-full  flex ml-10  md:w-11/12 ">
               <Scroll />
-              <p className="text-white text-[15px] uppercase absolute bottom-20 left-24 transform -translate-x-1/2">
-                drag for more
-              </p>
+            
             </div>
             <div>
             <HomeBlog />
