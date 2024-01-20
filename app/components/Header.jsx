@@ -77,12 +77,12 @@ const Header = () => {
 
   return (
     <div
-      className="md:w-full sm:w-11/12 sm:ml-5 md:ml-0  md:h-[790px] sm:h-[266px] flex  justify-center"
+      className="md:w-[100%] sm:w-11/12 sm:ml-5 md:ml-0  md:h-[790px] sm:h-[266px] flex  justify-center"
       id="header"
     >
       {isHeaderLoaded ? (
  <div
- className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer "
+ className="top-28 md:w-[76.5%] sm:w-full  md:h-[680px] sm:h-[214px] relative overflow-hidden videoContainer "
 >
  <Image
    className="absolute right-0 top-1/3 md:w-[14.35px] md:h-[211.64px] sm:w-[8.403px] sm:h-[80px]"
@@ -136,7 +136,7 @@ const Header = () => {
 </div>
       ) : (
         <div
-        className="top-28 md:w-[72%] sm:w-full  md:h-[680px] sm:h-[214px] relative flex justify-center overflow-hidden videoContainer"
+        className="top-28 md:w-[79%] sm:w-full  md:h-[680px] sm:h-[214px] relative flex justify-center overflow-hidden videoContainer"
        >
          <Image
    className="absolute right-0 top-1/3 md:w-[14.35px] md:h-[211.64px] sm:w-[8.403px] sm:h-[80px]"

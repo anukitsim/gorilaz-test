@@ -73,38 +73,38 @@ const Footer = () => {
 
           {/* Block 1 */}
           <div className="flex flex-col 2sm:h-[134px] sm:h-[80px] sm:gap-1.5 2sm:gap-2.5 md:gap-[9px]">
-            <h2 className="uppercase font-VcrMono 2sm:text-sm sm:text-[12px] tracking-[1.95px] text-[#73E338]">
+            <h2 className="uppercase  2sm:text-sm sm:text-[12px] tracking-[1.95px] text-[#73E338]">
               what we do
             </h2>
             <Link
-              className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
               href="/process"
             >
               process
             </Link>
             <Link
-              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase font-VcrMono 2sm:text-[10px] sm:text-[8px] text-white z-50"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase  2sm:text-[10px] sm:text-[8px] text-white z-50"
               href="#"
               onClick={() => openPopup("Photography", ["image1.jpg", "image2.jpg", "image3.jpg"], ["text1", "text2", "text3"])}
             >
               photography
             </Link>
             <Link
-              className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
               href="#"
               onClick={() => openPopup("Videography", ["video1.mp4", "video2.mp4", "video3.mp4"], ["text1", "text2", "text3"])}
             >
               videography
             </Link>
             <Link
-              className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
               href="#"
               onClick={() => openPopup("Location Scouting", ["location1.jpg", "location2.jpg", "location3.jpg"], ["text1", "text2", "text3"])}
             >
               location scouting
             </Link>
             <Link
-              className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] text-white z-50"
               href="#"
               onClick={() => openPopup("Social Media", ["social1.jpg", "social2.jpg", "social3.jpg"], ["text1", "text2", "text3"])}
             >
@@ -112,17 +112,17 @@ const Footer = () => {
             </Link>
 
             <ul className="flex flex-col 2sm:h-[134px sm:mt-[10px] sm:h-[80px] gap-1.5 ">
-              <h2 className="font-VcrMono tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] sm:block 2sm:block md:hidden text-[#73E338]">
+              <h2 className="tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] sm:block 2sm:block md:hidden text-[#73E338]">
                 gorillas’
               </h2>
               <Link
-                className="font-VcrMono text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] z-50"
+                className=" text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] z-50"
                 href="/gorilas/our-team"
               >
                 our team
               </Link>
               <Link
-                className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] sm:block 2sm:block md:hidden z-50 text-white 2sm:mb-8 sm:mb-[10px]"
+                className="2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] sm:block 2sm:block md:hidden z-50 text-white 2sm:mb-8 sm:mb-[10px]"
                 href="/gorilas/behind-the-scenes"
               >
                 behind the scene
@@ -131,34 +131,34 @@ const Footer = () => {
           </div>
           {/* Block 2  */}
           <ul className="flex flex-col 2sm:h-[134px] sm:h-[80px] gap-1.5 ">
-            <h2 className="font-VcrMono tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] sm:hidden 2sm:hidden md:block  text-[#73E338]">
+            <h2 className=" tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] sm:hidden 2sm:hidden md:block  text-[#73E338]">
               gorillas’
             </h2>
             <Link
-              className="font-VcrMono text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:hidden 2sm:hidden md:block  sm:text-[8px] z-50"
+              className=" text-[#FFF] 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:hidden 2sm:hidden md:block  sm:text-[8px] z-50"
               href="/gorilas/our-team"
             >
               our team
             </Link>
             <Link
-              className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] z-50  sm:hidden 2sm:hidden md:block text-white 2sm:mb-8 sm:mb-[10px]"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:text-[8px] z-50  sm:hidden 2sm:hidden md:block text-white 2sm:mb-8 sm:mb-[10px]"
               href="/gorilas/behind-the-scene"
             >
               behind the scene
             </Link>
 
-            <h2 className="font-VcrMono tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] text-[#73E338]">
+            <h2 className=" tracking-[1.95px] uppercase 2sm:text-sm sm:text-[12px] text-[#73E338]">
               portfolio
             </h2>
             <Link
-              className="font-VcrMono 2sm:tracking-[1.5px] sm:tracking-[0.75px] z-50 uppercase 2sm:text-[10px] sm:text-[8px] text-white"
+              className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] z-50 uppercase 2sm:text-[10px] sm:text-[8px] text-white"
               href="/portfolio/industries"
             >
               gorillas’insdustries
             </Link>
 
             <ul className="flex flex-col 2sm:h-[134px] sm:h-[80px] sm:mt-[14px] gap-[4.7px] ">
-              <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:block 2sm:block md:hidden sm:text-[12px] text-[#73E338]">
+              <h2 className=" tracking-[1.95px]  uppercase 2sm:text-sm sm:block 2sm:block md:hidden sm:text-[12px] text-[#73E338]">
                 connect
               </h2>
               <div className="flex sm:flex flex-row  2sm:flex 2sm:flex-row 2sm:max-w-[100px]  sm:block 2sm:block md:hidden sm:max-w-[70px] gap-1.5">
@@ -196,23 +196,23 @@ const Footer = () => {
                 </Link>
               </div>
 
-              <h2 className="font-VcrMono 2sm:text-sm sm:text-[12px] sm:mt-[12px] tracking-[1.95px] sm:block 2sm:block md:hidden uppercase text-[#73E338] ">
+              <h2 className=" 2sm:text-sm sm:text-[12px] sm:mt-[12px] tracking-[1.95px] sm:block 2sm:block md:hidden uppercase text-[#73E338] ">
                 contact
               </h2>
               <Link
-                className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] uppercase text-sx text-white"
+                className=" z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] uppercase text-sx text-white"
                 href="#"
               >
                 +995 557 46 04 06
               </Link>
               <Link
-                className="font-VcrMono z-50 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px]  text-white"
+                className=" z-50 2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px]  text-white"
                 href="#"
               >
                 +995 593 50 88 48
               </Link>
               <Link
-                className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] text-white"
+                className=" z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] uppercase 2sm:text-[10px] sm:block 2sm:block md:hidden sm:text-[8px] text-white"
                 href="#"
               >
                 info@gorillasproduction.ge
@@ -221,7 +221,7 @@ const Footer = () => {
           </ul>
           {/* Block 3 */}
           <ul className="flex flex-col 2sm:h-[134px]  sm:h-[80px] gap-[4.7px] ">
-            <h2 className="font-VcrMono tracking-[1.95px]  uppercase 2sm:text-sm sm:text-[8px] sm:hidden 2sm:hidden md:block text-[#73E338]">
+            <h2 className=" tracking-[1.95px]  uppercase 2sm:text-sm sm:text-[8px] sm:hidden 2sm:hidden md:block text-[#73E338]">
               connect
             </h2>
             <div className="flex md:flex flex-row  2sm:max-w-[100px]  sm:hidden 2sm:hidden md:block sm:max-w-[50px] gap-1.5">
@@ -268,19 +268,19 @@ const Footer = () => {
               </Link>
             </div>
 
-            <h2 className="font-VcrMono 2sm:text-sm sm:text-[8px] tracking-[1.95px] md:mt-[11px] sm:hidden 2sm:hidden md:block uppercase text-[#73E338] ">
+            <h2 className=" 2sm:text-sm sm:text-[8px] tracking-[1.95px] md:mt-[11px] sm:hidden 2sm:hidden md:block uppercase text-[#73E338] ">
               contact
             </h2>
            
             <a className="z-50" href="whatsapp://send?phone=+995 557460406" >
-              <p className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white">+995 557 46 04 06</p>
+              <p className=" 2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block 2sm:text-[10px] sm:text-[5px] uppercase text-sx text-white">+995 557 46 04 06</p>
             </a> 
             
               <a className="z-50" href="whatsapp://send?phone=+995593508848" >
-                <p className="font-VcrMono  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px]  text-white">+995 593 50 88 48</p>
+                <p className="  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px]  text-white">+995 593 50 88 48</p>
               </a>
             <Link
-              className="font-VcrMono z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px] text-white"
+              className=" z-50  2sm:tracking-[1.5px] sm:tracking-[0.75px] sm:hidden 2sm:hidden md:block uppercase 2sm:text-[10px] sm:text-[5px] text-white"
               href="#"
             >
               info@gorillasproduction.ge
@@ -299,22 +299,20 @@ const Footer = () => {
         </div>
       </footer>
 
-      <div className="flex flex-col  mx-auto justify-center w-80 h-[185.39px] 2sm:mt-[150px] 2sm:mb-[30px] sm:mt-[30px]">
+      <div className="flex flex-col  mx-auto justify-center  2sm:mt-[50px] 2sm:mb-[30px] sm:mt-[20px]">
         <div className="flex flex-col items-center  2sm:mb-[20px] sm:mb-[5px]">
           <Image
-            src="/images/logo.svg"
+            src="/images/main-logo.svg"
             alt="logo"
-            width={100}
-            height={100}
-            className="2sm:w-[100px] 2sm:h-[100px] sm:w-[60px] sm:h-[60px]"
+            width={200}
+            height={200}
+            className=""
             priority
           />
-          <h1 className="2sm:text-[15px] 2sm:tracking-[2.25px] sm:text-[8px] sm:tracking-[1.2px] text-white uppercase 2sm:mt-[24px] sm:mt-[12px] font-ASSUAN">
-            Gorillas’ PRODUCTION
-          </h1>
+        
         </div>
 
-        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] font-VcrMono">
+        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] ">
           WWW.GORILLASPRODACTION.GE <br />
           <Image
             className="inline-block "

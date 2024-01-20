@@ -177,7 +177,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
 
   return (
     <div className="popup-overlay fixed top-0 left-0 flex flex-col items-center justify-center w-full bg-transparent overflow-hidden">
-      <div className="md:w-9/12 sm:w-full bg-opacity-2 backdrop-filter backdrop-blur-[47px] shadow-md relative  max-h-full overflow-y-auto">
+      <div className="md:w-[79%] sm:w-full  bg-opacity-2 backdrop-filter backdrop-blur-[47px] shadow-md relative  max-h-full overflow-y-auto">
         <div className="relative">
           {/* <p className="text-[#FFF] text-4xl tracking-wide uppercase absolute -top-28 left-11">
             {sectionTitle}
@@ -235,7 +235,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                   id="name"
                   required
                   placeholder="FULL NAME*"
-                  className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                  className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9] bg-black  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
                 />
                 <input
                   type="email"
@@ -243,7 +243,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                   id="email"
                   required
                   placeholder="EMAIL*"
-                  className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                  className="2sm:w-2/4 sm:w-[108.5px] 2sm:h-[50px] bg-black sm:h-[16px] 2sm:p-5 sm:p-1 text-[#A9A9A9]  sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
                 />
               </div>
 
@@ -270,7 +270,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                 name="message"
                 id="message"
                 placeholder="MESSAGE*"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[185px] sm:h-[56px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
+                className="2sm:w-2/4 sm:w-[219px] bg-black 2sm:h-[185px] sm:h-[56px] 2sm:p-5 sm:p-1 text-[#A9A9A9] sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
               />
               <button
                 type="submit"

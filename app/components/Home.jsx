@@ -45,7 +45,7 @@ const Home = ({
   return (
     <>
       <section className="border-t md:ml-0  md:w-full sm:w-full mt-[130px] border-t-white  overflow-hidden">
-        <div className=" mx-auto md:w-9/12 sm:w-full md:h-[1357px] relative  flex md:flex-row sm:flex-col-reverse">
+        <div className=" mx-auto md:w-[79%] sm:w-full md:h-[1357px] relative  flex md:flex-row sm:flex-col-reverse">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
           <div
             className="mx-auto sm:h-[580px] 2sm:h-[580px] md:h-[580px] relative sm:w-9/12 sm:mt-[40%] md:hidden sm:block "
@@ -134,7 +134,7 @@ const Home = ({
           />
         </div>
         <div className="border-t border-t-white overflow-hidden  sm:w-full"></div>
-        <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-9/12 md:h-[800px]  flex flex-col justify-center  items-center">
+        <div className=" mx-auto relative sm:w-full sm:h-[200px]  md:w-[79%] md:h-[800px]  flex flex-col justify-center  items-center">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
 
           <Video2 />
@@ -142,7 +142,7 @@ const Home = ({
         </div>
         <div className="border-t border-t-white overflow-hidden"></div>
 
-        <div className="md:w-9/12 md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
+        <div className="md:w-[79%] md:h-[500px] sm:h-[900px] relative flex flex-row justify-center mx-auto">
           <div className="bg-[url('/images/sideLayer.svg')] absolute left-5 bg-repeat-y w-2 h-full"></div>
           <div className="flex md:flex-row items-center justify-center sm:flex-col md:mt-[100px] md:gap-[80px] sm:gap-[25px]">
           <ProductionPhase  />

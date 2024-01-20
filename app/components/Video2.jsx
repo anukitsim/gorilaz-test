@@ -66,8 +66,8 @@ const Video2 = () => {
   };
 
   return isVideo2Loaded ? (
-    <div className="md:w-11/12 md:h-[560px] sm:w-[255.11px] sm:h-[172.83px] object-cover text-white text-4xl flex justify-center items-center relative">
-      <div className="absolute md:h-[540px] top-[10px] bottom-[10px] left-[10px] right-[10px] z-50 rounded-md border border-white" onClick={handleVideoClick}></div>
+    <div className="z-10  rounded-lg sm:w-[250px] md:w-10/12  relative">
+      <div className="absolute top-[5px] left-[5px] right-[5px] bottom-[5px] rounded-lg border border-white" onClick={handleVideoClick}></div>
       <video
         ref={videoRef}
         className="rounded-md z-0"

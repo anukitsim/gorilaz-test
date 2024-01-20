@@ -47,14 +47,14 @@ const WhatWeDoSection = ({ hoverStates, handleHoverChange }) => {
   };
 
   return (
-    <div className="mx-auto relative lg:w-9/12 md:w-9/12 sm:w-full lg:h-[536px] 2md:h-[536px] max-[1400px]:h-[1270px] sm:h-[1270px] justify-center flex gap-[30px] flex-col sm:mb-[24px] md:mb-0">
+    <div className="mx-auto relative lg:w-[79%] md:w-[79%] sm:w-full lg:h-[536px] 2md:h-[536px] max-[1400px]:h-[1270px] sm:h-[1270px] justify-center flex gap-[30px] flex-col sm:mb-[24px] md:mb-0">
       <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-5 bg-repeat-y w-2 h-full"></div>
 
       <h1 className="text-white text-[40px] text-center md:mt-[-80px] sm:mt-0 uppercase">
         what we do
       </h1>
       {isLoaded ? (
- <div className="flex lg:flex-row 2md:flex-row md:flex-col sm:flex-col gap-[5px] items-center justify-center mx-auto">
+ <div className="flex  2md:flex-row md:flex-col lg:flex-row  sm:flex-col gap-[5px] items-center justify-center mx-auto">
  {sectionData.map((data, index) => (
    <ImageWrapper
      key={index}
