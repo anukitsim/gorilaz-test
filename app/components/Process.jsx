@@ -51,7 +51,7 @@ const Process = () => {
         {/* First block */}
         <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[120px] mt-[30px]">
           <div className="md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]">
-            <p className="uppercase font-VcrMono text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px]  2sm:text-[17px]  sm:text-[13px] tracking-[3px] text-center">
+            <p className="uppercase whitespace-nowrap  text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px]  2sm:text-[17px]  sm:text-[13px] tracking-[3px] text-center">
               pre production
             </p>
             <div className="">
@@ -76,27 +76,27 @@ const Process = () => {
             />
           </div>
           <div className="flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]">
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Video objectives Distribution Channels{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Type of Video Concept development / Scripting
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               {" "}
               Talent and Crew Acquisition{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Scheduling{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               {" "}
               Equipment Acquisition{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Location scouting
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Budgeting
             </p>
           </div>
@@ -107,7 +107,7 @@ const Process = () => {
       <div className="flex justify-center relative flex-row lg:w-[72%] 2md:w-[72%] sm:w-11/12">
       <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[120px] mt-[30px]">
           <div className="md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]">
-            <p className="uppercase font-VcrMono text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center">
+            <p className="uppercase  text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center whitespace-nowrap">
               production
             </p>
             <div className="">
@@ -132,17 +132,17 @@ const Process = () => {
             />
           </div>
           <div className="flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]">
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Crew Recruitment{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Transport and accommodation Management
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               {" "}
               Arts and Props
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               SFX and Stunts{" "}
             </p>
           </div>
@@ -153,7 +153,7 @@ const Process = () => {
       <div className="flex justify-center relative flex-row lg:w-[72%] 2md:w-[72%] sm:w-11/12">
       <div className="md:w-[75%] md:h-[299.27px] sm:w-[50%] sm:h-[320px] relative flex md:flex-row sm:flex-col md:mb-[70px] sm:mb-[0px] 2sm:mb-[120px] mt-[30px]">
           <div className="md:min-w-[338.05px] relative md:h-[299.27px] flex flex-col sm:gap-3 md:justify-around sm:justify-center 2sm:min-w-[230.05px] 2sm:max-w-[230.05px] sm:min-w-[170.05px] sm:max-w-[170.05px]">
-            <p className="uppercase font-VcrMono text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center">
+            <p className="uppercase whitespace-nowrap  text-white md:text-[20px] md:pl-[40px] 2sm:pr-[10px] sm:pr-[20px] 2sm:text-[17px] sm:text-[13px] tracking-[3px] text-center">
               pre production
             </p>
             <div className="">
@@ -178,25 +178,25 @@ const Process = () => {
             />
           </div>
           <div className="flex flex-col h-[195px] md:gap-[20px] 2sm:gap-[5px] sm:gap-[5px] md:mt-[50px] sm:mt-[20px] 2sm:mt-[20px] sm:ml-[27px] 2sm:ml-[30px] md:ml-[70px] lg:ml-[130px]">
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Receipt of Raw Footage
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Storage and Organization of Raw Footage
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Build the Rough CutReceive Notes and Refine{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               The Rough Cut Into a Final "Locked"{" "}
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Cut Visual Effects (VFX) / Color management
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Sound Effects / Mixing
             </p>
-            <p className="uppercase font-VcrMono text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
+            <p className="uppercase  text-white tracking-[1.5px] md:text-[15px] 2sm:text-[12px] sm:text-[7px]">
               Final delivery
             </p>
           </div>

@@ -50,8 +50,8 @@ const Behindthescene = () => {
           <div className='absolute left-0 top-0 bottom-0 w-2 2sm:h-full md:h-[1300px]  sm:h-[1200px] bg-[url("/images/sideLayer.svg")] bg-repeat-y'></div> 
 
           <div className='md:w-[650.5px] sm:w-[225px] sm:h-[97px] 2sm:ml-[55px] 2sm:w-[472px] 2sm:h-[107px] md:h-[148.27px]  flex flex-col justify-between md:ml-[65px] 2md:ml-[188px] sm:ml-[30px] sm:mt-10 md:mt-0'>
-              <h1 className='uppercase tracking-[2.4px] font-VcrMono text-[#73E338] md:text-[24px] 2sm:text-[18px] sm:mb-[10px] sm:text-[10px] sm:tracking-[1px] text-center'>Welcome to Gorillas' Production,</h1>
-              <p className='uppercase tracking-[1.5px] font-VcrMono text-white md:text-[15px] sm:ml-1 md:ml-0 2sm:text-[11px] sm:text-[8px] sm:tracking-[0.8px]'>our own wild jungle. Here, a team of professional, friendly gorillas works
+              <h1 className='uppercase tracking-[2.4px]  text-[#73E338] md:text-[24px] 2sm:text-[18px] sm:mb-[10px] sm:text-[10px] sm:tracking-[1px] text-center'>Welcome to Gorillas' Production,</h1>
+              <p className='uppercase tracking-[1.5px] text-white md:text-[15px] sm:ml-1 md:ml-0 2sm:text-[11px] sm:text-[8px] sm:tracking-[0.8px]'>our own wild jungle. Here, a team of professional, friendly gorillas works
                   round the clock, weaving magic. It's the place 'Where Every 
                   Story Finds Its Extraordinary Frame. Stay tuned for our behind-the-scenes 
                   antics—Gorillas’-style! </p>
@@ -63,8 +63,8 @@ const Behindthescene = () => {
           <div className='md:w-[80%] sm:w-[300px]  flex md:flex-row sm:flex-col 2md:ml-[188px] 2sm:gap-24 2sm:flex-row 2md:gap-28 md:gap-28 2md:ml-[188px]  md:mt-[81px] sm:mt-[60px] md:ml-[65px] sm:ml-14'>
               <Image className='outline outline-offset-[-8px] outline-white rounded-lg z-10 md:w-[400px] md:h-[300px] 2sm:w-[285px] 2sm:h-[215px] sm:w-[160px] sm:h-[120px]' src={data.length > 1 ? data[1].imageUrl : "/images/behindthesceneFoto.svg"} alt='foto' width={400} height={300}/>
               <div className='md:mt-[104px] 2sm:mt-[80px] sm:mt-[28px] sm:ml-[-20px] sm:pr-[20px]  md:ml-[1px]'>
-                  <h1 className='uppercase tracking-[2px] font-VcrMono text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] min-w-[399px] '>Unveiling the Gorilla Hustle:</h1> 
-                  <h1 className='uppercase tracking-[2px] font-VcrMono text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] ml-[14px]'>From Concept to Creation</h1>
+                  <h1 className='uppercase tracking-[2px]  text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] min-w-[399px] '>Unveiling the Gorilla Hustle:</h1> 
+                  <h1 className='uppercase tracking-[2px]  text-[#73E338] md:text-[20px] 2sm:text-[13px] sm:text-[10px] ml-[14px]'>From Concept to Creation</h1>
               </div>
               
           </div>
@@ -72,13 +72,13 @@ const Behindthescene = () => {
           {/* Block 2 */}
           <div className='md:w-[80%] sm:w-full h-[300.94px] 2sm:mt-[70px] flex md:flex-row sm:flex-col sm:flex-col-reverse 2sm:flex-row  2sm:gap-28 sm:gap-[50px] md:mt-[81px] sm:mt-[25px] md:ml-[65px] 2md:ml-[188px] sm:ml-14'>
               <div className='flex flex-col md:w-[380px] sm:w-[198px] md:h-[302.3px] sm:h-[120px] 2sm:w-[260px] 2sm:mt-[20px] md:mt-0  z-50'>               
-                  <h1 className='uppercase 2sm:tracking-[1.5px] sm:tracking-[0.7px] font-VcrMono text-white md:text-[15px] 2sm:text-[11px] sm:text-[7px] sm:pt-12 2sm:w-[330px] md:w-[410px] sm:w-[200px] h-[200px] z-10'>
+                  <h1 className='uppercase 2sm:tracking-[1.5px] sm:tracking-[0.7px]  text-white md:text-[15px] 2sm:text-[11px] sm:text-[7px] sm:pt-12 2sm:w-[330px] md:w-[410px] sm:w-[200px] h-[200px] z-10'>
                   Ever tried catching a gorilla? They're the jet-setters of the animal kingdom, zipping
                   across continents faster than you can say 'snap.' Wrangling them into one spot? Now
                   that's a feat. Roles in our team aren't just about producing or editing; we've got a
                   specialist in the art of gorilla-speed communication, ensuring our internal kitchen stays piping hot!
                   </h1>
-                  <h1 className='uppercase tracking-[1.5px] font-VcrMono text-white md:text-[15px] 2sm:text-[11px] sm:pt-5 md:pt-10 sm:text-[7px] md:mt-[10%] sm:mt-0 2sm:w-[330px] md:w-[410px] md:h-[60px] sm:w-[200px] sm:h-[80px] z-10'>
+                  <h1 className='uppercase tracking-[1.5px] text-white md:text-[15px] 2sm:text-[11px] sm:pt-5 md:pt-10 sm:text-[7px] md:mt-[10%] sm:mt-0 2sm:w-[330px] md:w-[410px] md:h-[60px] sm:w-[200px] sm:h-[80px] z-10'>
                   Ah, the magic word: <span className='text-[#73E338]'>'Order!'</span>  Everyone wants their masterpiece yesterday, and time becomes our own nemesis.
                   We're sprinting through client details, scripting, scouting locations, prepping actors,
                   gathering specialized gear—hop, hop, direct to production, and voilà, the project's a wrap in a blink.

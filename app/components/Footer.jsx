@@ -306,7 +306,7 @@ const Footer = () => {
             alt="logo"
             width={200}
             height={200}
-            className=""
+            className="sm:w-[100px] h-[100px] md:w-[200px] md:h-[200px] 2sm:w-[200px] 2sm:h-[200px] lg:w-[200px] lg:h-[200px]"
             priority
           />
         
