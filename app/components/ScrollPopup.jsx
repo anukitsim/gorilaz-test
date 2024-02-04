@@ -97,9 +97,9 @@ const PopupGallery = ({ images, sectionTitle, text }) => {
         </div>
       ))}
 
-      <p className="text-white z-50 absolute bottom-36 uppercase text-[10px]">
+      {/* <p className="text-white z-50 absolute bottom-36 uppercase text-[10px]">
         drag for more
-      </p>
+      </p> */}
     </div>
   );
 };

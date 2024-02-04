@@ -99,33 +99,33 @@ const Portfolio = () => {
   
   return (
     <>
-      <section className="md:w-[72%] sm:w-full flex  mx-auto mt-[134px] lg:h-[580px] sm:h-[580px]">
-        <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 h-[120%] z-50"></div>
+      <section className="md:w-[72%] sm:w-full flex  mx-auto mt-[134px] lg:h-[580px] sm:h-[400px]">
+        <div className="bg-[url('/images/sideLayer.svg')] absolute left-0 bg-repeat-y w-2 md:h-[160%] lg:h-[125%] xl:h-[125%] sm:h-[85%]  z-50"></div>
 
         <div className="flex flex-col items-center w-full">
           <h1 className="text-white md:text-[40px] sm:text-[10px]  uppercase">
             portfolio
           </h1>
-          <span className="text-white md:text-[20px] sm:text-[7px] pb-[100px] uppercase">
+          <span className="text-white md:text-[20px] sm:text-[7px] md:pb-[100px] sm:pb-[30px] uppercase">
             gorillas’industries
           </span>
-          <div className="w-10/12 relative h-[380px]">
+          <div className="w-10/12 relative md:h-[380px] sm:h-[220px]">
             <Scroll />
 
-            <p className="text-white text-[15px] uppercase  -bottom-7 left-10 absolute">
+            {/* <p className="text-white text-[15px] uppercase  -bottom-7 left-10 absolute">
               drag for more
-            </p>
+            </p> */}
           </div>
         </div>
 
         {/* Scroll SVG */}
 
-        <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 h-[120%]"></div>
+        <div className="bg-[url('/images/sideLayerLeft.svg')] absolute right-0 bg-repeat-y w-2 md:h-[160%] lg:h-[125%] xl:h-[125%] sm:h-[85%] "></div>
       </section>
 
      
        
-          <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center  2sm:mt-[0px] md:mt-[250px] sm:mt-[150px] items-center">
+          <div className="2sm:h-[80px] w-full bg-[#73E338] sm:h-[32px] flex justify-center  2sm:mt-[0px] md:mt-[350px] lg:mt-[220px] sm:mt-[0px]  items-center">
             <p className="text-black text-xl font-bold uppercase sm:text-[10px] 2sm:text-xl">
               get in touch
             </p>
