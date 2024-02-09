@@ -252,7 +252,7 @@ const ScrollPopup = ({ onClose, sectionTitle, popupData }) => {
                 required
                 type="subject"
                 name="text"
-                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4 sm:p-1 text-[#A9A9A9] 
+                className="2sm:w-2/4 sm:w-[219px] 2sm:h-[50px] sm:h-[16px] 2sm:p-4  text-[#A9A9A9] 
                             sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]"
               >
                 <option

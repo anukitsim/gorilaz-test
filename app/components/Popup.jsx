@@ -258,7 +258,7 @@ const Popup = ({ onClose, sectionTitle, popupData }) => {
             />
           </div>
           
-          <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[25px] 2sm:p-4 bg-black sm:p-1 text-[#A9A9A9] 
+          <select required type="subject"  name="text" className="2sm:w-2/4 sm:w-full 2sm:h-[50px] sm:h-[25px] 2sm:p-4 bg-black text-[#A9A9A9] 
                             sm:text-[7px] 2sm:text-[14px] bg-transparent border 2sm:rounded-md sm:rounded-[3px]">
             <option className="font-VcrMono text-gray selected disabled hidden" selected>SUBJECT*</option>
            {popupTexts.map((text, index) => (
