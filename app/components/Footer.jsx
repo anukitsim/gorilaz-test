@@ -299,7 +299,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      <div className="flex flex-col  mx-auto justify-center  2sm:mt-[50px] 2sm:mb-[30px] sm:mt-[20px] items-center relative">
+      <div className="flex flex-col  mx-auto justify-center  2sm:mt-[50px] 2sm:mb-[30px] sm:mt-[20px] items-center">
         <div className="flex flex-col items-center  2sm:mb-[20px] sm:mb-[5px]">
           <Image
             src="/images/main-logo.svg"
@@ -312,7 +312,7 @@ const Footer = () => {
         
         </div>
 
-        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] absolute z-10 slef-center bottom-[25px]">
+        <p className="2sm:text-[10px] sm:text-[5px] text-center text-[#FFF] md:m-[-50px] sm:m-[-20px] slef-center ">
           WWW.GORILLASPRODACTION.GE <br />
           <Image
             className="inline-block "
