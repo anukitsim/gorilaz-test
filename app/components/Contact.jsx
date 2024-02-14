@@ -2,7 +2,32 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useEffect } from 'react';
+
 const Contact = () => {
+
+  const [contactInfo, setContactInfo] = useState({
+    number1: '',
+    number2: '',
+    email: ''
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://gorillasproduction.pro/wp-json/wp/v2/contact');
+        const data = await response.json();
+
+        // update state with contact information from the API
+        setContactInfo(data[0].acf);
+      } catch (error) {
+        console.error('Error fetching contact information:', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
   const emailRecipient = "info@gorillasproduction.ge";
 
   const openMailTo = () => {
@@ -29,11 +54,11 @@ const Contact = () => {
           </a>
             
           <a href="whatsapp://send?phone=+995593508848" >
-              <p className="text-white 2sm:text-[20px] sm:text-[10px] 2sm:mt-[40px] sm:mt-[15px] tracking-[3px]">+995 593 50 88 48</p>
+              <p className="text-white 2sm:text-[20px] sm:text-[10px] 2sm:mt-[40px] sm:mt-[15px] tracking-[3px]">+{contactInfo.number1}</p>
           </a>
 
            <a href="whatsapp://send?phone=+995 557460406" >
-              <p className="text-white 2sm:text-[20px] sm:text-[10px] mt-[10px] tracking-[3px]">+995 557 46 04 06</p>
+              <p className="text-white 2sm:text-[20px] sm:text-[10px] mt-[10px] tracking-[3px]">+{contactInfo.number2}</p>
           </a> 
             <div className="w-2/6 h-[180.391px]  border-l-[1px] border-[#E9E8EF]  absolute left-0 bottom-0 sm:hidden md:hidden 2md:block"></div> 
             <div className="w-2/6 h-[180px]  border-r-[1px] border-[#E9E8EF]  absolute right-0 bottom-0 sm:hidden md:hidden 2md:block"></div>
@@ -52,7 +77,7 @@ const Contact = () => {
                     />
               </Link> 
 
-              <p className="text-white 2sm:text-[20px] sm:text-[10px] 2sm:mt-[49px] sm:mt-[20px] uppercase tracking-[3px]">info@gorillasproduction.ge</p>
+              <p className="text-white 2sm:text-[20px] sm:text-[10px] 2sm:mt-[49px] sm:mt-[20px] uppercase tracking-[3px]">{contactInfo.email}</p>
               <div className="w-2/4 h-[0px] border-t-[1px]  border-[#E9E8EF] absolute left-[-227px] top-[-1px] sm:hidden md:hidden 2md:block"></div>
               <div className="w-2/4 h-[0px] border-t-[1px]  border-[#E9E8EF] absolute right-[-227px] top-[-1px] sm:hidden md:hidden 2md:block"></div>
               <div className="w-2/4 h-[0px] border-t-[1px]  border-[#E9E8EF] absolute left-[-227px] bottom-[-1px] sm:hidden md:hidden 2md:block"></div>
