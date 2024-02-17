@@ -70,7 +70,7 @@ const Home = ({
           <div className="text-white md:w-1/2 sm:hidden md:block border-r h-[90%] border-r-white">
             <p className="mt-[70px] text-[18px] uppercase pl-16 text-white xl:mr-10 mr-10">
               <span className="text-[#73E338]">Gorillas' Production</span>{" "}
-              Gorillas' Production embodies a thrilling convergence of artistry,
+               embodies a thrilling convergence of artistry,
               adventure and everyday lifestyle through a different angle.
             </p>
             <p className=" text-[18px] uppercase pl-16 pt-[12px] text-white">
