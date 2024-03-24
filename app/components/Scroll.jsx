@@ -114,7 +114,7 @@ const Scroll = () => {
                 {data.acf?.background && ( // Check if data.acf exists before accessing background
                   data.acf.background.match(/\.(mp4|webm|ogg|avi)$/) ? ( // Check for video extension (mp4, webm, ogg, avi)
                     <video
-                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
                       src={data.acf.background}
                       muted
                       autoPlay
