@@ -99,10 +99,7 @@ const Scroll = () => {
               onClick={() => openPopup(data.title.rendered)}
             >
               <div
-                className="md:w-[181px] sm:w-[130px] md:h-[338.906px] sm:h-[155px] rounded-[10px]  relative bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('${data.acf.background}')`,
-                }}
+                className="md:w-[181px] sm:w-[130px] md:h-[338.906px] sm:h-[155px] rounded-[10px] relative"
                 onMouseEnter={() =>
                   setHoveredItems((prev) =>
                     prev.map((_, i) => (i === index ? true : _))
@@ -114,6 +111,24 @@ const Scroll = () => {
                   )
                 }
               >
+                {data.acf?.background && ( // Check if data.acf exists before accessing background
+                  data.acf.background.match(/\.(mp4|webm|ogg|avi)$/) ? ( // Check for video extension (mp4, webm, ogg, avi)
+                    <video
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src={data.acf.background}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src={data.acf.background}
+                      alt=""
+                    />
+                  )
+                )}
                  <div className="absolute border z-50 rounded-md border-white top-[5px] left-[5px] right-[5px] bottom-[5px]"></div>
                 <p className="text-white md:text-[15px] sm:text-[10px] uppercase p-5">
                   {data.title.rendered}
